@@ -1,0 +1,76 @@
+	<!-- HACK: STL-66854 - Telemetry tag needs to be turned off for CN5000 GA -->
+	<!-- Temporary patch to disable the Telemetry feature, until full support available -->
+	<!-- in all software components. -->
+    <!-- Configures support for STL Congestion Exchange feature -->
+    <CongestionExchange>
+      <!-- 1 = Enable, 0 = Disable -->
+      <Enable>0</Enable>
+      <!-- Turn on additional debug logging for CongestionExchange -->
+      <!-- 1 = Enable, 0 = Disable -->
+      <Debug>0</Debug>
+      <!-- Downstream enable indicates downstream ports should be included, disabled by default. -->
+      <!-- 1 = Enable, 0 = Disable -->
+      <DownstreamEnable>0</DownstreamEnable>
+      <!-- Downstream port enable for ports 1-64  is computed by FM based on connectivity and enabled by default. -->
+      <!-- Range 0-7; default 1 -->
+      <DownstreamWeight>1</DownstreamWeight>
+      <!-- 0 = Left, 1 = Right -->
+      <DownstreamShiftBias>0</DownstreamShiftBias>
+      <!-- Range 0-7; default 1 -->
+      <RemoteWeight>1</RemoteWeight>
+      <!-- 0 = Left, 1 = Right -->
+      <RemoteShiftBias>0</RemoteShiftBias>
+      <!-- Range 0-7; default 1 -->
+      <LocalWeight>1</LocalWeight>
+      <!-- 0 = Left, 1 = Right -->
+      <LocalShiftBias>0</LocalShiftBias>
+      <!-- 1 = Linear (Currently, linear method is the only supported method) -->
+      <LocalThresholdMethod>1</LocalThresholdMethod>
+      <!-- Threshold values need to be in range 0-1000. FM translates them into actual values. -->
+      <LocalThresholds>74,76,77,79,82,85,86,87,88,90,92,93,97,105</LocalThresholds>
+      <!-- 1 = Linear (Currently, linear method is the only supported method) -->
+      <RemoteThresholdMethod>1</RemoteThresholdMethod>
+      <!-- Threshold values need to be in range 0-1000. FM translates them into actual values. -->
+      <RemoteThresholds>74,76,77,79,82,85,86,87,88,90,92,93,97,105</RemoteThresholds>
+    </CongestionExchange>
+
+
+    <!-- Configures support for OPA Switch Telemetry Exchange -->
+    <TelemetryExchange>
+      <!-- 1 = Enable, 0 = Disable -->
+      <Enable>1</Enable>
+      <!-- Turn on additional debug logging for switch telemetry -->
+      <!-- 1 = Enable, 0 = Disable -->
+      <Debug>1</Debug>
+
+      <!-- CSR DWNSTRM_PORT_ENB: -->
+      <!-- Downstream enable indicates downstream ports should be included, disabled by default. -->
+      <!-- 1 = Enable, 0 = Disable -->
+      <DownstreamEnable>0</DownstreamEnable>
+
+      <!-- CSR SCALING_THRESHOLD_ARRAY: -->
+      <!-- 1 = Linear (Currently, linear algorithm is the only supported method) -->
+      <ScalingAlgorithm>1</ScalingAlgorithm>
+      <!-- Threshold values for all 3 coordinates need to be in range 0 to 1000.  -->
+      <!-- FM translates them into actual values. -->
+      <Coord1ScalingThresholds>1,2,3,4,5,6,7,8,9,10,11,12,13,14</Coord1ScalingThresholds>
+      <Coord2ScalingThresholds>1,2,3,4,5,6,7,8,9,10,11,12,13,14</Coord2ScalingThresholds>
+      <Coord3ScalingThresholds>1,2,3,4,5,6,7,8,9,10,11,12,13,14</Coord3ScalingThresholds>
+      <!-- Scaling periods for telemetry flit generation within specified co-ordinate.        --> 
+      <!-- Configured period should be multiple of credit return timer. If not FM will set to -->
+      <!-- the next multiple of credit return timer.                                          -->
+      <Coord1ScalingPeriod>1000</Coord1ScalingPeriod>
+      <Coord2ScalingPeriod>1000</Coord2ScalingPeriod>
+      <Coord3ScalingPeriod>1000</Coord3ScalingPeriod>
+      <!-- CSR TPORT_CFG_CTRL: -->
+      <!-- Enable/disable dropping a packet with excess age value: 1 – Enable; 0 - Disable (Default) -->
+      <EnableDropAge >1</EnableDropAge>
+      <!-- Enable/disable incrementing the age value: 1 – Enable; 0 - Disable (Default 1) -->
+      <EnableIncrementAge>1</EnableIncrementAge>
+      <!-- Maximum value of output age value in packet header.  If increment would exceed this, do not -->
+      <!-- iincrement (Default is 7). -->
+      <MaxAge>7</MaxAge>
+      <!-- Selects a per-VL congestion metric as the basis for transmitted telemetry: -->
+      <!-- 0 = PortXmit_VL#_Wait_Cnt, 1 = PortXmitCsgTime_VL#_Cnt (Default) -->
+      <TelemSrcSel>0</TelemSrcSel>
+    </TelemetryExchange>

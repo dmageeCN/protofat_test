@@ -1,0 +1,1007 @@
+Tue Nov 11 11:39:04 2025: fm0_sm(4062): [main]: Subnet Manager starting up. LogLevel: 2 LogMode: 0
+Tue Nov 11 11:39:04 2025: fm0_sm(4062): [main]: SM: Version: 12.0.3.0.40
+Tue Nov 11 11:39:04 2025: fm0_sm(4062): [main]: SM: Enabling CoreDumps to /var/crash/opafm up to 10G bytes
+Tue Nov 11 11:39:04 2025: fm0_sm(4062): [main]: SM: Using dynamic packet lifetime values 14, 15, 15, 16, 16, 16, 16, 17, 17
+Tue Nov 11 11:39:04 2025: fm0_sm(4062): [main]: SM: GidPrefix=0xfe80000000000000, Key=0x0000000000000000, MKey=0x0000000000000000 : protect_level=1 : lease=0 seconds, dbsync interval=900 seconds
+Tue Nov 11 11:39:04 2025: fm0_sm(4062): [main]: SM: Size Limits: EndNodePorts=9216 Nodes=11904 Ports=76416 Links=55296
+Tue Nov 11 11:39:04 2025: fm0_sm(4062): [main]: SM: Memory: Pool=262144K SA Resp=38208K
+Tue Nov 11 11:39:04 2025: fm0_sm(4062): PROGR[main]: SM: sm_main: Routing Algorithm in use: shortestpath
+Tue Nov 11 11:39:04 2025: fm0_sm(4062): PROGR[main]: SM: sm_routing_func_assign_sls: 1 QOSGroups require 1 SLs and 1 SCs for operation
+Tue Nov 11 11:39:04 2025: fm0_sm(4062): PROGR[main]: SM: sm_update_bw: QOSGroup Bandwidth Allocations : Total allocated bandwidth is 100%
+Tue Nov 11 11:39:04 2025: fm0_sm(4062): PROGR[main]: SM: sm_update_bw: Non QoS shared by 2 VFs; Assigned 100% Bandwidth on BaseSL 0
+Tue Nov 11 11:39:04 2025: fm0_sm(4062): PROGR[main]: SM: [VF:Default] : Base SL:0 Resp SL:0 Requires Resp SL:0 Multicast SL:0 QOS:0 HP:0 PKey:0x8001
+Tue Nov 11 11:39:04 2025: fm0_sm(4062): PROGR[main]: SM: [VF:Admin] : Base SL:0 Resp SL:0 Requires Resp SL:0 Multicast SL:0 QOS:0 HP:0 PKey:0x7fff
+Tue Nov 11 11:39:05 2025: fm0_sm(4062): [main]: SM: Using: HFI 1 Port 2 PortGuid 0xd0066a0201001221
+Tue Nov 11 11:39:08 2025: fm0_sm(4062): PROGR[topology]: SM: sm_transition: SM STATE TRANSITION from NOTACTIVE to DISCOVERING
+Tue Nov 11 11:39:08 2025: fm0_sm(4062): PROGR[topology]: SM: topology_main: TT: DISCOVERY CYCLE START - REASON: Initial sweep.
+
+Tue Nov 11 11:39:08 2025: fm0_sm(4062): PROGR[topology]: SM: sm_set_local_port_pkey: sm pkey table refresh
+Tue Nov 11 11:39:08 2025: fm0_sm(4062): PROGR[sm_dbsync]: IF3: sm_wait_ready: Service waiting for SM to go into MASTER/STANDBY state
+Tue Nov 11 11:39:09 2025: fm0_sm(4062): PROGR[pm]: PM: sm_wait_ready: Service waiting for SM to go into MASTER/STANDBY state
+Tue Nov 11 11:39:10 2025: icx013.bm.cornelisnetworks.com; MSG:NOTICE|SM:icx013.bm.cornelisnetworks.com:port 2|COND:#5 SM state to master|NODE:icx013.bm.cornelisnetworks.com:port 2:0xd0066a0201001221|DETAIL:transition from DISCOVERING to MASTER
+Tue Nov 11 11:39:10 2025: fm0_sm(4062): PROGR[topology]: SM: sm_set_portPkey: sm pkey table refresh
+Tue Nov 11 11:39:10 2025: fm0_sm(4062): PROGR[async]: SA: sa_Trap: SM Sweep scheduled: Port State Change Trap (from LID 0x6)
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:11 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:11 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+Tue Nov 11 11:39:11 2025: fm0_sm(4062): PROGR[async]: SA: sa_Trap: SM Sweep scheduled: Port State Change Trap (from LID 0x5)
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x2 attrId 0x19 attrM 0x5000000
+Tue Nov 11 11:39:11 2025: fm0_sm(4062): ERROR[topology rcv]: APP: cs_cntxt_send_mad_nolock: status 1 sending SET[LINEAR_FWD_TABLE] MAD in context entry[31] to LID[0x7], TID 0x000000000000034F
+Tue Nov 11 11:39:11 2025: fm0_sm(4062): ERROR[topology rcv]: APP: cs_cntxt_timeout_entry: can't resend notice reliably rc: 1: Bad status
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x2 attrId 0x19 attrM 0x5000000
+Tue Nov 11 11:39:12 2025: fm0_sm(4062): ERROR[topology rcv]: APP: cs_cntxt_send_mad_nolock: status 1 sending SET[LINEAR_FWD_TABLE] MAD in context entry[31] to LID[0x7], TID 0x000000000000034F
+Tue Nov 11 11:39:12 2025: fm0_sm(4062): ERROR[topology rcv]: APP: cs_cntxt_timeout_entry: can't resend notice reliably rc: 1: Bad status
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:12 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+Tue Nov 11 11:39:12 2025: fm0_sm(4062): ERROR[topology rcv]: SM: sm_dispatch_cntxt_callback: Timeout occurred trying to set LFT block for NodeGUID 0xd0066a01060000cf [myr-edge-2 ] AMOD 0x05000000
+Tue Nov 11 11:39:12 2025: fm0_sm(4062): PROGR[topology rcv]: SM: sm_request_resweep: SM Resweep (with LFT, without MFT) scheduled.
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:12 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+Tue Nov 11 11:39:12 2025: fm0_sm(4062): PROGR[async]: SA: sa_Trap: SM Sweep scheduled: Port State Change Trap (from LID 0x5)
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:13 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x15 attrM 0x1000009
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x2 attrId 0x15 attrM 0x1000001
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x1020000
+Tue Nov 11 11:39:13 2025: fm0_sm(4062): WARN [ParallelSw[4]]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[ 2 ] Lid:[0xffffffff] NodeGUID:[0xd0066a01060000ed] NodeDesc:[myr-edge-1 ] PortIndex:[unknown]. AID:[PORTINFO] TID:[0x0000000000000350] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:13 2025: fm0_sm(4062): WARN [ParallelSw[2]]: SM: sm_send_stl_request_impl: Error Sending to  Lid:[0x5] NodeGUID:[0xd0066a01060000c8] NodeDesc:[myr-core-2 ] PortIndex:[unknown]. AID:[PORTINFO] TID:[0x0000000000000351] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:13 2025: fm0_sm(4062): WARN [ParallelSw[1]]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[26 ] Lid:[0x4] NodeGUID:[0xd0066a0101000efb] NodeDesc:[icx002 hfi1_0] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x0000000000000353] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:13 2025: icx013.bm.cornelisnetworks.com; MSG:NOTICE|SM:icx013.bm.cornelisnetworks.com:port 2|COND:#8 Fabric initialization error|NODE:myr-edge-1 :port 9:0xd0066a01060000ed|LINKEDTO:myr-core-2 :port 9:0xd0066a01060000c8|DETAIL:Failed to set portinfo for node
+Tue Nov 11 11:39:13 2025: fm0_sm(4062): ERROR[ParallelSw[4]]: SM: _lid_assignment_worker: Marking port[9] of node[1] myr-edge-1  guid 0xd0066a01060000ed DOWN in the topology
+Tue Nov 11 11:39:13 2025: icx013.bm.cornelisnetworks.com; MSG:NOTICE|SM:icx013.bm.cornelisnetworks.com:port 2|COND:#8 Fabric initialization error|NODE:myr-core-2 :port 1:0xd0066a01060000c8|LINKEDTO:myr-edge-2 :port 1:0xd0066a01060000cf|DETAIL:Failed to set portinfo for node
+Tue Nov 11 11:39:13 2025: fm0_sm(4062): PROGR[ParallelSw[2]]: SM: sm_initialize_port_LR_DR: Retrying initialization of port 1 of node 0xd0066a01060000c8 with mixed LR-DR SMPs
+Tue Nov 11 11:39:13 2025: fm0_sm(4062): WARN [ParallelSw[1]]: SM: sm_set_portPkey: Failed to set Partition Table for node icx002 hfi1_0 guid 0xd0066a0101000efb node index 4 port index 2
+Tue Nov 11 11:39:13 2025: fm0_sm(4062): PROGR[ParallelSw[1]]: SM: sm_initialize_port_LR_DR: Retrying initialization of port 2 of node 0xd0066a0101000efb with mixed LR-DR SMPs
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x1020000
+Tue Nov 11 11:39:13 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[25 ] Lid:[0x4] NodeGUID:[0xd0066a0101000f02] NodeDesc:[icx001 hfi1_0] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x0000000000000352] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:13 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_set_portPkey: Failed to set Partition Table for node icx001 hfi1_0 guid 0xd0066a0101000f02 node index 3 port index 2
+Tue Nov 11 11:39:13 2025: fm0_sm(4062): PROGR[ParallelSw[3]]: SM: sm_initialize_port_LR_DR: Retrying initialization of port 2 of node 0xd0066a0101000f02 with mixed LR-DR SMPs
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:13 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+Tue Nov 11 11:39:13 2025: fm0_sm(4062): PROGR[async]: SA: sa_Trap: SM Sweep scheduled: Port State Change Trap (from LID 0x5)
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:14 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x2 attrId 0x15 attrM 0x1000001
+Tue Nov 11 11:39:14 2025: fm0_sm(4062): WARN [ParallelSw[2]]: SM: sm_send_stl_request_impl: Error Sending to  Lid:[0x5] NodeGUID:[0xd0066a01060000c8] NodeDesc:[myr-core-2 ] PortIndex:[unknown]. AID:[PORTINFO] TID:[0x0000000000000355] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:14 2025: icx013.bm.cornelisnetworks.com; MSG:NOTICE|SM:icx013.bm.cornelisnetworks.com:port 2|COND:#8 Fabric initialization error|NODE:myr-core-2 :port 1:0xd0066a01060000c8|LINKEDTO:myr-edge-2 :port 1:0xd0066a01060000cf|DETAIL:Failed to set portinfo for node
+Tue Nov 11 11:39:14 2025: fm0_sm(4062): PROGR[ParallelSw[2]]: SM: sm_initialize_port_LR_DR: Port initialization of port 1 of node 0xd0066a01060000c8 with mixed LR-DR SMPs failed, retrying with pure DR SMPs
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x15 attrM 0x100000b
+Tue Nov 11 11:39:14 2025: fm0_sm(4062): WARN [ParallelSw[4]]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[ 2 ] Lid:[0xffffffff] NodeGUID:[0xd0066a01060000ed] NodeDesc:[myr-edge-1 ] PortIndex:[unknown]. AID:[PORTINFO] TID:[0x0000000000000354] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:14 2025: icx013.bm.cornelisnetworks.com; MSG:NOTICE|SM:icx013.bm.cornelisnetworks.com:port 2|COND:#8 Fabric initialization error|NODE:myr-edge-1 :port 11:0xd0066a01060000ed|LINKEDTO:myr-core-2 :port 11:0xd0066a01060000c8|DETAIL:Failed to set portinfo for node
+Tue Nov 11 11:39:14 2025: fm0_sm(4062): ERROR[ParallelSw[4]]: SM: _lid_assignment_worker: Marking port[11] of node[1] myr-edge-1  guid 0xd0066a01060000ed DOWN in the topology
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x1020000
+Tue Nov 11 11:39:14 2025: fm0_sm(4062): WARN [ParallelSw[1]]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[26 ] Lid:[0x4] NodeGUID:[0xd0066a0101000efb] NodeDesc:[icx002 hfi1_0] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x0000000000000356] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:14 2025: fm0_sm(4062): WARN [ParallelSw[1]]: SM: sm_set_portPkey: Failed to set Partition Table for node icx002 hfi1_0 guid 0xd0066a0101000efb node index 4 port index 2
+Tue Nov 11 11:39:14 2025: fm0_sm(4062): PROGR[ParallelSw[1]]: SM: sm_initialize_port_LR_DR: Port initialization of port 2 of node 0xd0066a0101000efb with mixed LR-DR SMPs failed, retrying with pure DR SMPs
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x1020000
+Tue Nov 11 11:39:14 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[25 ] Lid:[0x4] NodeGUID:[0xd0066a0101000f02] NodeDesc:[icx001 hfi1_0] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x0000000000000357] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:14 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_set_portPkey: Failed to set Partition Table for node icx001 hfi1_0 guid 0xd0066a0101000f02 node index 3 port index 2
+Tue Nov 11 11:39:14 2025: fm0_sm(4062): PROGR[ParallelSw[3]]: SM: sm_initialize_port_LR_DR: Port initialization of port 2 of node 0xd0066a0101000f02 with mixed LR-DR SMPs failed, retrying with pure DR SMPs
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:14 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+Tue Nov 11 11:39:14 2025: fm0_sm(4062): PROGR[async]: SA: sa_Trap: SM Sweep scheduled: Port State Change Trap (from LID 0x5)
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:15 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x15 attrM 0x1000001
+Tue Nov 11 11:39:15 2025: fm0_sm(4062): WARN [ParallelSw[2]]: SM: sm_send_stl_request_impl: Error Sending to Path:{2}[ 2  9 ] Lid:[0xffffffff] NodeGUID:[0xd0066a01060000c8] NodeDesc:[myr-core-2 ] PortIndex:[unknown]. AID:[PORTINFO] TID:[0x0000000000000358] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:15 2025: icx013.bm.cornelisnetworks.com; MSG:NOTICE|SM:icx013.bm.cornelisnetworks.com:port 2|COND:#8 Fabric initialization error|NODE:myr-core-2 :port 1:0xd0066a01060000c8|LINKEDTO:myr-edge-2 :port 1:0xd0066a01060000cf|DETAIL:Failed to set portinfo for node
+Tue Nov 11 11:39:15 2025: fm0_sm(4062): ERROR[ParallelSw[2]]: SM: _lid_assignment_worker: Marking port[1] of node[2] myr-core-2  guid 0xd0066a01060000c8 DOWN in the topology
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x15 attrM 0x100000d
+Tue Nov 11 11:39:15 2025: fm0_sm(4062): WARN [ParallelSw[4]]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[ 2 ] Lid:[0xffffffff] NodeGUID:[0xd0066a01060000ed] NodeDesc:[myr-edge-1 ] PortIndex:[unknown]. AID:[PORTINFO] TID:[0x0000000000000359] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:15 2025: icx013.bm.cornelisnetworks.com; MSG:NOTICE|SM:icx013.bm.cornelisnetworks.com:port 2|COND:#8 Fabric initialization error|NODE:myr-edge-1 :port 13:0xd0066a01060000ed|LINKEDTO:myr-core-2 :port 13:0xd0066a01060000c8|DETAIL:Failed to set portinfo for node
+Tue Nov 11 11:39:15 2025: fm0_sm(4062): ERROR[ParallelSw[4]]: SM: _lid_assignment_worker: Marking port[13] of node[1] myr-edge-1  guid 0xd0066a01060000ed DOWN in the topology
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x1020000
+Tue Nov 11 11:39:15 2025: fm0_sm(4062): WARN [ParallelSw[1]]: SM: sm_send_stl_request_impl: Error Sending to Path:{2}[ 2 26 ] Lid:[0xffffffff] NodeGUID:[0xd0066a0101000efb] NodeDesc:[icx002 hfi1_0] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x000000000000035a] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:15 2025: fm0_sm(4062): WARN [ParallelSw[1]]: SM: sm_set_portPkey: Failed to set Partition Table for node icx002 hfi1_0 guid 0xd0066a0101000efb node index 4 port index 2
+Tue Nov 11 11:39:15 2025: fm0_sm(4062): ERROR[ParallelSw[1]]: SM: _lid_assignment_worker: Marking port[2] of node[4] icx002 hfi1_0 guid 0xd0066a0101000efb DOWN in the topology
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x1020000
+Tue Nov 11 11:39:15 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_send_stl_request_impl: Error Sending to Path:{2}[ 2 25 ] Lid:[0xffffffff] NodeGUID:[0xd0066a0101000f02] NodeDesc:[icx001 hfi1_0] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x000000000000035b] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:15 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_set_portPkey: Failed to set Partition Table for node icx001 hfi1_0 guid 0xd0066a0101000f02 node index 3 port index 2
+Tue Nov 11 11:39:15 2025: fm0_sm(4062): ERROR[ParallelSw[3]]: SM: _lid_assignment_worker: Marking port[2] of node[3] icx001 hfi1_0 guid 0xd0066a0101000f02 DOWN in the topology
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:15 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+Tue Nov 11 11:39:15 2025: fm0_sm(4062): PROGR[async]: SA: sa_Trap: SM Sweep scheduled: Port State Change Trap (from LID 0x5)
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x2 attrId 0x15 attrM 0x100000d
+Tue Nov 11 11:39:16 2025: fm0_sm(4062): WARN [ParallelSw[2]]: SM: sm_send_stl_request_impl: Error Sending to  Lid:[0x5] NodeGUID:[0xd0066a01060000c8] NodeDesc:[myr-core-2 ] PortIndex:[unknown]. AID:[PORTINFO] TID:[0x000000000000035c] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:16 2025: icx013.bm.cornelisnetworks.com; MSG:NOTICE|SM:icx013.bm.cornelisnetworks.com:port 2|COND:#8 Fabric initialization error|NODE:myr-core-2 :port 13:0xd0066a01060000c8|LINKEDTO:myr-edge-1 :port 13:0xd0066a01060000ed|DETAIL:Failed to set portinfo for node
+Tue Nov 11 11:39:16 2025: fm0_sm(4062): PROGR[ParallelSw[2]]: SM: sm_initialize_port_LR_DR: Retrying initialization of port 13 of node 0xd0066a01060000c8 with mixed LR-DR SMPs
+Tue Nov 11 11:39:16 2025: icx013.bm.cornelisnetworks.com; MSG:NOTICE|SM:icx013.bm.cornelisnetworks.com:port 2|COND:#8 Fabric initialization error|NODE:myr-core-2 :port 13:0xd0066a01060000c8|LINKEDTO:myr-edge-1 :port 13:0xd0066a01060000ed|DETAIL:Failed to init switch-to-switch link which was reported down
+Tue Nov 11 11:39:16 2025: fm0_sm(4062): PROGR[ParallelSw[2]]: SM: sm_initialize_port_LR_DR: Port initialization of port 13 of node 0xd0066a01060000c8 with mixed LR-DR SMPs failed, retrying with pure DR SMPs
+Tue Nov 11 11:39:16 2025: icx013.bm.cornelisnetworks.com; MSG:NOTICE|SM:icx013.bm.cornelisnetworks.com:port 2|COND:#8 Fabric initialization error|NODE:myr-core-2 :port 13:0xd0066a01060000c8|LINKEDTO:myr-edge-1 :port 13:0xd0066a01060000ed|DETAIL:Failed to init switch-to-switch link which was reported down
+Tue Nov 11 11:39:16 2025: fm0_sm(4062): ERROR[ParallelSw[2]]: SM: _lid_assignment_worker: Marking port[13] of node[2] myr-core-2  guid 0xd0066a01060000c8 DOWN in the topology
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x15 attrM 0x100000f
+Tue Nov 11 11:39:16 2025: fm0_sm(4062): WARN [ParallelSw[4]]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[ 2 ] Lid:[0xffffffff] NodeGUID:[0xd0066a01060000ed] NodeDesc:[myr-edge-1 ] PortIndex:[unknown]. AID:[PORTINFO] TID:[0x000000000000035d] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:16 2025: icx013.bm.cornelisnetworks.com; MSG:NOTICE|SM:icx013.bm.cornelisnetworks.com:port 2|COND:#8 Fabric initialization error|NODE:myr-edge-1 :port 15:0xd0066a01060000ed|LINKEDTO:myr-core-2 :port 15:0xd0066a01060000c8|DETAIL:Failed to set portinfo for node
+Tue Nov 11 11:39:16 2025: fm0_sm(4062): ERROR[ParallelSw[4]]: SM: _lid_assignment_worker: Marking port[15] of node[1] myr-edge-1  guid 0xd0066a01060000ed DOWN in the topology
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x1020000
+Tue Nov 11 11:39:16 2025: fm0_sm(4062): WARN [ParallelSw[1]]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[29 ] Lid:[0x4] NodeGUID:[0xd0066a0101000f0a] NodeDesc:[icx003 hfi1_0] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x000000000000035e] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:16 2025: fm0_sm(4062): WARN [ParallelSw[1]]: SM: sm_set_portPkey: Failed to set Partition Table for node icx003 hfi1_0 guid 0xd0066a0101000f0a node index 5 port index 2
+Tue Nov 11 11:39:16 2025: fm0_sm(4062): PROGR[ParallelSw[1]]: SM: sm_initialize_port_LR_DR: Retrying initialization of port 2 of node 0xd0066a0101000f0a with mixed LR-DR SMPs
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x1020000
+Tue Nov 11 11:39:16 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[30 ] Lid:[0x4] NodeGUID:[0xd0066a0101000f0b] NodeDesc:[icx004 hfi1_0] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x000000000000035f] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:16 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_set_portPkey: Failed to set Partition Table for node icx004 hfi1_0 guid 0xd0066a0101000f0b node index 6 port index 2
+Tue Nov 11 11:39:16 2025: fm0_sm(4062): PROGR[ParallelSw[3]]: SM: sm_initialize_port_LR_DR: Retrying initialization of port 2 of node 0xd0066a0101000f0b with mixed LR-DR SMPs
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:16 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:16 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+Tue Nov 11 11:39:16 2025: fm0_sm(4062): PROGR[async]: SA: sa_Trap: SM Sweep scheduled: Port State Change Trap (from LID 0x5)
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x2 attrId 0x15 attrM 0x100000f
+Tue Nov 11 11:39:17 2025: fm0_sm(4062): WARN [ParallelSw[2]]: SM: sm_send_stl_request_impl: Error Sending to  Lid:[0x5] NodeGUID:[0xd0066a01060000c8] NodeDesc:[myr-core-2 ] PortIndex:[unknown]. AID:[PORTINFO] TID:[0x0000000000000360] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:17 2025: icx013.bm.cornelisnetworks.com; MSG:NOTICE|SM:icx013.bm.cornelisnetworks.com:port 2|COND:#8 Fabric initialization error|NODE:myr-core-2 :port 15:0xd0066a01060000c8|LINKEDTO:myr-edge-1 :port 15:0xd0066a01060000ed|DETAIL:Failed to set portinfo for node
+Tue Nov 11 11:39:17 2025: fm0_sm(4062): PROGR[ParallelSw[2]]: SM: sm_initialize_port_LR_DR: Retrying initialization of port 15 of node 0xd0066a01060000c8 with mixed LR-DR SMPs
+Tue Nov 11 11:39:17 2025: icx013.bm.cornelisnetworks.com; MSG:NOTICE|SM:icx013.bm.cornelisnetworks.com:port 2|COND:#8 Fabric initialization error|NODE:myr-core-2 :port 15:0xd0066a01060000c8|LINKEDTO:myr-edge-1 :port 15:0xd0066a01060000ed|DETAIL:Failed to init switch-to-switch link which was reported down
+Tue Nov 11 11:39:17 2025: fm0_sm(4062): PROGR[ParallelSw[2]]: SM: sm_initialize_port_LR_DR: Port initialization of port 15 of node 0xd0066a01060000c8 with mixed LR-DR SMPs failed, retrying with pure DR SMPs
+Tue Nov 11 11:39:17 2025: icx013.bm.cornelisnetworks.com; MSG:NOTICE|SM:icx013.bm.cornelisnetworks.com:port 2|COND:#8 Fabric initialization error|NODE:myr-core-2 :port 15:0xd0066a01060000c8|LINKEDTO:myr-edge-1 :port 15:0xd0066a01060000ed|DETAIL:Failed to init switch-to-switch link which was reported down
+Tue Nov 11 11:39:17 2025: fm0_sm(4062): ERROR[ParallelSw[2]]: SM: _lid_assignment_worker: Marking port[15] of node[2] myr-core-2  guid 0xd0066a01060000c8 DOWN in the topology
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x21d0000
+Tue Nov 11 11:39:17 2025: fm0_sm(4062): WARN [ParallelSw[4]]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[ 2 ] Lid:[0xffffffff] NodeGUID:[0xd0066a01060000ed] NodeDesc:[myr-edge-1 ] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x0000000000000361] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:17 2025: fm0_sm(4062): WARN [ParallelSw[4]]: SM: sm_set_portPkey: Failed to set Partition Table for node myr-edge-1  guid 0xd0066a01060000ed node index 1 port index 29
+Tue Nov 11 11:39:17 2025: fm0_sm(4062): ERROR[ParallelSw[4]]: SM: _lid_assignment_worker: Marking port[29] of node[1] myr-edge-1  guid 0xd0066a01060000ed DOWN in the topology
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x1020000
+Tue Nov 11 11:39:17 2025: fm0_sm(4062): WARN [ParallelSw[1]]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[29 ] Lid:[0x4] NodeGUID:[0xd0066a0101000f0a] NodeDesc:[icx003 hfi1_0] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x0000000000000362] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:17 2025: fm0_sm(4062): WARN [ParallelSw[1]]: SM: sm_set_portPkey: Failed to set Partition Table for node icx003 hfi1_0 guid 0xd0066a0101000f0a node index 5 port index 2
+Tue Nov 11 11:39:17 2025: fm0_sm(4062): PROGR[ParallelSw[1]]: SM: sm_initialize_port_LR_DR: Port initialization of port 2 of node 0xd0066a0101000f0a with mixed LR-DR SMPs failed, retrying with pure DR SMPs
+Tue Nov 11 11:39:17 2025: fm0_sm(4062): WARN [ParallelSw[1]]: SM: sm_initialize_port: port on other side of node icx003 hfi1_0 index 5 port 2 is not active
+Tue Nov 11 11:39:17 2025: fm0_sm(4062): ERROR[ParallelSw[1]]: SM: _lid_assignment_worker: Marking port[2] of node[5] icx003 hfi1_0 guid 0xd0066a0101000f0a DOWN in the topology
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x1020000
+Tue Nov 11 11:39:17 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[30 ] Lid:[0x4] NodeGUID:[0xd0066a0101000f0b] NodeDesc:[icx004 hfi1_0] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x0000000000000363] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:17 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_set_portPkey: Failed to set Partition Table for node icx004 hfi1_0 guid 0xd0066a0101000f0b node index 6 port index 2
+Tue Nov 11 11:39:17 2025: fm0_sm(4062): PROGR[ParallelSw[3]]: SM: sm_initialize_port_LR_DR: Port initialization of port 2 of node 0xd0066a0101000f0b with mixed LR-DR SMPs failed, retrying with pure DR SMPs
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:17 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:17 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+Tue Nov 11 11:39:17 2025: fm0_sm(4062): PROGR[async]: SA: sa_Trap: SM Sweep scheduled: Port State Change Trap (from LID 0x5)
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x1020000
+Tue Nov 11 11:39:18 2025: fm0_sm(4062): WARN [ParallelSw[2]]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[33 ] Lid:[0x4] NodeGUID:[0xd0066a0101001225] NodeDesc:[icx006 hfi1_0] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x0000000000000364] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:18 2025: fm0_sm(4062): WARN [ParallelSw[2]]: SM: sm_set_portPkey: Failed to set Partition Table for node icx006 hfi1_0 guid 0xd0066a0101001225 node index 7 port index 2
+Tue Nov 11 11:39:18 2025: fm0_sm(4062): PROGR[ParallelSw[2]]: SM: sm_initialize_port_LR_DR: Retrying initialization of port 2 of node 0xd0066a0101001225 with mixed LR-DR SMPs
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x21e0000
+Tue Nov 11 11:39:18 2025: fm0_sm(4062): WARN [ParallelSw[4]]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[ 2 ] Lid:[0xffffffff] NodeGUID:[0xd0066a01060000ed] NodeDesc:[myr-edge-1 ] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x0000000000000365] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:18 2025: fm0_sm(4062): WARN [ParallelSw[4]]: SM: sm_set_portPkey: Failed to set Partition Table for node myr-edge-1  guid 0xd0066a01060000ed node index 1 port index 30
+Tue Nov 11 11:39:18 2025: fm0_sm(4062): ERROR[ParallelSw[4]]: SM: _lid_assignment_worker: Marking port[30] of node[1] myr-edge-1  guid 0xd0066a01060000ed DOWN in the topology
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x1020000
+Tue Nov 11 11:39:18 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_send_stl_request_impl: Error Sending to Path:{2}[ 2 30 ] Lid:[0xffffffff] NodeGUID:[0xd0066a0101000f0b] NodeDesc:[icx004 hfi1_0] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x0000000000000367] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:18 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_set_portPkey: Failed to set Partition Table for node icx004 hfi1_0 guid 0xd0066a0101000f0b node index 6 port index 2
+Tue Nov 11 11:39:18 2025: fm0_sm(4062): ERROR[ParallelSw[3]]: SM: _lid_assignment_worker: Marking port[2] of node[6] icx004 hfi1_0 guid 0xd0066a0101000f0b DOWN in the topology
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x1020000
+Tue Nov 11 11:39:18 2025: fm0_sm(4062): WARN [ParallelSw[1]]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[34 ] Lid:[0x4] NodeGUID:[0xd0066a0101001204] NodeDesc:[icx005 hfi1_0] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x0000000000000366] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:18 2025: fm0_sm(4062): WARN [ParallelSw[1]]: SM: sm_set_portPkey: Failed to set Partition Table for node icx005 hfi1_0 guid 0xd0066a0101001204 node index 8 port index 2
+Tue Nov 11 11:39:18 2025: fm0_sm(4062): PROGR[ParallelSw[1]]: SM: sm_initialize_port_LR_DR: Retrying initialization of port 2 of node 0xd0066a0101001204 with mixed LR-DR SMPs
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:18 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:19 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+Tue Nov 11 11:39:19 2025: fm0_sm(4062): PROGR[async]: SA: sa_Trap: SM Sweep scheduled: Port State Change Trap (from LID 0x5)
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x1020000
+Tue Nov 11 11:39:19 2025: fm0_sm(4062): WARN [ParallelSw[2]]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[33 ] Lid:[0x4] NodeGUID:[0xd0066a0101001225] NodeDesc:[icx006 hfi1_0] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x0000000000000368] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:19 2025: fm0_sm(4062): WARN [ParallelSw[2]]: SM: sm_set_portPkey: Failed to set Partition Table for node icx006 hfi1_0 guid 0xd0066a0101001225 node index 7 port index 2
+Tue Nov 11 11:39:19 2025: fm0_sm(4062): PROGR[ParallelSw[2]]: SM: sm_initialize_port_LR_DR: Port initialization of port 2 of node 0xd0066a0101001225 with mixed LR-DR SMPs failed, retrying with pure DR SMPs
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x2210000
+Tue Nov 11 11:39:19 2025: fm0_sm(4062): WARN [ParallelSw[4]]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[ 2 ] Lid:[0xffffffff] NodeGUID:[0xd0066a01060000ed] NodeDesc:[myr-edge-1 ] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x0000000000000369] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:19 2025: fm0_sm(4062): WARN [ParallelSw[4]]: SM: sm_set_portPkey: Failed to set Partition Table for node myr-edge-1  guid 0xd0066a01060000ed node index 1 port index 33
+Tue Nov 11 11:39:19 2025: fm0_sm(4062): ERROR[ParallelSw[4]]: SM: _lid_assignment_worker: Marking port[33] of node[1] myr-edge-1  guid 0xd0066a01060000ed DOWN in the topology
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x1020000
+Tue Nov 11 11:39:19 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[37 ] Lid:[0x4] NodeGUID:[0xd0066a010100123b] NodeDesc:[icx007 hfi1_0] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x000000000000036a] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:19 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_set_portPkey: Failed to set Partition Table for node icx007 hfi1_0 guid 0xd0066a010100123b node index 9 port index 2
+Tue Nov 11 11:39:19 2025: fm0_sm(4062): PROGR[ParallelSw[3]]: SM: sm_initialize_port_LR_DR: Retrying initialization of port 2 of node 0xd0066a010100123b with mixed LR-DR SMPs
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x1020000
+Tue Nov 11 11:39:19 2025: fm0_sm(4062): WARN [ParallelSw[1]]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[34 ] Lid:[0x4] NodeGUID:[0xd0066a0101001204] NodeDesc:[icx005 hfi1_0] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x000000000000036b] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:19 2025: fm0_sm(4062): WARN [ParallelSw[1]]: SM: sm_set_portPkey: Failed to set Partition Table for node icx005 hfi1_0 guid 0xd0066a0101001204 node index 8 port index 2
+Tue Nov 11 11:39:19 2025: fm0_sm(4062): PROGR[ParallelSw[1]]: SM: sm_initialize_port_LR_DR: Port initialization of port 2 of node 0xd0066a0101001204 with mixed LR-DR SMPs failed, retrying with pure DR SMPs
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:19 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:20 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+Tue Nov 11 11:39:20 2025: fm0_sm(4062): PROGR[async]: SA: sa_Trap: SM Sweep scheduled: Port State Change Trap (from LID 0x5)
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x1020000
+Tue Nov 11 11:39:20 2025: fm0_sm(4062): WARN [ParallelSw[2]]: SM: sm_send_stl_request_impl: Error Sending to Path:{2}[ 2 33 ] Lid:[0xffffffff] NodeGUID:[0xd0066a0101001225] NodeDesc:[icx006 hfi1_0] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x000000000000036c] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:20 2025: fm0_sm(4062): WARN [ParallelSw[2]]: SM: sm_set_portPkey: Failed to set Partition Table for node icx006 hfi1_0 guid 0xd0066a0101001225 node index 7 port index 2
+Tue Nov 11 11:39:20 2025: fm0_sm(4062): ERROR[ParallelSw[2]]: SM: _lid_assignment_worker: Marking port[2] of node[7] icx006 hfi1_0 guid 0xd0066a0101001225 DOWN in the topology
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x2220000
+Tue Nov 11 11:39:20 2025: fm0_sm(4062): WARN [ParallelSw[4]]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[ 2 ] Lid:[0xffffffff] NodeGUID:[0xd0066a01060000ed] NodeDesc:[myr-edge-1 ] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x000000000000036d] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:20 2025: fm0_sm(4062): WARN [ParallelSw[4]]: SM: sm_set_portPkey: Failed to set Partition Table for node myr-edge-1  guid 0xd0066a01060000ed node index 1 port index 34
+Tue Nov 11 11:39:20 2025: fm0_sm(4062): ERROR[ParallelSw[4]]: SM: _lid_assignment_worker: Marking port[34] of node[1] myr-edge-1  guid 0xd0066a01060000ed DOWN in the topology
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x1020000
+Tue Nov 11 11:39:20 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[37 ] Lid:[0x4] NodeGUID:[0xd0066a010100123b] NodeDesc:[icx007 hfi1_0] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x000000000000036e] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:20 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_set_portPkey: Failed to set Partition Table for node icx007 hfi1_0 guid 0xd0066a010100123b node index 9 port index 2
+Tue Nov 11 11:39:20 2025: fm0_sm(4062): PROGR[ParallelSw[3]]: SM: sm_initialize_port_LR_DR: Port initialization of port 2 of node 0xd0066a010100123b with mixed LR-DR SMPs failed, retrying with pure DR SMPs
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x1020000
+Tue Nov 11 11:39:20 2025: fm0_sm(4062): WARN [ParallelSw[1]]: SM: sm_send_stl_request_impl: Error Sending to Path:{2}[ 2 34 ] Lid:[0xffffffff] NodeGUID:[0xd0066a0101001204] NodeDesc:[icx005 hfi1_0] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x000000000000036f] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:20 2025: fm0_sm(4062): WARN [ParallelSw[1]]: SM: sm_set_portPkey: Failed to set Partition Table for node icx005 hfi1_0 guid 0xd0066a0101001204 node index 8 port index 2
+Tue Nov 11 11:39:20 2025: fm0_sm(4062): ERROR[ParallelSw[1]]: SM: _lid_assignment_worker: Marking port[2] of node[8] icx005 hfi1_0 guid 0xd0066a0101001204 DOWN in the topology
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:20 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:21 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+Tue Nov 11 11:39:21 2025: fm0_sm(4062): PROGR[async]: SA: sa_Trap: SM Sweep scheduled: Port State Change Trap (from LID 0x5)
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x1020000
+Tue Nov 11 11:39:21 2025: fm0_sm(4062): WARN [ParallelSw[2]]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[38 ] Lid:[0x4] NodeGUID:[0xd0066a0101001205] NodeDesc:[icx008 hfi1_0] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x0000000000000370] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:21 2025: fm0_sm(4062): WARN [ParallelSw[2]]: SM: sm_set_portPkey: Failed to set Partition Table for node icx008 hfi1_0 guid 0xd0066a0101001205 node index 10 port index 2
+Tue Nov 11 11:39:21 2025: fm0_sm(4062): PROGR[ParallelSw[2]]: SM: sm_initialize_port_LR_DR: Retrying initialization of port 2 of node 0xd0066a0101001205 with mixed LR-DR SMPs
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x2250000
+Tue Nov 11 11:39:21 2025: fm0_sm(4062): WARN [ParallelSw[4]]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[ 2 ] Lid:[0xffffffff] NodeGUID:[0xd0066a01060000ed] NodeDesc:[myr-edge-1 ] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x0000000000000371] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:21 2025: fm0_sm(4062): WARN [ParallelSw[4]]: SM: sm_set_portPkey: Failed to set Partition Table for node myr-edge-1  guid 0xd0066a01060000ed node index 1 port index 37
+Tue Nov 11 11:39:21 2025: fm0_sm(4062): ERROR[ParallelSw[4]]: SM: _lid_assignment_worker: Marking port[37] of node[1] myr-edge-1  guid 0xd0066a01060000ed DOWN in the topology
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x1020000
+Tue Nov 11 11:39:21 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_send_stl_request_impl: Error Sending to Path:{2}[ 2 37 ] Lid:[0xffffffff] NodeGUID:[0xd0066a010100123b] NodeDesc:[icx007 hfi1_0] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x0000000000000372] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:21 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_set_portPkey: Failed to set Partition Table for node icx007 hfi1_0 guid 0xd0066a010100123b node index 9 port index 2
+Tue Nov 11 11:39:21 2025: fm0_sm(4062): ERROR[ParallelSw[3]]: SM: _lid_assignment_worker: Marking port[2] of node[9] icx007 hfi1_0 guid 0xd0066a010100123b DOWN in the topology
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x1020000
+Tue Nov 11 11:39:21 2025: fm0_sm(4062): WARN [ParallelSw[1]]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[41 ] Lid:[0x4] NodeGUID:[0xd0066a0101000f01] NodeDesc:[icx009 hfi1_0] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x0000000000000373] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:21 2025: fm0_sm(4062): WARN [ParallelSw[1]]: SM: sm_set_portPkey: Failed to set Partition Table for node icx009 hfi1_0 guid 0xd0066a0101000f01 node index 11 port index 2
+Tue Nov 11 11:39:21 2025: fm0_sm(4062): PROGR[ParallelSw[1]]: SM: sm_initialize_port_LR_DR: Retrying initialization of port 2 of node 0xd0066a0101000f01 with mixed LR-DR SMPs
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:21 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:22 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+Tue Nov 11 11:39:22 2025: fm0_sm(4062): PROGR[async]: SA: sa_Trap: SM Sweep scheduled: Port State Change Trap (from LID 0x5)
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x1020000
+Tue Nov 11 11:39:22 2025: fm0_sm(4062): WARN [ParallelSw[2]]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[38 ] Lid:[0x4] NodeGUID:[0xd0066a0101001205] NodeDesc:[icx008 hfi1_0] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x0000000000000374] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:22 2025: fm0_sm(4062): WARN [ParallelSw[2]]: SM: sm_set_portPkey: Failed to set Partition Table for node icx008 hfi1_0 guid 0xd0066a0101001205 node index 10 port index 2
+Tue Nov 11 11:39:22 2025: fm0_sm(4062): PROGR[ParallelSw[2]]: SM: sm_initialize_port_LR_DR: Port initialization of port 2 of node 0xd0066a0101001205 with mixed LR-DR SMPs failed, retrying with pure DR SMPs
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x2260000
+Tue Nov 11 11:39:22 2025: fm0_sm(4062): WARN [ParallelSw[4]]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[ 2 ] Lid:[0xffffffff] NodeGUID:[0xd0066a01060000ed] NodeDesc:[myr-edge-1 ] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x0000000000000375] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:22 2025: fm0_sm(4062): WARN [ParallelSw[4]]: SM: sm_set_portPkey: Failed to set Partition Table for node myr-edge-1  guid 0xd0066a01060000ed node index 1 port index 38
+Tue Nov 11 11:39:22 2025: fm0_sm(4062): ERROR[ParallelSw[4]]: SM: _lid_assignment_worker: Marking port[38] of node[1] myr-edge-1  guid 0xd0066a01060000ed DOWN in the topology
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x1020000
+Tue Nov 11 11:39:22 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[45 ] Lid:[0x4] NodeGUID:[0xd0066a0101001220] NodeDesc:[icx011 hfi1_0] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x0000000000000376] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:22 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_set_portPkey: Failed to set Partition Table for node icx011 hfi1_0 guid 0xd0066a0101001220 node index 12 port index 2
+Tue Nov 11 11:39:22 2025: fm0_sm(4062): PROGR[ParallelSw[3]]: SM: sm_initialize_port_LR_DR: Retrying initialization of port 2 of node 0xd0066a0101001220 with mixed LR-DR SMPs
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x1020000
+Tue Nov 11 11:39:22 2025: fm0_sm(4062): WARN [ParallelSw[1]]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[41 ] Lid:[0x4] NodeGUID:[0xd0066a0101000f01] NodeDesc:[icx009 hfi1_0] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x0000000000000377] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:22 2025: fm0_sm(4062): WARN [ParallelSw[1]]: SM: sm_set_portPkey: Failed to set Partition Table for node icx009 hfi1_0 guid 0xd0066a0101000f01 node index 11 port index 2
+Tue Nov 11 11:39:22 2025: fm0_sm(4062): PROGR[ParallelSw[1]]: SM: sm_initialize_port_LR_DR: Port initialization of port 2 of node 0xd0066a0101000f01 with mixed LR-DR SMPs failed, retrying with pure DR SMPs
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:22 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:23 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+Tue Nov 11 11:39:23 2025: fm0_sm(4062): PROGR[async]: SA: sa_Trap: SM Sweep scheduled: Port State Change Trap (from LID 0x5)
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x1020000
+Tue Nov 11 11:39:23 2025: fm0_sm(4062): WARN [ParallelSw[2]]: SM: sm_send_stl_request_impl: Error Sending to Path:{2}[ 2 38 ] Lid:[0xffffffff] NodeGUID:[0xd0066a0101001205] NodeDesc:[icx008 hfi1_0] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x0000000000000378] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:23 2025: fm0_sm(4062): WARN [ParallelSw[2]]: SM: sm_set_portPkey: Failed to set Partition Table for node icx008 hfi1_0 guid 0xd0066a0101001205 node index 10 port index 2
+Tue Nov 11 11:39:23 2025: fm0_sm(4062): ERROR[ParallelSw[2]]: SM: _lid_assignment_worker: Marking port[2] of node[10] icx008 hfi1_0 guid 0xd0066a0101001205 DOWN in the topology
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x2290000
+Tue Nov 11 11:39:23 2025: fm0_sm(4062): WARN [ParallelSw[4]]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[ 2 ] Lid:[0xffffffff] NodeGUID:[0xd0066a01060000ed] NodeDesc:[myr-edge-1 ] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x0000000000000379] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:23 2025: fm0_sm(4062): WARN [ParallelSw[4]]: SM: sm_set_portPkey: Failed to set Partition Table for node myr-edge-1  guid 0xd0066a01060000ed node index 1 port index 41
+Tue Nov 11 11:39:23 2025: fm0_sm(4062): ERROR[ParallelSw[4]]: SM: _lid_assignment_worker: Marking port[41] of node[1] myr-edge-1  guid 0xd0066a01060000ed DOWN in the topology
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x1020000
+Tue Nov 11 11:39:23 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[45 ] Lid:[0x4] NodeGUID:[0xd0066a0101001220] NodeDesc:[icx011 hfi1_0] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x000000000000037a] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:23 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_set_portPkey: Failed to set Partition Table for node icx011 hfi1_0 guid 0xd0066a0101001220 node index 12 port index 2
+Tue Nov 11 11:39:23 2025: fm0_sm(4062): PROGR[ParallelSw[3]]: SM: sm_initialize_port_LR_DR: Port initialization of port 2 of node 0xd0066a0101001220 with mixed LR-DR SMPs failed, retrying with pure DR SMPs
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x1020000
+Tue Nov 11 11:39:23 2025: fm0_sm(4062): WARN [ParallelSw[1]]: SM: sm_send_stl_request_impl: Error Sending to Path:{2}[ 2 41 ] Lid:[0xffffffff] NodeGUID:[0xd0066a0101000f01] NodeDesc:[icx009 hfi1_0] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x000000000000037b] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:23 2025: fm0_sm(4062): WARN [ParallelSw[1]]: SM: sm_set_portPkey: Failed to set Partition Table for node icx009 hfi1_0 guid 0xd0066a0101000f01 node index 11 port index 2
+Tue Nov 11 11:39:23 2025: fm0_sm(4062): ERROR[ParallelSw[1]]: SM: _lid_assignment_worker: Marking port[2] of node[11] icx009 hfi1_0 guid 0xd0066a0101000f01 DOWN in the topology
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:23 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:24 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+Tue Nov 11 11:39:24 2025: fm0_sm(4062): PROGR[async]: SA: sa_Trap: SM Sweep scheduled: Port State Change Trap (from LID 0x5)
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x1020000
+Tue Nov 11 11:39:24 2025: fm0_sm(4062): WARN [ParallelSw[2]]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[46 ] Lid:[0x4] NodeGUID:[0xd0066a010100122a] NodeDesc:[icx012 hfi1_0] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x000000000000037c] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:24 2025: fm0_sm(4062): WARN [ParallelSw[2]]: SM: sm_set_portPkey: Failed to set Partition Table for node icx012 hfi1_0 guid 0xd0066a010100122a node index 13 port index 2
+Tue Nov 11 11:39:24 2025: fm0_sm(4062): PROGR[ParallelSw[2]]: SM: sm_initialize_port_LR_DR: Retrying initialization of port 2 of node 0xd0066a010100122a with mixed LR-DR SMPs
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x22d0000
+Tue Nov 11 11:39:24 2025: fm0_sm(4062): WARN [ParallelSw[4]]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[ 2 ] Lid:[0xffffffff] NodeGUID:[0xd0066a01060000ed] NodeDesc:[myr-edge-1 ] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x000000000000037d] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:24 2025: fm0_sm(4062): WARN [ParallelSw[4]]: SM: sm_set_portPkey: Failed to set Partition Table for node myr-edge-1  guid 0xd0066a01060000ed node index 1 port index 45
+Tue Nov 11 11:39:24 2025: fm0_sm(4062): ERROR[ParallelSw[4]]: SM: _lid_assignment_worker: Marking port[45] of node[1] myr-edge-1  guid 0xd0066a01060000ed DOWN in the topology
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x1020000
+Tue Nov 11 11:39:24 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_send_stl_request_impl: Error Sending to Path:{2}[ 2 45 ] Lid:[0xffffffff] NodeGUID:[0xd0066a0101001220] NodeDesc:[icx011 hfi1_0] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x000000000000037e] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:24 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_set_portPkey: Failed to set Partition Table for node icx011 hfi1_0 guid 0xd0066a0101001220 node index 12 port index 2
+Tue Nov 11 11:39:24 2025: fm0_sm(4062): ERROR[ParallelSw[3]]: SM: _lid_assignment_worker: Marking port[2] of node[12] icx011 hfi1_0 guid 0xd0066a0101001220 DOWN in the topology
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x1020000
+Tue Nov 11 11:39:24 2025: fm0_sm(4062): WARN [ParallelSw[1]]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[50 ] Lid:[0x4] NodeGUID:[0xd0066a01010011bc] NodeDesc:[icx014 hfi1_0] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x000000000000037f] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:24 2025: fm0_sm(4062): WARN [ParallelSw[1]]: SM: sm_set_portPkey: Failed to set Partition Table for node icx014 hfi1_0 guid 0xd0066a01010011bc node index 14 port index 2
+Tue Nov 11 11:39:24 2025: fm0_sm(4062): PROGR[ParallelSw[1]]: SM: sm_initialize_port_LR_DR: Retrying initialization of port 2 of node 0xd0066a01010011bc with mixed LR-DR SMPs
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:24 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:25 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+Tue Nov 11 11:39:25 2025: fm0_sm(4062): PROGR[async]: SA: sa_Trap: SM Sweep scheduled: Port State Change Trap (from LID 0x5)
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x1020000
+Tue Nov 11 11:39:25 2025: fm0_sm(4062): WARN [ParallelSw[2]]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[46 ] Lid:[0x4] NodeGUID:[0xd0066a010100122a] NodeDesc:[icx012 hfi1_0] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x0000000000000380] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:25 2025: fm0_sm(4062): WARN [ParallelSw[2]]: SM: sm_set_portPkey: Failed to set Partition Table for node icx012 hfi1_0 guid 0xd0066a010100122a node index 13 port index 2
+Tue Nov 11 11:39:25 2025: fm0_sm(4062): PROGR[ParallelSw[2]]: SM: sm_initialize_port_LR_DR: Port initialization of port 2 of node 0xd0066a010100122a with mixed LR-DR SMPs failed, retrying with pure DR SMPs
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x22e0000
+Tue Nov 11 11:39:25 2025: fm0_sm(4062): WARN [ParallelSw[4]]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[ 2 ] Lid:[0xffffffff] NodeGUID:[0xd0066a01060000ed] NodeDesc:[myr-edge-1 ] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x0000000000000381] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:25 2025: fm0_sm(4062): WARN [ParallelSw[4]]: SM: sm_set_portPkey: Failed to set Partition Table for node myr-edge-1  guid 0xd0066a01060000ed node index 1 port index 46
+Tue Nov 11 11:39:25 2025: fm0_sm(4062): ERROR[ParallelSw[4]]: SM: _lid_assignment_worker: Marking port[46] of node[1] myr-edge-1  guid 0xd0066a01060000ed DOWN in the topology
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x1020000
+Tue Nov 11 11:39:25 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[53 ] Lid:[0x4] NodeGUID:[0xd0066a01010011f0] NodeDesc:[icx016 hfi1_0] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x0000000000000382] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:25 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_set_portPkey: Failed to set Partition Table for node icx016 hfi1_0 guid 0xd0066a01010011f0 node index 15 port index 2
+Tue Nov 11 11:39:25 2025: fm0_sm(4062): PROGR[ParallelSw[3]]: SM: sm_initialize_port_LR_DR: Retrying initialization of port 2 of node 0xd0066a01010011f0 with mixed LR-DR SMPs
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x1020000
+Tue Nov 11 11:39:25 2025: fm0_sm(4062): WARN [ParallelSw[1]]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[50 ] Lid:[0x4] NodeGUID:[0xd0066a01010011bc] NodeDesc:[icx014 hfi1_0] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x0000000000000383] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:25 2025: fm0_sm(4062): WARN [ParallelSw[1]]: SM: sm_set_portPkey: Failed to set Partition Table for node icx014 hfi1_0 guid 0xd0066a01010011bc node index 14 port index 2
+Tue Nov 11 11:39:25 2025: fm0_sm(4062): PROGR[ParallelSw[1]]: SM: sm_initialize_port_LR_DR: Port initialization of port 2 of node 0xd0066a01010011bc with mixed LR-DR SMPs failed, retrying with pure DR SMPs
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:25 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:26 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+Tue Nov 11 11:39:26 2025: fm0_sm(4062): PROGR[async]: SA: sa_Trap: SM Sweep scheduled: Port State Change Trap (from LID 0x5)
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x1020000
+Tue Nov 11 11:39:26 2025: fm0_sm(4062): WARN [ParallelSw[2]]: SM: sm_send_stl_request_impl: Error Sending to Path:{2}[ 2 46 ] Lid:[0xffffffff] NodeGUID:[0xd0066a010100122a] NodeDesc:[icx012 hfi1_0] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x0000000000000384] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:26 2025: fm0_sm(4062): WARN [ParallelSw[2]]: SM: sm_set_portPkey: Failed to set Partition Table for node icx012 hfi1_0 guid 0xd0066a010100122a node index 13 port index 2
+Tue Nov 11 11:39:26 2025: fm0_sm(4062): ERROR[ParallelSw[2]]: SM: _lid_assignment_worker: Marking port[2] of node[13] icx012 hfi1_0 guid 0xd0066a010100122a DOWN in the topology
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x2310000
+Tue Nov 11 11:39:26 2025: fm0_sm(4062): WARN [ParallelSw[4]]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[ 2 ] Lid:[0xffffffff] NodeGUID:[0xd0066a01060000ed] NodeDesc:[myr-edge-1 ] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x0000000000000385] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:26 2025: fm0_sm(4062): WARN [ParallelSw[4]]: SM: sm_set_portPkey: Failed to set Partition Table for node myr-edge-1  guid 0xd0066a01060000ed node index 1 port index 49
+Tue Nov 11 11:39:26 2025: fm0_sm(4062): ERROR[ParallelSw[4]]: SM: _lid_assignment_worker: Marking port[49] of node[1] myr-edge-1  guid 0xd0066a01060000ed DOWN in the topology
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x1020000
+Tue Nov 11 11:39:26 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[53 ] Lid:[0x4] NodeGUID:[0xd0066a01010011f0] NodeDesc:[icx016 hfi1_0] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x0000000000000386] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:26 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_set_portPkey: Failed to set Partition Table for node icx016 hfi1_0 guid 0xd0066a01010011f0 node index 15 port index 2
+Tue Nov 11 11:39:26 2025: fm0_sm(4062): PROGR[ParallelSw[3]]: SM: sm_initialize_port_LR_DR: Port initialization of port 2 of node 0xd0066a01010011f0 with mixed LR-DR SMPs failed, retrying with pure DR SMPs
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x1020000
+Tue Nov 11 11:39:26 2025: fm0_sm(4062): WARN [ParallelSw[1]]: SM: sm_send_stl_request_impl: Error Sending to Path:{2}[ 2 50 ] Lid:[0xffffffff] NodeGUID:[0xd0066a01010011bc] NodeDesc:[icx014 hfi1_0] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x0000000000000387] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:26 2025: fm0_sm(4062): WARN [ParallelSw[1]]: SM: sm_set_portPkey: Failed to set Partition Table for node icx014 hfi1_0 guid 0xd0066a01010011bc node index 14 port index 2
+Tue Nov 11 11:39:26 2025: fm0_sm(4062): ERROR[ParallelSw[1]]: SM: _lid_assignment_worker: Marking port[2] of node[14] icx014 hfi1_0 guid 0xd0066a01010011bc DOWN in the topology
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:26 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:27 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+Tue Nov 11 11:39:27 2025: fm0_sm(4062): PROGR[async]: SA: sa_Trap: SM Sweep scheduled: Port State Change Trap (from LID 0x5)
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x1020000
+Tue Nov 11 11:39:27 2025: fm0_sm(4062): WARN [ParallelSw[2]]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[54 ] Lid:[0x4] NodeGUID:[0xd0066a0101001439] NodeDesc:[icx015 hfi1_0] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x0000000000000388] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:27 2025: fm0_sm(4062): WARN [ParallelSw[2]]: SM: sm_set_portPkey: Failed to set Partition Table for node icx015 hfi1_0 guid 0xd0066a0101001439 node index 16 port index 2
+Tue Nov 11 11:39:27 2025: fm0_sm(4062): PROGR[ParallelSw[2]]: SM: sm_initialize_port_LR_DR: Retrying initialization of port 2 of node 0xd0066a0101001439 with mixed LR-DR SMPs
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x2320000
+Tue Nov 11 11:39:27 2025: fm0_sm(4062): WARN [ParallelSw[4]]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[ 2 ] Lid:[0xffffffff] NodeGUID:[0xd0066a01060000ed] NodeDesc:[myr-edge-1 ] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x0000000000000389] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:27 2025: fm0_sm(4062): WARN [ParallelSw[4]]: SM: sm_set_portPkey: Failed to set Partition Table for node myr-edge-1  guid 0xd0066a01060000ed node index 1 port index 50
+Tue Nov 11 11:39:27 2025: fm0_sm(4062): ERROR[ParallelSw[4]]: SM: _lid_assignment_worker: Marking port[50] of node[1] myr-edge-1  guid 0xd0066a01060000ed DOWN in the topology
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x2 attrId 0x15 attrM 0x1000051
+Tue Nov 11 11:39:27 2025: fm0_sm(4062): WARN [ParallelSw[1]]: SM: sm_send_stl_request_impl: Error Sending to  Lid:[0x6] NodeGUID:[0xd0066a01060000f1] NodeDesc:[myr-core-1 ] PortIndex:[unknown]. AID:[PORTINFO] TID:[0x000000000000038b] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:27 2025: icx013.bm.cornelisnetworks.com; MSG:NOTICE|SM:icx013.bm.cornelisnetworks.com:port 2|COND:#8 Fabric initialization error|NODE:myr-core-1 :port 81:0xd0066a01060000f1|LINKEDTO:myr-edge-1 :port 81:0xd0066a01060000ed|DETAIL:Failed to set portinfo for node
+Tue Nov 11 11:39:27 2025: fm0_sm(4062): PROGR[ParallelSw[1]]: SM: sm_initialize_port_LR_DR: Retrying initialization of port 81 of node 0xd0066a01060000f1 with mixed LR-DR SMPs
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x1020000
+Tue Nov 11 11:39:27 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_send_stl_request_impl: Error Sending to Path:{2}[ 2 53 ] Lid:[0xffffffff] NodeGUID:[0xd0066a01010011f0] NodeDesc:[icx016 hfi1_0] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x000000000000038a] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:27 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_set_portPkey: Failed to set Partition Table for node icx016 hfi1_0 guid 0xd0066a01010011f0 node index 15 port index 2
+Tue Nov 11 11:39:27 2025: fm0_sm(4062): ERROR[ParallelSw[3]]: SM: _lid_assignment_worker: Marking port[2] of node[15] icx016 hfi1_0 guid 0xd0066a01010011f0 DOWN in the topology
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:27 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:28 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+Tue Nov 11 11:39:28 2025: fm0_sm(4062): PROGR[async]: SA: sa_Trap: SM Sweep scheduled: Port State Change Trap (from LID 0x5)
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x1020000
+Tue Nov 11 11:39:28 2025: fm0_sm(4062): WARN [ParallelSw[2]]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[54 ] Lid:[0x4] NodeGUID:[0xd0066a0101001439] NodeDesc:[icx015 hfi1_0] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x000000000000038c] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:28 2025: fm0_sm(4062): WARN [ParallelSw[2]]: SM: sm_set_portPkey: Failed to set Partition Table for node icx015 hfi1_0 guid 0xd0066a0101001439 node index 16 port index 2
+Tue Nov 11 11:39:28 2025: fm0_sm(4062): PROGR[ParallelSw[2]]: SM: sm_initialize_port_LR_DR: Port initialization of port 2 of node 0xd0066a0101001439 with mixed LR-DR SMPs failed, retrying with pure DR SMPs
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x2350000
+Tue Nov 11 11:39:28 2025: fm0_sm(4062): WARN [ParallelSw[4]]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[ 2 ] Lid:[0xffffffff] NodeGUID:[0xd0066a01060000ed] NodeDesc:[myr-edge-1 ] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x000000000000038d] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:28 2025: fm0_sm(4062): WARN [ParallelSw[4]]: SM: sm_set_portPkey: Failed to set Partition Table for node myr-edge-1  guid 0xd0066a01060000ed node index 1 port index 53
+Tue Nov 11 11:39:28 2025: fm0_sm(4062): ERROR[ParallelSw[4]]: SM: _lid_assignment_worker: Marking port[53] of node[1] myr-edge-1  guid 0xd0066a01060000ed DOWN in the topology
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x2 attrId 0x15 attrM 0x1000051
+Tue Nov 11 11:39:28 2025: fm0_sm(4062): WARN [ParallelSw[1]]: SM: sm_send_stl_request_impl: Error Sending to  Lid:[0x6] NodeGUID:[0xd0066a01060000f1] NodeDesc:[myr-core-1 ] PortIndex:[unknown]. AID:[PORTINFO] TID:[0x000000000000038e] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:28 2025: icx013.bm.cornelisnetworks.com; MSG:NOTICE|SM:icx013.bm.cornelisnetworks.com:port 2|COND:#8 Fabric initialization error|NODE:myr-core-1 :port 81:0xd0066a01060000f1|LINKEDTO:myr-edge-1 :port 81:0xd0066a01060000ed|DETAIL:Failed to set portinfo for node
+Tue Nov 11 11:39:28 2025: fm0_sm(4062): PROGR[ParallelSw[1]]: SM: sm_initialize_port_LR_DR: Port initialization of port 81 of node 0xd0066a01060000f1 with mixed LR-DR SMPs failed, retrying with pure DR SMPs
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x2 attrId 0x16 attrM 0x21d0000
+Tue Nov 11 11:39:28 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_send_stl_request_impl: Error Sending to  Lid:[0x7] NodeGUID:[0xd0066a01060000cf] NodeDesc:[myr-edge-2 ] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x000000000000038f] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:28 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_set_portPkey: Failed to set Partition Table for node myr-edge-2  guid 0xd0066a01060000cf node index 18 port index 29
+Tue Nov 11 11:39:28 2025: fm0_sm(4062): PROGR[ParallelSw[3]]: SM: sm_initialize_port_LR_DR: Retrying initialization of port 29 of node 0xd0066a01060000cf with mixed LR-DR SMPs
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:28 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:29 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+Tue Nov 11 11:39:29 2025: fm0_sm(4062): PROGR[async]: SA: sa_Trap: SM Sweep scheduled: Port State Change Trap (from LID 0x5)
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x1020000
+Tue Nov 11 11:39:29 2025: fm0_sm(4062): WARN [ParallelSw[2]]: SM: sm_send_stl_request_impl: Error Sending to Path:{2}[ 2 54 ] Lid:[0xffffffff] NodeGUID:[0xd0066a0101001439] NodeDesc:[icx015 hfi1_0] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x0000000000000390] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:29 2025: fm0_sm(4062): WARN [ParallelSw[2]]: SM: sm_set_portPkey: Failed to set Partition Table for node icx015 hfi1_0 guid 0xd0066a0101001439 node index 16 port index 2
+Tue Nov 11 11:39:29 2025: fm0_sm(4062): ERROR[ParallelSw[2]]: SM: _lid_assignment_worker: Marking port[2] of node[16] icx015 hfi1_0 guid 0xd0066a0101001439 DOWN in the topology
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x2360000
+Tue Nov 11 11:39:29 2025: fm0_sm(4062): WARN [ParallelSw[4]]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[ 2 ] Lid:[0xffffffff] NodeGUID:[0xd0066a01060000ed] NodeDesc:[myr-edge-1 ] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x0000000000000391] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:29 2025: fm0_sm(4062): WARN [ParallelSw[4]]: SM: sm_set_portPkey: Failed to set Partition Table for node myr-edge-1  guid 0xd0066a01060000ed node index 1 port index 54
+Tue Nov 11 11:39:29 2025: fm0_sm(4062): ERROR[ParallelSw[4]]: SM: _lid_assignment_worker: Marking port[54] of node[1] myr-edge-1  guid 0xd0066a01060000ed DOWN in the topology
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x15 attrM 0x1000051
+Tue Nov 11 11:39:29 2025: fm0_sm(4062): WARN [ParallelSw[1]]: SM: sm_send_stl_request_impl: Error Sending to Path:{2}[ 2 81 ] Lid:[0xffffffff] NodeGUID:[0xd0066a01060000f1] NodeDesc:[myr-core-1 ] PortIndex:[unknown]. AID:[PORTINFO] TID:[0x0000000000000392] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:29 2025: icx013.bm.cornelisnetworks.com; MSG:NOTICE|SM:icx013.bm.cornelisnetworks.com:port 2|COND:#8 Fabric initialization error|NODE:myr-core-1 :port 81:0xd0066a01060000f1|LINKEDTO:myr-edge-1 :port 81:0xd0066a01060000ed|DETAIL:Failed to set portinfo for node
+Tue Nov 11 11:39:29 2025: fm0_sm(4062): ERROR[ParallelSw[1]]: SM: _lid_assignment_worker: Marking port[81] of node[17] myr-core-1  guid 0xd0066a01060000f1 DOWN in the topology
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x2 attrId 0x16 attrM 0x21d0000
+Tue Nov 11 11:39:29 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_send_stl_request_impl: Error Sending to  Lid:[0x7] NodeGUID:[0xd0066a01060000cf] NodeDesc:[myr-edge-2 ] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x0000000000000393] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:29 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_set_portPkey: Failed to set Partition Table for node myr-edge-2  guid 0xd0066a01060000cf node index 18 port index 29
+Tue Nov 11 11:39:29 2025: fm0_sm(4062): PROGR[ParallelSw[3]]: SM: sm_initialize_port_LR_DR: Port initialization of port 29 of node 0xd0066a01060000cf with mixed LR-DR SMPs failed, retrying with pure DR SMPs
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:30 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:30 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+Tue Nov 11 11:39:30 2025: fm0_sm(4062): PROGR[async]: SA: sa_Trap: SM Sweep scheduled: Port State Change Trap (from LID 0x5)
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x15 attrM 0x1000051
+Tue Nov 11 11:39:30 2025: fm0_sm(4062): WARN [ParallelSw[4]]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[ 2 ] Lid:[0xffffffff] NodeGUID:[0xd0066a01060000ed] NodeDesc:[myr-edge-1 ] PortIndex:[unknown]. AID:[PORTINFO] TID:[0x0000000000000394] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:30 2025: icx013.bm.cornelisnetworks.com; MSG:NOTICE|SM:icx013.bm.cornelisnetworks.com:port 2|COND:#8 Fabric initialization error|NODE:myr-edge-1 :port 81:0xd0066a01060000ed|LINKEDTO:myr-core-1 :port 81:0xd0066a01060000f1|DETAIL:Failed to set portinfo for node
+Tue Nov 11 11:39:30 2025: fm0_sm(4062): ERROR[ParallelSw[4]]: SM: _lid_assignment_worker: Marking port[81] of node[1] myr-edge-1  guid 0xd0066a01060000ed DOWN in the topology
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x2 attrId 0x15 attrM 0x1000053
+Tue Nov 11 11:39:30 2025: fm0_sm(4062): WARN [ParallelSw[1]]: SM: sm_send_stl_request_impl: Error Sending to  Lid:[0x6] NodeGUID:[0xd0066a01060000f1] NodeDesc:[myr-core-1 ] PortIndex:[unknown]. AID:[PORTINFO] TID:[0x0000000000000395] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:30 2025: icx013.bm.cornelisnetworks.com; MSG:NOTICE|SM:icx013.bm.cornelisnetworks.com:port 2|COND:#8 Fabric initialization error|NODE:myr-core-1 :port 83:0xd0066a01060000f1|LINKEDTO:myr-edge-1 :port 83:0xd0066a01060000ed|DETAIL:Failed to set portinfo for node
+Tue Nov 11 11:39:30 2025: fm0_sm(4062): PROGR[ParallelSw[1]]: SM: sm_initialize_port_LR_DR: Retrying initialization of port 83 of node 0xd0066a01060000f1 with mixed LR-DR SMPs
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x21d0000
+Tue Nov 11 11:39:30 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_send_stl_request_impl: Error Sending to Path:{3}[ 2  9  1 ] Lid:[0xffffffff] NodeGUID:[0xd0066a01060000cf] NodeDesc:[myr-edge-2 ] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x0000000000000396] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:30 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_set_portPkey: Failed to set Partition Table for node myr-edge-2  guid 0xd0066a01060000cf node index 18 port index 29
+Tue Nov 11 11:39:30 2025: fm0_sm(4062): ERROR[ParallelSw[3]]: SM: _lid_assignment_worker: Marking port[29] of node[18] myr-edge-2  guid 0xd0066a01060000cf DOWN in the topology
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:31 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:31 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+Tue Nov 11 11:39:31 2025: fm0_sm(4062): PROGR[async]: SA: sa_Trap: SM Sweep scheduled: Port State Change Trap (from LID 0x5)
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x15 attrM 0x1000053
+Tue Nov 11 11:39:31 2025: fm0_sm(4062): WARN [ParallelSw[4]]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[ 2 ] Lid:[0xffffffff] NodeGUID:[0xd0066a01060000ed] NodeDesc:[myr-edge-1 ] PortIndex:[unknown]. AID:[PORTINFO] TID:[0x0000000000000397] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:31 2025: icx013.bm.cornelisnetworks.com; MSG:NOTICE|SM:icx013.bm.cornelisnetworks.com:port 2|COND:#8 Fabric initialization error|NODE:myr-edge-1 :port 83:0xd0066a01060000ed|LINKEDTO:myr-core-1 :port 83:0xd0066a01060000f1|DETAIL:Failed to set portinfo for node
+Tue Nov 11 11:39:31 2025: fm0_sm(4062): ERROR[ParallelSw[4]]: SM: _lid_assignment_worker: Marking port[83] of node[1] myr-edge-1  guid 0xd0066a01060000ed DOWN in the topology
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x2 attrId 0x15 attrM 0x1000053
+Tue Nov 11 11:39:31 2025: fm0_sm(4062): WARN [ParallelSw[1]]: SM: sm_send_stl_request_impl: Error Sending to  Lid:[0x6] NodeGUID:[0xd0066a01060000f1] NodeDesc:[myr-core-1 ] PortIndex:[unknown]. AID:[PORTINFO] TID:[0x0000000000000398] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:31 2025: icx013.bm.cornelisnetworks.com; MSG:NOTICE|SM:icx013.bm.cornelisnetworks.com:port 2|COND:#8 Fabric initialization error|NODE:myr-core-1 :port 83:0xd0066a01060000f1|LINKEDTO:myr-edge-1 :port 83:0xd0066a01060000ed|DETAIL:Failed to set portinfo for node
+Tue Nov 11 11:39:31 2025: fm0_sm(4062): PROGR[ParallelSw[1]]: SM: sm_initialize_port_LR_DR: Port initialization of port 83 of node 0xd0066a01060000f1 with mixed LR-DR SMPs failed, retrying with pure DR SMPs
+Tue Nov 11 11:39:31 2025: icx013.bm.cornelisnetworks.com; MSG:NOTICE|SM:icx013.bm.cornelisnetworks.com:port 2|COND:#8 Fabric initialization error|NODE:myr-core-1 :port 83:0xd0066a01060000f1|LINKEDTO:myr-edge-1 :port 83:0xd0066a01060000ed|DETAIL:Failed to init switch-to-switch link which was reported down
+Tue Nov 11 11:39:31 2025: fm0_sm(4062): ERROR[ParallelSw[1]]: SM: _lid_assignment_worker: Marking port[83] of node[17] myr-core-1  guid 0xd0066a01060000f1 DOWN in the topology
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x2 attrId 0x16 attrM 0x21e0000
+Tue Nov 11 11:39:31 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_send_stl_request_impl: Error Sending to  Lid:[0x7] NodeGUID:[0xd0066a01060000cf] NodeDesc:[myr-edge-2 ] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x0000000000000399] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:31 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_set_portPkey: Failed to set Partition Table for node myr-edge-2  guid 0xd0066a01060000cf node index 18 port index 30
+Tue Nov 11 11:39:31 2025: fm0_sm(4062): PROGR[ParallelSw[3]]: SM: sm_initialize_port_LR_DR: Retrying initialization of port 30 of node 0xd0066a01060000cf with mixed LR-DR SMPs
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:32 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:32 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+Tue Nov 11 11:39:32 2025: fm0_sm(4062): PROGR[async]: SA: sa_Trap: SM Sweep scheduled: Port State Change Trap (from LID 0x5)
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x15 attrM 0x1000055
+Tue Nov 11 11:39:32 2025: fm0_sm(4062): WARN [ParallelSw[4]]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[ 2 ] Lid:[0xffffffff] NodeGUID:[0xd0066a01060000ed] NodeDesc:[myr-edge-1 ] PortIndex:[unknown]. AID:[PORTINFO] TID:[0x000000000000039a] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:32 2025: icx013.bm.cornelisnetworks.com; MSG:NOTICE|SM:icx013.bm.cornelisnetworks.com:port 2|COND:#8 Fabric initialization error|NODE:myr-edge-1 :port 85:0xd0066a01060000ed|LINKEDTO:myr-core-1 :port 85:0xd0066a01060000f1|DETAIL:Failed to set portinfo for node
+Tue Nov 11 11:39:32 2025: fm0_sm(4062): ERROR[ParallelSw[4]]: SM: _lid_assignment_worker: Marking port[85] of node[1] myr-edge-1  guid 0xd0066a01060000ed DOWN in the topology
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x2 attrId 0x15 attrM 0x1000055
+Tue Nov 11 11:39:32 2025: fm0_sm(4062): WARN [ParallelSw[1]]: SM: sm_send_stl_request_impl: Error Sending to  Lid:[0x6] NodeGUID:[0xd0066a01060000f1] NodeDesc:[myr-core-1 ] PortIndex:[unknown]. AID:[PORTINFO] TID:[0x000000000000039b] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:32 2025: icx013.bm.cornelisnetworks.com; MSG:NOTICE|SM:icx013.bm.cornelisnetworks.com:port 2|COND:#8 Fabric initialization error|NODE:myr-core-1 :port 85:0xd0066a01060000f1|LINKEDTO:myr-edge-1 :port 85:0xd0066a01060000ed|DETAIL:Failed to set portinfo for node
+Tue Nov 11 11:39:32 2025: fm0_sm(4062): PROGR[ParallelSw[1]]: SM: sm_initialize_port_LR_DR: Retrying initialization of port 85 of node 0xd0066a01060000f1 with mixed LR-DR SMPs
+Tue Nov 11 11:39:32 2025: icx013.bm.cornelisnetworks.com; MSG:NOTICE|SM:icx013.bm.cornelisnetworks.com:port 2|COND:#8 Fabric initialization error|NODE:myr-core-1 :port 85:0xd0066a01060000f1|LINKEDTO:myr-edge-1 :port 85:0xd0066a01060000ed|DETAIL:Failed to init switch-to-switch link which was reported down
+Tue Nov 11 11:39:32 2025: fm0_sm(4062): PROGR[ParallelSw[1]]: SM: sm_initialize_port_LR_DR: Port initialization of port 85 of node 0xd0066a01060000f1 with mixed LR-DR SMPs failed, retrying with pure DR SMPs
+Tue Nov 11 11:39:32 2025: icx013.bm.cornelisnetworks.com; MSG:NOTICE|SM:icx013.bm.cornelisnetworks.com:port 2|COND:#8 Fabric initialization error|NODE:myr-core-1 :port 85:0xd0066a01060000f1|LINKEDTO:myr-edge-1 :port 85:0xd0066a01060000ed|DETAIL:Failed to init switch-to-switch link which was reported down
+Tue Nov 11 11:39:32 2025: fm0_sm(4062): ERROR[ParallelSw[1]]: SM: _lid_assignment_worker: Marking port[85] of node[17] myr-core-1  guid 0xd0066a01060000f1 DOWN in the topology
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x2 attrId 0x16 attrM 0x21e0000
+Tue Nov 11 11:39:32 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_send_stl_request_impl: Error Sending to  Lid:[0x7] NodeGUID:[0xd0066a01060000cf] NodeDesc:[myr-edge-2 ] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x000000000000039c] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:32 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_set_portPkey: Failed to set Partition Table for node myr-edge-2  guid 0xd0066a01060000cf node index 18 port index 30
+Tue Nov 11 11:39:32 2025: fm0_sm(4062): PROGR[ParallelSw[3]]: SM: sm_initialize_port_LR_DR: Port initialization of port 30 of node 0xd0066a01060000cf with mixed LR-DR SMPs failed, retrying with pure DR SMPs
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:33 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:33 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+Tue Nov 11 11:39:33 2025: fm0_sm(4062): PROGR[async]: SA: sa_Trap: SM Sweep scheduled: Port State Change Trap (from LID 0x5)
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x15 attrM 0x1000057
+Tue Nov 11 11:39:33 2025: fm0_sm(4062): WARN [ParallelSw[4]]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[ 2 ] Lid:[0xffffffff] NodeGUID:[0xd0066a01060000ed] NodeDesc:[myr-edge-1 ] PortIndex:[unknown]. AID:[PORTINFO] TID:[0x000000000000039d] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:33 2025: icx013.bm.cornelisnetworks.com; MSG:NOTICE|SM:icx013.bm.cornelisnetworks.com:port 2|COND:#8 Fabric initialization error|NODE:myr-edge-1 :port 87:0xd0066a01060000ed|LINKEDTO:myr-core-1 :port 87:0xd0066a01060000f1|DETAIL:Failed to set portinfo for node
+Tue Nov 11 11:39:33 2025: fm0_sm(4062): ERROR[ParallelSw[4]]: SM: _lid_assignment_worker: Marking port[87] of node[1] myr-edge-1  guid 0xd0066a01060000ed DOWN in the topology
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x2 attrId 0x15 attrM 0x1000057
+Tue Nov 11 11:39:34 2025: fm0_sm(4062): WARN [ParallelSw[1]]: SM: sm_send_stl_request_impl: Error Sending to  Lid:[0x6] NodeGUID:[0xd0066a01060000f1] NodeDesc:[myr-core-1 ] PortIndex:[unknown]. AID:[PORTINFO] TID:[0x000000000000039e] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:34 2025: icx013.bm.cornelisnetworks.com; MSG:NOTICE|SM:icx013.bm.cornelisnetworks.com:port 2|COND:#8 Fabric initialization error|NODE:myr-core-1 :port 87:0xd0066a01060000f1|LINKEDTO:myr-edge-1 :port 87:0xd0066a01060000ed|DETAIL:Failed to set portinfo for node
+Tue Nov 11 11:39:34 2025: fm0_sm(4062): PROGR[ParallelSw[1]]: SM: sm_initialize_port_LR_DR: Retrying initialization of port 87 of node 0xd0066a01060000f1 with mixed LR-DR SMPs
+Tue Nov 11 11:39:34 2025: icx013.bm.cornelisnetworks.com; MSG:NOTICE|SM:icx013.bm.cornelisnetworks.com:port 2|COND:#8 Fabric initialization error|NODE:myr-core-1 :port 87:0xd0066a01060000f1|LINKEDTO:myr-edge-1 :port 87:0xd0066a01060000ed|DETAIL:Failed to init switch-to-switch link which was reported down
+Tue Nov 11 11:39:34 2025: fm0_sm(4062): PROGR[ParallelSw[1]]: SM: sm_initialize_port_LR_DR: Port initialization of port 87 of node 0xd0066a01060000f1 with mixed LR-DR SMPs failed, retrying with pure DR SMPs
+Tue Nov 11 11:39:34 2025: icx013.bm.cornelisnetworks.com; MSG:NOTICE|SM:icx013.bm.cornelisnetworks.com:port 2|COND:#8 Fabric initialization error|NODE:myr-core-1 :port 87:0xd0066a01060000f1|LINKEDTO:myr-edge-1 :port 87:0xd0066a01060000ed|DETAIL:Failed to init switch-to-switch link which was reported down
+Tue Nov 11 11:39:34 2025: fm0_sm(4062): ERROR[ParallelSw[1]]: SM: _lid_assignment_worker: Marking port[87] of node[17] myr-core-1  guid 0xd0066a01060000f1 DOWN in the topology
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x21e0000
+Tue Nov 11 11:39:34 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_send_stl_request_impl: Error Sending to Path:{3}[ 2  9  1 ] Lid:[0xffffffff] NodeGUID:[0xd0066a01060000cf] NodeDesc:[myr-edge-2 ] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x000000000000039f] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:34 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_set_portPkey: Failed to set Partition Table for node myr-edge-2  guid 0xd0066a01060000cf node index 18 port index 30
+Tue Nov 11 11:39:34 2025: fm0_sm(4062): ERROR[ParallelSw[3]]: SM: _lid_assignment_worker: Marking port[30] of node[18] myr-edge-2  guid 0xd0066a01060000cf DOWN in the topology
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:34 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:34 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+Tue Nov 11 11:39:34 2025: fm0_sm(4062): PROGR[async]: SA: sa_Trap: SM Sweep scheduled: Port State Change Trap (from LID 0x5)
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x2 attrId 0x15 attrM 0x100005f
+Tue Nov 11 11:39:35 2025: fm0_sm(4062): WARN [ParallelSw[1]]: SM: sm_send_stl_request_impl: Error Sending to  Lid:[0x6] NodeGUID:[0xd0066a01060000f1] NodeDesc:[myr-core-1 ] PortIndex:[unknown]. AID:[PORTINFO] TID:[0x00000000000003a0] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:35 2025: icx013.bm.cornelisnetworks.com; MSG:NOTICE|SM:icx013.bm.cornelisnetworks.com:port 2|COND:#8 Fabric initialization error|NODE:myr-core-1 :port 95:0xd0066a01060000f1|LINKEDTO:myr-edge-2 :port 95:0xd0066a01060000cf|DETAIL:Failed to set portinfo for node
+Tue Nov 11 11:39:35 2025: fm0_sm(4062): PROGR[ParallelSw[1]]: SM: sm_initialize_port_LR_DR: Retrying initialization of port 95 of node 0xd0066a01060000f1 with mixed LR-DR SMPs
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x2 attrId 0x16 attrM 0x2210000
+Tue Nov 11 11:39:35 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_send_stl_request_impl: Error Sending to  Lid:[0x7] NodeGUID:[0xd0066a01060000cf] NodeDesc:[myr-edge-2 ] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x00000000000003a1] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:35 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_set_portPkey: Failed to set Partition Table for node myr-edge-2  guid 0xd0066a01060000cf node index 18 port index 33
+Tue Nov 11 11:39:35 2025: fm0_sm(4062): PROGR[ParallelSw[3]]: SM: sm_initialize_port_LR_DR: Retrying initialization of port 33 of node 0xd0066a01060000cf with mixed LR-DR SMPs
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:35 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:35 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+Tue Nov 11 11:39:35 2025: fm0_sm(4062): PROGR[async]: SA: sa_Trap: SM Sweep scheduled: Port State Change Trap (from LID 0x5)
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x2 attrId 0x15 attrM 0x100005f
+Tue Nov 11 11:39:36 2025: fm0_sm(4062): WARN [ParallelSw[1]]: SM: sm_send_stl_request_impl: Error Sending to  Lid:[0x6] NodeGUID:[0xd0066a01060000f1] NodeDesc:[myr-core-1 ] PortIndex:[unknown]. AID:[PORTINFO] TID:[0x00000000000003a2] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:36 2025: icx013.bm.cornelisnetworks.com; MSG:NOTICE|SM:icx013.bm.cornelisnetworks.com:port 2|COND:#8 Fabric initialization error|NODE:myr-core-1 :port 95:0xd0066a01060000f1|LINKEDTO:myr-edge-2 :port 95:0xd0066a01060000cf|DETAIL:Failed to set portinfo for node
+Tue Nov 11 11:39:36 2025: fm0_sm(4062): PROGR[ParallelSw[1]]: SM: sm_initialize_port_LR_DR: Port initialization of port 95 of node 0xd0066a01060000f1 with mixed LR-DR SMPs failed, retrying with pure DR SMPs
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x2 attrId 0x16 attrM 0x2210000
+Tue Nov 11 11:39:36 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_send_stl_request_impl: Error Sending to  Lid:[0x7] NodeGUID:[0xd0066a01060000cf] NodeDesc:[myr-edge-2 ] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x00000000000003a3] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:36 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_set_portPkey: Failed to set Partition Table for node myr-edge-2  guid 0xd0066a01060000cf node index 18 port index 33
+Tue Nov 11 11:39:36 2025: fm0_sm(4062): PROGR[ParallelSw[3]]: SM: sm_initialize_port_LR_DR: Port initialization of port 33 of node 0xd0066a01060000cf with mixed LR-DR SMPs failed, retrying with pure DR SMPs
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:36 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:36 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+Tue Nov 11 11:39:36 2025: fm0_sm(4062): PROGR[async]: SA: sa_Trap: SM Sweep scheduled: Port State Change Trap (from LID 0x5)
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x15 attrM 0x100005f
+Tue Nov 11 11:39:37 2025: fm0_sm(4062): WARN [ParallelSw[1]]: SM: sm_send_stl_request_impl: Error Sending to Path:{2}[ 2 81 ] Lid:[0xffffffff] NodeGUID:[0xd0066a01060000f1] NodeDesc:[myr-core-1 ] PortIndex:[unknown]. AID:[PORTINFO] TID:[0x00000000000003a4] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:37 2025: icx013.bm.cornelisnetworks.com; MSG:NOTICE|SM:icx013.bm.cornelisnetworks.com:port 2|COND:#8 Fabric initialization error|NODE:myr-core-1 :port 95:0xd0066a01060000f1|LINKEDTO:myr-edge-2 :port 95:0xd0066a01060000cf|DETAIL:Failed to set portinfo for node
+Tue Nov 11 11:39:37 2025: fm0_sm(4062): ERROR[ParallelSw[1]]: SM: _lid_assignment_worker: Marking port[95] of node[17] myr-core-1  guid 0xd0066a01060000f1 DOWN in the topology
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x2210000
+Tue Nov 11 11:39:37 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_send_stl_request_impl: Error Sending to Path:{3}[ 2  9  1 ] Lid:[0xffffffff] NodeGUID:[0xd0066a01060000cf] NodeDesc:[myr-edge-2 ] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x00000000000003a5] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:37 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_set_portPkey: Failed to set Partition Table for node myr-edge-2  guid 0xd0066a01060000cf node index 18 port index 33
+Tue Nov 11 11:39:37 2025: fm0_sm(4062): ERROR[ParallelSw[3]]: SM: _lid_assignment_worker: Marking port[33] of node[18] myr-edge-2  guid 0xd0066a01060000cf DOWN in the topology
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:37 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:37 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+Tue Nov 11 11:39:37 2025: fm0_sm(4062): PROGR[async]: SA: sa_Trap: SM Sweep scheduled: Port State Change Trap (from LID 0x5)
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x2 attrId 0x16 attrM 0x2250000
+Tue Nov 11 11:39:38 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_send_stl_request_impl: Error Sending to  Lid:[0x7] NodeGUID:[0xd0066a01060000cf] NodeDesc:[myr-edge-2 ] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x00000000000003a6] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:38 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_set_portPkey: Failed to set Partition Table for node myr-edge-2  guid 0xd0066a01060000cf node index 18 port index 37
+Tue Nov 11 11:39:38 2025: fm0_sm(4062): PROGR[ParallelSw[3]]: SM: sm_initialize_port_LR_DR: Retrying initialization of port 37 of node 0xd0066a01060000cf with mixed LR-DR SMPs
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:38 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:38 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+Tue Nov 11 11:39:38 2025: fm0_sm(4062): PROGR[async]: SA: sa_Trap: SM Sweep scheduled: Port State Change Trap (from LID 0x5)
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x2 attrId 0x16 attrM 0x2250000
+Tue Nov 11 11:39:39 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_send_stl_request_impl: Error Sending to  Lid:[0x7] NodeGUID:[0xd0066a01060000cf] NodeDesc:[myr-edge-2 ] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x00000000000003a7] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:39 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_set_portPkey: Failed to set Partition Table for node myr-edge-2  guid 0xd0066a01060000cf node index 18 port index 37
+Tue Nov 11 11:39:39 2025: fm0_sm(4062): PROGR[ParallelSw[3]]: SM: sm_initialize_port_LR_DR: Port initialization of port 37 of node 0xd0066a01060000cf with mixed LR-DR SMPs failed, retrying with pure DR SMPs
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:39 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:39 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+Tue Nov 11 11:39:39 2025: fm0_sm(4062): PROGR[async]: SA: sa_Trap: SM Sweep scheduled: Port State Change Trap (from LID 0x5)
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x2250000
+Tue Nov 11 11:39:40 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_send_stl_request_impl: Error Sending to Path:{3}[ 2  9  1 ] Lid:[0xffffffff] NodeGUID:[0xd0066a01060000cf] NodeDesc:[myr-edge-2 ] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x00000000000003a8] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:40 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_set_portPkey: Failed to set Partition Table for node myr-edge-2  guid 0xd0066a01060000cf node index 18 port index 37
+Tue Nov 11 11:39:40 2025: fm0_sm(4062): ERROR[ParallelSw[3]]: SM: _lid_assignment_worker: Marking port[37] of node[18] myr-edge-2  guid 0xd0066a01060000cf DOWN in the topology
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:40 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:41 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+Tue Nov 11 11:39:41 2025: fm0_sm(4062): PROGR[async]: SA: sa_Trap: SM Sweep scheduled: Port State Change Trap (from LID 0x5)
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x2 attrId 0x16 attrM 0x2260000
+Tue Nov 11 11:39:41 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_send_stl_request_impl: Error Sending to  Lid:[0x7] NodeGUID:[0xd0066a01060000cf] NodeDesc:[myr-edge-2 ] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x00000000000003a9] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:41 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_set_portPkey: Failed to set Partition Table for node myr-edge-2  guid 0xd0066a01060000cf node index 18 port index 38
+Tue Nov 11 11:39:41 2025: fm0_sm(4062): PROGR[ParallelSw[3]]: SM: sm_initialize_port_LR_DR: Retrying initialization of port 38 of node 0xd0066a01060000cf with mixed LR-DR SMPs
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:41 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:42 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+Tue Nov 11 11:39:42 2025: fm0_sm(4062): PROGR[async]: SA: sa_Trap: SM Sweep scheduled: Port State Change Trap (from LID 0x5)
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x2 attrId 0x16 attrM 0x2260000
+Tue Nov 11 11:39:42 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_send_stl_request_impl: Error Sending to  Lid:[0x7] NodeGUID:[0xd0066a01060000cf] NodeDesc:[myr-edge-2 ] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x00000000000003aa] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:42 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_set_portPkey: Failed to set Partition Table for node myr-edge-2  guid 0xd0066a01060000cf node index 18 port index 38
+Tue Nov 11 11:39:42 2025: fm0_sm(4062): PROGR[ParallelSw[3]]: SM: sm_initialize_port_LR_DR: Port initialization of port 38 of node 0xd0066a01060000cf with mixed LR-DR SMPs failed, retrying with pure DR SMPs
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:42 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:43 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+Tue Nov 11 11:39:43 2025: fm0_sm(4062): PROGR[async]: SA: sa_Trap: SM Sweep scheduled: Port State Change Trap (from LID 0x5)
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x2260000
+Tue Nov 11 11:39:43 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_send_stl_request_impl: Error Sending to Path:{3}[ 2  9  1 ] Lid:[0xffffffff] NodeGUID:[0xd0066a01060000cf] NodeDesc:[myr-edge-2 ] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x00000000000003ab] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:43 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_set_portPkey: Failed to set Partition Table for node myr-edge-2  guid 0xd0066a01060000cf node index 18 port index 38
+Tue Nov 11 11:39:43 2025: fm0_sm(4062): ERROR[ParallelSw[3]]: SM: _lid_assignment_worker: Marking port[38] of node[18] myr-edge-2  guid 0xd0066a01060000cf DOWN in the topology
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:43 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:44 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+Tue Nov 11 11:39:44 2025: fm0_sm(4062): PROGR[async]: SA: sa_Trap: SM Sweep scheduled: Port State Change Trap (from LID 0x5)
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x2 attrId 0x16 attrM 0x2290000
+Tue Nov 11 11:39:44 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_send_stl_request_impl: Error Sending to  Lid:[0x7] NodeGUID:[0xd0066a01060000cf] NodeDesc:[myr-edge-2 ] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x00000000000003ac] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:44 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_set_portPkey: Failed to set Partition Table for node myr-edge-2  guid 0xd0066a01060000cf node index 18 port index 41
+Tue Nov 11 11:39:44 2025: fm0_sm(4062): PROGR[ParallelSw[3]]: SM: sm_initialize_port_LR_DR: Retrying initialization of port 41 of node 0xd0066a01060000cf with mixed LR-DR SMPs
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:44 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:45 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+Tue Nov 11 11:39:45 2025: fm0_sm(4062): PROGR[async]: SA: sa_Trap: SM Sweep scheduled: Port State Change Trap (from LID 0x5)
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x2 attrId 0x16 attrM 0x2290000
+Tue Nov 11 11:39:45 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_send_stl_request_impl: Error Sending to  Lid:[0x7] NodeGUID:[0xd0066a01060000cf] NodeDesc:[myr-edge-2 ] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x00000000000003ad] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:45 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_set_portPkey: Failed to set Partition Table for node myr-edge-2  guid 0xd0066a01060000cf node index 18 port index 41
+Tue Nov 11 11:39:45 2025: fm0_sm(4062): PROGR[ParallelSw[3]]: SM: sm_initialize_port_LR_DR: Port initialization of port 41 of node 0xd0066a01060000cf with mixed LR-DR SMPs failed, retrying with pure DR SMPs
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:45 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:46 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+Tue Nov 11 11:39:46 2025: fm0_sm(4062): PROGR[async]: SA: sa_Trap: SM Sweep scheduled: Port State Change Trap (from LID 0x5)
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x2290000
+Tue Nov 11 11:39:46 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_send_stl_request_impl: Error Sending to Path:{3}[ 2  9  1 ] Lid:[0xffffffff] NodeGUID:[0xd0066a01060000cf] NodeDesc:[myr-edge-2 ] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x00000000000003ae] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:46 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_set_portPkey: Failed to set Partition Table for node myr-edge-2  guid 0xd0066a01060000cf node index 18 port index 41
+Tue Nov 11 11:39:46 2025: fm0_sm(4062): ERROR[ParallelSw[3]]: SM: _lid_assignment_worker: Marking port[41] of node[18] myr-edge-2  guid 0xd0066a01060000cf DOWN in the topology
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:46 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:47 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+Tue Nov 11 11:39:47 2025: fm0_sm(4062): PROGR[async]: SA: sa_Trap: SM Sweep scheduled: Port State Change Trap (from LID 0x5)
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x2 attrId 0x16 attrM 0x22a0000
+Tue Nov 11 11:39:47 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_send_stl_request_impl: Error Sending to  Lid:[0x7] NodeGUID:[0xd0066a01060000cf] NodeDesc:[myr-edge-2 ] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x00000000000003af] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:47 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_set_portPkey: Failed to set Partition Table for node myr-edge-2  guid 0xd0066a01060000cf node index 18 port index 42
+Tue Nov 11 11:39:47 2025: fm0_sm(4062): PROGR[ParallelSw[3]]: SM: sm_initialize_port_LR_DR: Retrying initialization of port 42 of node 0xd0066a01060000cf with mixed LR-DR SMPs
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:47 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:48 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+Tue Nov 11 11:39:48 2025: fm0_sm(4062): PROGR[async]: SA: sa_Trap: SM Sweep scheduled: Port State Change Trap (from LID 0x5)
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x2 attrId 0x16 attrM 0x22a0000
+Tue Nov 11 11:39:48 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_send_stl_request_impl: Error Sending to  Lid:[0x7] NodeGUID:[0xd0066a01060000cf] NodeDesc:[myr-edge-2 ] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x00000000000003b0] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:48 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_set_portPkey: Failed to set Partition Table for node myr-edge-2  guid 0xd0066a01060000cf node index 18 port index 42
+Tue Nov 11 11:39:48 2025: fm0_sm(4062): PROGR[ParallelSw[3]]: SM: sm_initialize_port_LR_DR: Port initialization of port 42 of node 0xd0066a01060000cf with mixed LR-DR SMPs failed, retrying with pure DR SMPs
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:48 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:49 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+Tue Nov 11 11:39:49 2025: fm0_sm(4062): PROGR[async]: SA: sa_Trap: SM Sweep scheduled: Port State Change Trap (from LID 0x5)
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x22a0000
+Tue Nov 11 11:39:49 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_send_stl_request_impl: Error Sending to Path:{3}[ 2  9  1 ] Lid:[0xffffffff] NodeGUID:[0xd0066a01060000cf] NodeDesc:[myr-edge-2 ] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x00000000000003b1] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:49 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_set_portPkey: Failed to set Partition Table for node myr-edge-2  guid 0xd0066a01060000cf node index 18 port index 42
+Tue Nov 11 11:39:49 2025: fm0_sm(4062): ERROR[ParallelSw[3]]: SM: _lid_assignment_worker: Marking port[42] of node[18] myr-edge-2  guid 0xd0066a01060000cf DOWN in the topology
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:49 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:50 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+Tue Nov 11 11:39:50 2025: fm0_sm(4062): PROGR[async]: SA: sa_Trap: SM Sweep scheduled: Port State Change Trap (from LID 0x5)
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x2 attrId 0x16 attrM 0x22b0000
+Tue Nov 11 11:39:50 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_send_stl_request_impl: Error Sending to  Lid:[0x7] NodeGUID:[0xd0066a01060000cf] NodeDesc:[myr-edge-2 ] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x00000000000003b2] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:50 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_set_portPkey: Failed to set Partition Table for node myr-edge-2  guid 0xd0066a01060000cf node index 18 port index 43
+Tue Nov 11 11:39:50 2025: fm0_sm(4062): PROGR[ParallelSw[3]]: SM: sm_initialize_port_LR_DR: Retrying initialization of port 43 of node 0xd0066a01060000cf with mixed LR-DR SMPs
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:51 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:51 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+Tue Nov 11 11:39:51 2025: fm0_sm(4062): PROGR[async]: SA: sa_Trap: SM Sweep scheduled: Port State Change Trap (from LID 0x5)
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x2 attrId 0x16 attrM 0x22b0000
+Tue Nov 11 11:39:51 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_send_stl_request_impl: Error Sending to  Lid:[0x7] NodeGUID:[0xd0066a01060000cf] NodeDesc:[myr-edge-2 ] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x00000000000003b3] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:51 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_set_portPkey: Failed to set Partition Table for node myr-edge-2  guid 0xd0066a01060000cf node index 18 port index 43
+Tue Nov 11 11:39:51 2025: fm0_sm(4062): PROGR[ParallelSw[3]]: SM: sm_initialize_port_LR_DR: Port initialization of port 43 of node 0xd0066a01060000cf with mixed LR-DR SMPs failed, retrying with pure DR SMPs
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:52 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:52 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+Tue Nov 11 11:39:52 2025: fm0_sm(4062): PROGR[async]: SA: sa_Trap: SM Sweep scheduled: Port State Change Trap (from LID 0x5)
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x22b0000
+Tue Nov 11 11:39:52 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_send_stl_request_impl: Error Sending to Path:{3}[ 2  9  1 ] Lid:[0xffffffff] NodeGUID:[0xd0066a01060000cf] NodeDesc:[myr-edge-2 ] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x00000000000003b4] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:52 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_set_portPkey: Failed to set Partition Table for node myr-edge-2  guid 0xd0066a01060000cf node index 18 port index 43
+Tue Nov 11 11:39:52 2025: fm0_sm(4062): ERROR[ParallelSw[3]]: SM: _lid_assignment_worker: Marking port[43] of node[18] myr-edge-2  guid 0xd0066a01060000cf DOWN in the topology
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:53 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:53 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+Tue Nov 11 11:39:53 2025: fm0_sm(4062): PROGR[async]: SA: sa_Trap: SM Sweep scheduled: Port State Change Trap (from LID 0x5)
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x2 attrId 0x16 attrM 0x22c0000
+Tue Nov 11 11:39:53 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_send_stl_request_impl: Error Sending to  Lid:[0x7] NodeGUID:[0xd0066a01060000cf] NodeDesc:[myr-edge-2 ] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x00000000000003b5] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:53 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_set_portPkey: Failed to set Partition Table for node myr-edge-2  guid 0xd0066a01060000cf node index 18 port index 44
+Tue Nov 11 11:39:53 2025: fm0_sm(4062): PROGR[ParallelSw[3]]: SM: sm_initialize_port_LR_DR: Retrying initialization of port 44 of node 0xd0066a01060000cf with mixed LR-DR SMPs
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:54 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:54 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+Tue Nov 11 11:39:54 2025: fm0_sm(4062): PROGR[async]: SA: sa_Trap: SM Sweep scheduled: Port State Change Trap (from LID 0x5)
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x2 attrId 0x16 attrM 0x22c0000
+Tue Nov 11 11:39:54 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_send_stl_request_impl: Error Sending to  Lid:[0x7] NodeGUID:[0xd0066a01060000cf] NodeDesc:[myr-edge-2 ] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x00000000000003b6] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:54 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_set_portPkey: Failed to set Partition Table for node myr-edge-2  guid 0xd0066a01060000cf node index 18 port index 44
+Tue Nov 11 11:39:54 2025: fm0_sm(4062): PROGR[ParallelSw[3]]: SM: sm_initialize_port_LR_DR: Port initialization of port 44 of node 0xd0066a01060000cf with mixed LR-DR SMPs failed, retrying with pure DR SMPs
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:55 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:55 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+Tue Nov 11 11:39:55 2025: fm0_sm(4062): PROGR[async]: SA: sa_Trap: SM Sweep scheduled: Port State Change Trap (from LID 0x5)
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x22c0000
+Tue Nov 11 11:39:55 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_send_stl_request_impl: Error Sending to Path:{3}[ 2  9  1 ] Lid:[0xffffffff] NodeGUID:[0xd0066a01060000cf] NodeDesc:[myr-edge-2 ] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x00000000000003b7] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:55 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_set_portPkey: Failed to set Partition Table for node myr-edge-2  guid 0xd0066a01060000cf node index 18 port index 44
+Tue Nov 11 11:39:55 2025: fm0_sm(4062): ERROR[ParallelSw[3]]: SM: _lid_assignment_worker: Marking port[44] of node[18] myr-edge-2  guid 0xd0066a01060000cf DOWN in the topology
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:56 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:56 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+Tue Nov 11 11:39:56 2025: fm0_sm(4062): PROGR[async]: SA: sa_Trap: SM Sweep scheduled: Port State Change Trap (from LID 0x5)
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x2 attrId 0x16 attrM 0x22d0000
+Tue Nov 11 11:39:56 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_send_stl_request_impl: Error Sending to  Lid:[0x7] NodeGUID:[0xd0066a01060000cf] NodeDesc:[myr-edge-2 ] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x00000000000003b8] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:56 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_set_portPkey: Failed to set Partition Table for node myr-edge-2  guid 0xd0066a01060000cf node index 18 port index 45
+Tue Nov 11 11:39:56 2025: fm0_sm(4062): PROGR[ParallelSw[3]]: SM: sm_initialize_port_LR_DR: Retrying initialization of port 45 of node 0xd0066a01060000cf with mixed LR-DR SMPs
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:57 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:57 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+Tue Nov 11 11:39:57 2025: fm0_sm(4062): PROGR[async]: SA: sa_Trap: SM Sweep scheduled: Port State Change Trap (from LID 0x5)
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x2 attrId 0x16 attrM 0x22d0000
+Tue Nov 11 11:39:57 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_send_stl_request_impl: Error Sending to  Lid:[0x7] NodeGUID:[0xd0066a01060000cf] NodeDesc:[myr-edge-2 ] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x00000000000003b9] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:57 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_set_portPkey: Failed to set Partition Table for node myr-edge-2  guid 0xd0066a01060000cf node index 18 port index 45
+Tue Nov 11 11:39:57 2025: fm0_sm(4062): PROGR[ParallelSw[3]]: SM: sm_initialize_port_LR_DR: Port initialization of port 45 of node 0xd0066a01060000cf with mixed LR-DR SMPs failed, retrying with pure DR SMPs
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:58 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:58 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+Tue Nov 11 11:39:58 2025: fm0_sm(4062): PROGR[async]: SA: sa_Trap: SM Sweep scheduled: Port State Change Trap (from LID 0x5)
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x22d0000
+Tue Nov 11 11:39:58 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_send_stl_request_impl: Error Sending to Path:{3}[ 2  9  1 ] Lid:[0xffffffff] NodeGUID:[0xd0066a01060000cf] NodeDesc:[myr-edge-2 ] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x00000000000003ba] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:58 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_set_portPkey: Failed to set Partition Table for node myr-edge-2  guid 0xd0066a01060000cf node index 18 port index 45
+Tue Nov 11 11:39:58 2025: fm0_sm(4062): ERROR[ParallelSw[3]]: SM: _lid_assignment_worker: Marking port[45] of node[18] myr-edge-2  guid 0xd0066a01060000cf DOWN in the topology
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:59 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x2 attrId 0x16 attrM 0x22e0000
+Tue Nov 11 11:39:59 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_send_stl_request_impl: Error Sending to  Lid:[0x7] NodeGUID:[0xd0066a01060000cf] NodeDesc:[myr-edge-2 ] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x00000000000003bb] Status:[OK (0x00000000)]
+Tue Nov 11 11:39:59 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_set_portPkey: Failed to set Partition Table for node myr-edge-2  guid 0xd0066a01060000cf node index 18 port index 46
+Tue Nov 11 11:39:59 2025: fm0_sm(4062): PROGR[ParallelSw[3]]: SM: sm_initialize_port_LR_DR: Retrying initialization of port 46 of node 0xd0066a01060000cf with mixed LR-DR SMPs
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:39:59 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+Tue Nov 11 11:39:59 2025: fm0_sm(4062): PROGR[async]: SA: sa_Trap: SM Sweep scheduled: Port State Change Trap (from LID 0x5)
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:40:00 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x2 attrId 0x16 attrM 0x22e0000
+Tue Nov 11 11:40:00 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_send_stl_request_impl: Error Sending to  Lid:[0x7] NodeGUID:[0xd0066a01060000cf] NodeDesc:[myr-edge-2 ] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x00000000000003bc] Status:[OK (0x00000000)]
+Tue Nov 11 11:40:00 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_set_portPkey: Failed to set Partition Table for node myr-edge-2  guid 0xd0066a01060000cf node index 18 port index 46
+Tue Nov 11 11:40:00 2025: fm0_sm(4062): PROGR[ParallelSw[3]]: SM: sm_initialize_port_LR_DR: Port initialization of port 46 of node 0xd0066a01060000cf with mixed LR-DR SMPs failed, retrying with pure DR SMPs
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:40:00 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+Tue Nov 11 11:40:00 2025: fm0_sm(4062): PROGR[async]: SA: sa_Trap: SM Sweep scheduled: Port State Change Trap (from LID 0x5)
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:40:01 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x22e0000
+Tue Nov 11 11:40:02 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_send_stl_request_impl: Error Sending to Path:{3}[ 2  9  1 ] Lid:[0xffffffff] NodeGUID:[0xd0066a01060000cf] NodeDesc:[myr-edge-2 ] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x00000000000003bd] Status:[OK (0x00000000)]
+Tue Nov 11 11:40:02 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_set_portPkey: Failed to set Partition Table for node myr-edge-2  guid 0xd0066a01060000cf node index 18 port index 46
+Tue Nov 11 11:40:02 2025: fm0_sm(4062): ERROR[ParallelSw[3]]: SM: _lid_assignment_worker: Marking port[46] of node[18] myr-edge-2  guid 0xd0066a01060000cf DOWN in the topology
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:40:02 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+Tue Nov 11 11:40:02 2025: fm0_sm(4062): PROGR[async]: SA: sa_Trap: SM Sweep scheduled: Port State Change Trap (from LID 0x5)
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:40:02 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x2 attrId 0x16 attrM 0x2310000
+Tue Nov 11 11:40:03 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_send_stl_request_impl: Error Sending to  Lid:[0x7] NodeGUID:[0xd0066a01060000cf] NodeDesc:[myr-edge-2 ] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x00000000000003be] Status:[OK (0x00000000)]
+Tue Nov 11 11:40:03 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_set_portPkey: Failed to set Partition Table for node myr-edge-2  guid 0xd0066a01060000cf node index 18 port index 49
+Tue Nov 11 11:40:03 2025: fm0_sm(4062): PROGR[ParallelSw[3]]: SM: sm_initialize_port_LR_DR: Retrying initialization of port 49 of node 0xd0066a01060000cf with mixed LR-DR SMPs
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:40:03 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+Tue Nov 11 11:40:03 2025: fm0_sm(4062): PROGR[async]: SA: sa_Trap: SM Sweep scheduled: Port State Change Trap (from LID 0x5)
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:40:03 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x2 attrId 0x16 attrM 0x2310000
+Tue Nov 11 11:40:04 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_send_stl_request_impl: Error Sending to  Lid:[0x7] NodeGUID:[0xd0066a01060000cf] NodeDesc:[myr-edge-2 ] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x00000000000003bf] Status:[OK (0x00000000)]
+Tue Nov 11 11:40:04 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_set_portPkey: Failed to set Partition Table for node myr-edge-2  guid 0xd0066a01060000cf node index 18 port index 49
+Tue Nov 11 11:40:04 2025: fm0_sm(4062): PROGR[ParallelSw[3]]: SM: sm_initialize_port_LR_DR: Port initialization of port 49 of node 0xd0066a01060000cf with mixed LR-DR SMPs failed, retrying with pure DR SMPs
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:40:04 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+Tue Nov 11 11:40:04 2025: fm0_sm(4062): PROGR[async]: SA: sa_Trap: SM Sweep scheduled: Port State Change Trap (from LID 0x5)
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:40:04 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x2310000
+Tue Nov 11 11:40:05 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_send_stl_request_impl: Error Sending to Path:{3}[ 2  9  1 ] Lid:[0xffffffff] NodeGUID:[0xd0066a01060000cf] NodeDesc:[myr-edge-2 ] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x00000000000003c0] Status:[OK (0x00000000)]
+Tue Nov 11 11:40:05 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_set_portPkey: Failed to set Partition Table for node myr-edge-2  guid 0xd0066a01060000cf node index 18 port index 49
+Tue Nov 11 11:40:05 2025: fm0_sm(4062): ERROR[ParallelSw[3]]: SM: _lid_assignment_worker: Marking port[49] of node[18] myr-edge-2  guid 0xd0066a01060000cf DOWN in the topology
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:40:05 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+Tue Nov 11 11:40:05 2025: fm0_sm(4062): PROGR[async]: SA: sa_Trap: SM Sweep scheduled: Port State Change Trap (from LID 0x5)
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:40:05 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x2 attrId 0x16 attrM 0x2320000
+Tue Nov 11 11:40:06 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_send_stl_request_impl: Error Sending to  Lid:[0x7] NodeGUID:[0xd0066a01060000cf] NodeDesc:[myr-edge-2 ] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x00000000000003c1] Status:[OK (0x00000000)]
+Tue Nov 11 11:40:06 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_set_portPkey: Failed to set Partition Table for node myr-edge-2  guid 0xd0066a01060000cf node index 18 port index 50
+Tue Nov 11 11:40:06 2025: fm0_sm(4062): PROGR[ParallelSw[3]]: SM: sm_initialize_port_LR_DR: Retrying initialization of port 50 of node 0xd0066a01060000cf with mixed LR-DR SMPs
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:40:06 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+Tue Nov 11 11:40:06 2025: fm0_sm(4062): PROGR[async]: SA: sa_Trap: SM Sweep scheduled: Port State Change Trap (from LID 0x5)
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:40:06 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x2 attrId 0x16 attrM 0x2320000
+Tue Nov 11 11:40:07 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_send_stl_request_impl: Error Sending to  Lid:[0x7] NodeGUID:[0xd0066a01060000cf] NodeDesc:[myr-edge-2 ] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x00000000000003c2] Status:[OK (0x00000000)]
+Tue Nov 11 11:40:07 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_set_portPkey: Failed to set Partition Table for node myr-edge-2  guid 0xd0066a01060000cf node index 18 port index 50
+Tue Nov 11 11:40:07 2025: fm0_sm(4062): PROGR[ParallelSw[3]]: SM: sm_initialize_port_LR_DR: Port initialization of port 50 of node 0xd0066a01060000cf with mixed LR-DR SMPs failed, retrying with pure DR SMPs
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:40:07 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+Tue Nov 11 11:40:07 2025: fm0_sm(4062): PROGR[async]: SA: sa_Trap: SM Sweep scheduled: Port State Change Trap (from LID 0x5)
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:40:07 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x2320000
+Tue Nov 11 11:40:08 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_send_stl_request_impl: Error Sending to Path:{3}[ 2  9  1 ] Lid:[0xffffffff] NodeGUID:[0xd0066a01060000cf] NodeDesc:[myr-edge-2 ] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x00000000000003c3] Status:[OK (0x00000000)]
+Tue Nov 11 11:40:08 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_set_portPkey: Failed to set Partition Table for node myr-edge-2  guid 0xd0066a01060000cf node index 18 port index 50
+Tue Nov 11 11:40:08 2025: fm0_sm(4062): ERROR[ParallelSw[3]]: SM: _lid_assignment_worker: Marking port[50] of node[18] myr-edge-2  guid 0xd0066a01060000cf DOWN in the topology
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:40:08 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+Tue Nov 11 11:40:08 2025: fm0_sm(4062): PROGR[async]: SA: sa_Trap: SM Sweep scheduled: Port State Change Trap (from LID 0x5)
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:40:08 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x2 attrId 0x16 attrM 0x2350000
+Tue Nov 11 11:40:09 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_send_stl_request_impl: Error Sending to  Lid:[0x7] NodeGUID:[0xd0066a01060000cf] NodeDesc:[myr-edge-2 ] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x00000000000003c4] Status:[OK (0x00000000)]
+Tue Nov 11 11:40:09 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_set_portPkey: Failed to set Partition Table for node myr-edge-2  guid 0xd0066a01060000cf node index 18 port index 53
+Tue Nov 11 11:40:09 2025: fm0_sm(4062): PROGR[ParallelSw[3]]: SM: sm_initialize_port_LR_DR: Retrying initialization of port 53 of node 0xd0066a01060000cf with mixed LR-DR SMPs
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:40:09 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+Tue Nov 11 11:40:09 2025: fm0_sm(4062): PROGR[async]: SA: sa_Trap: SM Sweep scheduled: Port State Change Trap (from LID 0x5)
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:40:09 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x2 attrId 0x16 attrM 0x2350000
+Tue Nov 11 11:40:10 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_send_stl_request_impl: Error Sending to  Lid:[0x7] NodeGUID:[0xd0066a01060000cf] NodeDesc:[myr-edge-2 ] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x00000000000003c5] Status:[OK (0x00000000)]
+Tue Nov 11 11:40:10 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_set_portPkey: Failed to set Partition Table for node myr-edge-2  guid 0xd0066a01060000cf node index 18 port index 53
+Tue Nov 11 11:40:10 2025: fm0_sm(4062): PROGR[ParallelSw[3]]: SM: sm_initialize_port_LR_DR: Port initialization of port 53 of node 0xd0066a01060000cf with mixed LR-DR SMPs failed, retrying with pure DR SMPs
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:40:10 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+Tue Nov 11 11:40:10 2025: fm0_sm(4062): PROGR[async]: SA: sa_Trap: SM Sweep scheduled: Port State Change Trap (from LID 0x5)
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:40:10 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x2350000
+Tue Nov 11 11:40:11 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_send_stl_request_impl: Error Sending to Path:{3}[ 2  9  1 ] Lid:[0xffffffff] NodeGUID:[0xd0066a01060000cf] NodeDesc:[myr-edge-2 ] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x00000000000003c6] Status:[OK (0x00000000)]
+Tue Nov 11 11:40:11 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_set_portPkey: Failed to set Partition Table for node myr-edge-2  guid 0xd0066a01060000cf node index 18 port index 53
+Tue Nov 11 11:40:11 2025: fm0_sm(4062): ERROR[ParallelSw[3]]: SM: _lid_assignment_worker: Marking port[53] of node[18] myr-edge-2  guid 0xd0066a01060000cf DOWN in the topology
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:40:11 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+Tue Nov 11 11:40:11 2025: fm0_sm(4062): PROGR[async]: SA: sa_Trap: SM Sweep scheduled: Port State Change Trap (from LID 0x5)
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:40:12 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x2 attrId 0x16 attrM 0x2360000
+Tue Nov 11 11:40:12 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_send_stl_request_impl: Error Sending to  Lid:[0x7] NodeGUID:[0xd0066a01060000cf] NodeDesc:[myr-edge-2 ] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x00000000000003c7] Status:[OK (0x00000000)]
+Tue Nov 11 11:40:12 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_set_portPkey: Failed to set Partition Table for node myr-edge-2  guid 0xd0066a01060000cf node index 18 port index 54
+Tue Nov 11 11:40:12 2025: fm0_sm(4062): PROGR[ParallelSw[3]]: SM: sm_initialize_port_LR_DR: Retrying initialization of port 54 of node 0xd0066a01060000cf with mixed LR-DR SMPs
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:40:12 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+Tue Nov 11 11:40:12 2025: fm0_sm(4062): PROGR[async]: SA: sa_Trap: SM Sweep scheduled: Port State Change Trap (from LID 0x5)
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:40:13 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x2 attrId 0x16 attrM 0x2360000
+Tue Nov 11 11:40:13 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_send_stl_request_impl: Error Sending to  Lid:[0x7] NodeGUID:[0xd0066a01060000cf] NodeDesc:[myr-edge-2 ] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x00000000000003c8] Status:[OK (0x00000000)]
+Tue Nov 11 11:40:13 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_set_portPkey: Failed to set Partition Table for node myr-edge-2  guid 0xd0066a01060000cf node index 18 port index 54
+Tue Nov 11 11:40:13 2025: fm0_sm(4062): PROGR[ParallelSw[3]]: SM: sm_initialize_port_LR_DR: Port initialization of port 54 of node 0xd0066a01060000cf with mixed LR-DR SMPs failed, retrying with pure DR SMPs
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:40:13 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+Tue Nov 11 11:40:13 2025: fm0_sm(4062): PROGR[async]: SA: sa_Trap: SM Sweep scheduled: Port State Change Trap (from LID 0x5)
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 3 MClass 0x1 method 0x7 attrId 0x2 attrM 0x0
+Tue Nov 11 11:40:14 2025: fm0_sm(4062): ERROR[async]: SM: mai_reply: mai_send failed rc: 1: Bad status
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x2 attrId 0x16 attrM 0x2360000
+Tue Nov 11 11:40:14 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_send_stl_request_impl: Error Sending to Path:{3}[ 2  9  1 ] Lid:[0xffffffff] NodeGUID:[0xd0066a01060000cf] NodeDesc:[myr-edge-2 ] PortIndex:[unknown]. AID:[PARTITION TABLE] TID:[0x00000000000003c9] Status:[OK (0x00000000)]
+Tue Nov 11 11:40:14 2025: fm0_sm(4062): WARN [ParallelSw[3]]: SM: sm_set_portPkey: Failed to set Partition Table for node myr-edge-2  guid 0xd0066a01060000cf node index 18 port index 54
+Tue Nov 11 11:40:14 2025: fm0_sm(4062): ERROR[ParallelSw[3]]: SM: _lid_assignment_worker: Marking port[54] of node[18] myr-edge-2  guid 0xd0066a01060000cf DOWN in the topology
+Tue Nov 11 11:40:14 2025: fm0_sm(4062): PROGR[topology]: SM: sm_transition: SM STATE TRANSITION from MASTER to DISCOVERING
+Tue Nov 11 11:40:14 2025: fm0_sm(4062): WARN [topology]: SM: topology_main: TT: too many errors during sweep, will re-sweep in a few seconds rc: 108: unrecoverable error
+Tue Nov 11 11:40:14 2025: fm0_sm(4062): PROGR[topology]: SM: topology_main: DISCOVERY CYCLE FAIL. 0 SWs, 0 HFIs, 0 end ports, 0 total ports, 1091 packets, 127 retries
+Tue Nov 11 11:40:14 2025: fm0_sm(4062): PROGR[topology]: SM: topology_main: TT: DISCOVERY CYCLE START - REASON: Trap event occurred that requires re-sweep.
+
+Tue Nov 11 11:40:14 2025: fm0_sm(4062): PROGR[topology]: SM: sm_set_local_port_pkey: sm pkey table already set
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x1 attrId 0x11 attrM 0x0
+Tue Nov 11 11:40:15 2025: fm0_sm(4062): WARN [topology]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[ 2 ] Lid:[0xffffffff] [Can't find node in topology!]. AID:[NODEINFO] TID:[0x00000000000003d1] Status:[OK (0x00000000)]
+Tue Nov 11 11:40:15 2025: fm0_sm(4062): ERROR[topology]: SM: sweep_initialize: Can't get neighbor NodeInfo, sleeping rc: 1
+Tue Nov 11 11:40:15 2025: fm0_sm(4062): WARN [topology]: SM: topology_main: TT: too many errors during sweep, will re-sweep in a few seconds rc: 108: unrecoverable error
+Tue Nov 11 11:40:15 2025: fm0_sm(4062): PROGR[topology]: SM: topology_main: DISCOVERY CYCLE FAIL. 0 SWs, 0 HFIs, 0 end ports, 0 total ports, 9 packets, 128 retries
+Tue Nov 11 11:40:15 2025: fm0_sm(4062): PROGR[topology]: SM: topology_main: TT: DISCOVERY CYCLE START - REASON: Scheduled sweep interval
+
+Tue Nov 11 11:40:15 2025: fm0_sm(4062): PROGR[topology]: SM: sm_set_local_port_pkey: sm pkey table already set
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x1 attrId 0x11 attrM 0x0
+Tue Nov 11 11:40:16 2025: fm0_sm(4062): WARN [topology]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[ 2 ] Lid:[0xffffffff] [Can't find node in topology!]. AID:[NODEINFO] TID:[0x00000000000003d9] Status:[OK (0x00000000)]
+Tue Nov 11 11:40:16 2025: fm0_sm(4062): WARN [topology]: SM: topology_main: TT: too many errors during sweep, will re-sweep in a few seconds rc: 108: unrecoverable error
+Tue Nov 11 11:40:16 2025: fm0_sm(4062): PROGR[topology]: SM: topology_main: DISCOVERY CYCLE FAIL. 0 SWs, 0 HFIs, 0 end ports, 0 total ports, 9 packets, 129 retries
+Tue Nov 11 11:40:21 2025: fm0_sm(4062): PROGR[topology]: SM: topology_main: TT: DISCOVERY CYCLE START - REASON: Problems during previous sweep, retrying.
+
+Tue Nov 11 11:40:21 2025: fm0_sm(4062): PROGR[topology]: SM: sm_set_local_port_pkey: sm pkey table already set
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x1 attrId 0x11 attrM 0x0
+Tue Nov 11 11:40:22 2025: fm0_sm(4062): WARN [topology]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[ 2 ] Lid:[0xffffffff] [Can't find node in topology!]. AID:[NODEINFO] TID:[0x00000000000003e1] Status:[OK (0x00000000)]
+Tue Nov 11 11:40:22 2025: fm0_sm(4062): WARN [topology]: SM: topology_main: TT: too many errors during sweep, will re-sweep in a few seconds rc: 108: unrecoverable error
+Tue Nov 11 11:40:22 2025: fm0_sm(4062): PROGR[topology]: SM: topology_main: DISCOVERY CYCLE FAIL. 0 SWs, 0 HFIs, 0 end ports, 0 total ports, 9 packets, 130 retries
+Tue Nov 11 11:40:27 2025: fm0_sm(4062): PROGR[topology]: SM: topology_main: TT: DISCOVERY CYCLE START - REASON: Problems during previous sweep, retrying.
+
+Tue Nov 11 11:40:27 2025: fm0_sm(4062): PROGR[topology]: SM: sm_set_local_port_pkey: sm pkey table already set
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x1 attrId 0x11 attrM 0x0
+Tue Nov 11 11:40:28 2025: fm0_sm(4062): WARN [topology]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[ 2 ] Lid:[0xffffffff] [Can't find node in topology!]. AID:[NODEINFO] TID:[0x00000000000003e9] Status:[OK (0x00000000)]
+Tue Nov 11 11:40:28 2025: fm0_sm(4062): WARN [topology]: SM: topology_main: TT: too many errors during sweep, will re-sweep in a few seconds rc: 108: unrecoverable error
+Tue Nov 11 11:40:28 2025: fm0_sm(4062): PROGR[topology]: SM: topology_main: DISCOVERY CYCLE FAIL. 0 SWs, 0 HFIs, 0 end ports, 0 total ports, 9 packets, 131 retries
+Tue Nov 11 11:40:33 2025: fm0_sm(4062): PROGR[topology]: SM: topology_main: TT: DISCOVERY CYCLE START - REASON: Problems during previous sweep, retrying.
+
+Tue Nov 11 11:40:33 2025: fm0_sm(4062): PROGR[topology]: SM: sm_set_local_port_pkey: sm pkey table already set
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x1 attrId 0x11 attrM 0x0
+Tue Nov 11 11:40:34 2025: fm0_sm(4062): WARN [topology]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[ 2 ] Lid:[0xffffffff] [Can't find node in topology!]. AID:[NODEINFO] TID:[0x00000000000003f1] Status:[OK (0x00000000)]
+Tue Nov 11 11:40:34 2025: fm0_sm(4062): WARN [topology]: SM: topology_main: TT: too many errors during sweep, will re-sweep in a few seconds rc: 108: unrecoverable error
+Tue Nov 11 11:40:34 2025: fm0_sm(4062): PROGR[topology]: SM: topology_main: DISCOVERY CYCLE FAIL. 0 SWs, 0 HFIs, 0 end ports, 0 total ports, 9 packets, 132 retries
+Tue Nov 11 11:40:39 2025: fm0_sm(4062): PROGR[topology]: SM: topology_main: TT: DISCOVERY CYCLE START - REASON: Problems during previous sweep, retrying.
+
+Tue Nov 11 11:40:39 2025: fm0_sm(4062): PROGR[topology]: SM: sm_set_local_port_pkey: sm pkey table already set
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x1 attrId 0x11 attrM 0x0
+Tue Nov 11 11:40:40 2025: fm0_sm(4062): WARN [topology]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[ 2 ] Lid:[0xffffffff] [Can't find node in topology!]. AID:[NODEINFO] TID:[0x00000000000003f9] Status:[OK (0x00000000)]
+Tue Nov 11 11:40:40 2025: fm0_sm(4062): WARN [topology]: SM: topology_main: TT: too many errors during sweep, will re-sweep in a few seconds rc: 108: unrecoverable error
+Tue Nov 11 11:40:40 2025: fm0_sm(4062): PROGR[topology]: SM: topology_main: DISCOVERY CYCLE FAIL. 0 SWs, 0 HFIs, 0 end ports, 0 total ports, 9 packets, 133 retries
+Tue Nov 11 11:40:45 2025: fm0_sm(4062): PROGR[topology]: SM: topology_main: TT: DISCOVERY CYCLE START - REASON: Problems during previous sweep, retrying.
+
+Tue Nov 11 11:40:45 2025: fm0_sm(4062): PROGR[topology]: SM: sm_set_local_port_pkey: sm pkey table already set
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x1 attrId 0x11 attrM 0x0
+Tue Nov 11 11:40:46 2025: fm0_sm(4062): WARN [topology]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[ 2 ] Lid:[0xffffffff] [Can't find node in topology!]. AID:[NODEINFO] TID:[0x0000000000000401] Status:[OK (0x00000000)]
+Tue Nov 11 11:40:46 2025: fm0_sm(4062): WARN [topology]: SM: topology_main: TT: too many errors during sweep, will re-sweep in a few seconds rc: 108: unrecoverable error
+Tue Nov 11 11:40:46 2025: fm0_sm(4062): PROGR[topology]: SM: topology_main: DISCOVERY CYCLE FAIL. 0 SWs, 0 HFIs, 0 end ports, 0 total ports, 9 packets, 134 retries
+Tue Nov 11 11:40:51 2025: fm0_sm(4062): PROGR[topology]: SM: topology_main: TT: DISCOVERY CYCLE START - REASON: Problems during previous sweep, retrying.
+
+Tue Nov 11 11:40:51 2025: fm0_sm(4062): PROGR[topology]: SM: sm_set_local_port_pkey: sm pkey table already set
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x1 attrId 0x11 attrM 0x0
+Tue Nov 11 11:40:52 2025: fm0_sm(4062): WARN [topology]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[ 2 ] Lid:[0xffffffff] [Can't find node in topology!]. AID:[NODEINFO] TID:[0x0000000000000409] Status:[OK (0x00000000)]
+Tue Nov 11 11:40:52 2025: fm0_sm(4062): WARN [topology]: SM: topology_main: TT: too many errors during sweep, will re-sweep in a few seconds rc: 108: unrecoverable error
+Tue Nov 11 11:40:52 2025: fm0_sm(4062): PROGR[topology]: SM: topology_main: DISCOVERY CYCLE FAIL. 0 SWs, 0 HFIs, 0 end ports, 0 total ports, 9 packets, 135 retries
+Tue Nov 11 11:40:57 2025: fm0_sm(4062): PROGR[topology]: SM: topology_main: TT: DISCOVERY CYCLE START - REASON: Problems during previous sweep, retrying.
+
+Tue Nov 11 11:40:57 2025: fm0_sm(4062): PROGR[topology]: SM: sm_set_local_port_pkey: sm pkey table already set
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x1 attrId 0x11 attrM 0x0
+Tue Nov 11 11:40:58 2025: fm0_sm(4062): WARN [topology]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[ 2 ] Lid:[0xffffffff] [Can't find node in topology!]. AID:[NODEINFO] TID:[0x0000000000000411] Status:[OK (0x00000000)]
+Tue Nov 11 11:40:58 2025: fm0_sm(4062): WARN [topology]: SM: topology_main: TT: too many errors during sweep, will re-sweep in a few seconds rc: 108: unrecoverable error
+Tue Nov 11 11:40:58 2025: fm0_sm(4062): PROGR[topology]: SM: topology_main: DISCOVERY CYCLE FAIL. 0 SWs, 0 HFIs, 0 end ports, 0 total ports, 9 packets, 136 retries
+Tue Nov 11 11:41:03 2025: fm0_sm(4062): PROGR[topology]: SM: topology_main: TT: DISCOVERY CYCLE START - REASON: Problems during previous sweep, retrying.
+
+Tue Nov 11 11:41:03 2025: fm0_sm(4062): PROGR[topology]: SM: sm_set_local_port_pkey: sm pkey table already set
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x1 attrId 0x11 attrM 0x0
+Tue Nov 11 11:41:05 2025: fm0_sm(4062): WARN [topology]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[ 2 ] Lid:[0xffffffff] [Can't find node in topology!]. AID:[NODEINFO] TID:[0x0000000000000419] Status:[OK (0x00000000)]
+Tue Nov 11 11:41:05 2025: fm0_sm(4062): WARN [topology]: SM: topology_main: TT: too many errors during sweep, will re-sweep in a few seconds rc: 108: unrecoverable error
+Tue Nov 11 11:41:05 2025: fm0_sm(4062): PROGR[topology]: SM: topology_main: DISCOVERY CYCLE FAIL. 0 SWs, 0 HFIs, 0 end ports, 0 total ports, 9 packets, 137 retries
+Tue Nov 11 11:41:10 2025: fm0_sm(4062): PROGR[topology]: SM: topology_main: TT: DISCOVERY CYCLE START - REASON: Problems during previous sweep, retrying.
+
+Tue Nov 11 11:41:10 2025: fm0_sm(4062): PROGR[topology]: SM: sm_set_local_port_pkey: sm pkey table already set
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x1 attrId 0x11 attrM 0x0
+Tue Nov 11 11:41:11 2025: fm0_sm(4062): WARN [topology]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[ 2 ] Lid:[0xffffffff] [Can't find node in topology!]. AID:[NODEINFO] TID:[0x0000000000000421] Status:[OK (0x00000000)]
+Tue Nov 11 11:41:11 2025: fm0_sm(4062): WARN [topology]: SM: topology_main: TT: too many errors during sweep, will re-sweep in a few seconds rc: 108: unrecoverable error
+Tue Nov 11 11:41:11 2025: fm0_sm(4062): PROGR[topology]: SM: topology_main: DISCOVERY CYCLE FAIL. 0 SWs, 0 HFIs, 0 end ports, 0 total ports, 9 packets, 138 retries
+Tue Nov 11 11:41:16 2025: fm0_sm(4062): PROGR[topology]: SM: topology_main: TT: DISCOVERY CYCLE START - REASON: Problems during previous sweep, retrying.
+
+Tue Nov 11 11:41:16 2025: fm0_sm(4062): PROGR[topology]: SM: sm_set_local_port_pkey: sm pkey table already set
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x1 attrId 0x11 attrM 0x0
+Tue Nov 11 11:41:17 2025: fm0_sm(4062): WARN [topology]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[ 2 ] Lid:[0xffffffff] [Can't find node in topology!]. AID:[NODEINFO] TID:[0x0000000000000429] Status:[OK (0x00000000)]
+Tue Nov 11 11:41:17 2025: fm0_sm(4062): WARN [topology]: SM: topology_main: TT: too many errors during sweep, will re-sweep in a few seconds rc: 108: unrecoverable error
+Tue Nov 11 11:41:17 2025: fm0_sm(4062): PROGR[topology]: SM: topology_main: DISCOVERY CYCLE FAIL. 0 SWs, 0 HFIs, 0 end ports, 0 total ports, 9 packets, 139 retries
+Tue Nov 11 11:41:22 2025: fm0_sm(4062): PROGR[topology]: SM: topology_main: TT: DISCOVERY CYCLE START - REASON: Problems during previous sweep, retrying.
+
+Tue Nov 11 11:41:22 2025: fm0_sm(4062): PROGR[topology]: SM: sm_set_local_port_pkey: sm pkey table already set
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x1 attrId 0x11 attrM 0x0
+Tue Nov 11 11:41:23 2025: fm0_sm(4062): WARN [topology]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[ 2 ] Lid:[0xffffffff] [Can't find node in topology!]. AID:[NODEINFO] TID:[0x0000000000000431] Status:[OK (0x00000000)]
+Tue Nov 11 11:41:23 2025: fm0_sm(4062): WARN [topology]: SM: topology_main: TT: too many errors during sweep, will re-sweep in a few seconds rc: 108: unrecoverable error
+Tue Nov 11 11:41:23 2025: fm0_sm(4062): PROGR[topology]: SM: topology_main: DISCOVERY CYCLE FAIL. 0 SWs, 0 HFIs, 0 end ports, 0 total ports, 9 packets, 140 retries
+Tue Nov 11 11:41:28 2025: fm0_sm(4062): PROGR[topology]: SM: topology_main: TT: DISCOVERY CYCLE START - REASON: Problems during previous sweep, retrying.
+
+Tue Nov 11 11:41:28 2025: fm0_sm(4062): PROGR[topology]: SM: sm_set_local_port_pkey: sm pkey table already set
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x1 attrId 0x11 attrM 0x0
+Tue Nov 11 11:41:29 2025: fm0_sm(4062): WARN [topology]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[ 2 ] Lid:[0xffffffff] [Can't find node in topology!]. AID:[NODEINFO] TID:[0x0000000000000439] Status:[OK (0x00000000)]
+Tue Nov 11 11:41:29 2025: fm0_sm(4062): WARN [topology]: SM: topology_main: TT: too many errors during sweep, will re-sweep in a few seconds rc: 108: unrecoverable error
+Tue Nov 11 11:41:29 2025: fm0_sm(4062): PROGR[topology]: SM: topology_main: DISCOVERY CYCLE FAIL. 0 SWs, 0 HFIs, 0 end ports, 0 total ports, 9 packets, 141 retries
+Tue Nov 11 11:41:34 2025: fm0_sm(4062): PROGR[topology]: SM: topology_main: TT: DISCOVERY CYCLE START - REASON: Problems during previous sweep, retrying.
+
+Tue Nov 11 11:41:34 2025: fm0_sm(4062): PROGR[topology]: SM: sm_set_local_port_pkey: sm pkey table already set
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x1 attrId 0x11 attrM 0x0
+Tue Nov 11 11:41:35 2025: fm0_sm(4062): WARN [topology]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[ 2 ] Lid:[0xffffffff] [Can't find node in topology!]. AID:[NODEINFO] TID:[0x0000000000000441] Status:[OK (0x00000000)]
+Tue Nov 11 11:41:35 2025: fm0_sm(4062): WARN [topology]: SM: topology_main: TT: too many errors during sweep, will re-sweep in a few seconds rc: 108: unrecoverable error
+Tue Nov 11 11:41:35 2025: fm0_sm(4062): PROGR[topology]: SM: topology_main: DISCOVERY CYCLE FAIL. 0 SWs, 0 HFIs, 0 end ports, 0 total ports, 9 packets, 142 retries
+Tue Nov 11 11:41:40 2025: fm0_sm(4062): PROGR[topology]: SM: topology_main: TT: DISCOVERY CYCLE START - REASON: Problems during previous sweep, retrying.
+
+Tue Nov 11 11:41:40 2025: fm0_sm(4062): PROGR[topology]: SM: sm_set_local_port_pkey: sm pkey table already set
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x1 attrId 0x11 attrM 0x0
+Tue Nov 11 11:41:41 2025: fm0_sm(4062): WARN [topology]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[ 2 ] Lid:[0xffffffff] [Can't find node in topology!]. AID:[NODEINFO] TID:[0x0000000000000449] Status:[OK (0x00000000)]
+Tue Nov 11 11:41:41 2025: fm0_sm(4062): WARN [topology]: SM: topology_main: TT: too many errors during sweep, will re-sweep in a few seconds rc: 108: unrecoverable error
+Tue Nov 11 11:41:41 2025: fm0_sm(4062): PROGR[topology]: SM: topology_main: DISCOVERY CYCLE FAIL. 0 SWs, 0 HFIs, 0 end ports, 0 total ports, 9 packets, 143 retries
+Tue Nov 11 11:41:46 2025: fm0_sm(4062): PROGR[topology]: SM: topology_main: TT: DISCOVERY CYCLE START - REASON: Problems during previous sweep, retrying.
+
+Tue Nov 11 11:41:46 2025: fm0_sm(4062): PROGR[topology]: SM: sm_set_local_port_pkey: sm pkey table already set
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x1 attrId 0x11 attrM 0x0
+Tue Nov 11 11:41:47 2025: fm0_sm(4062): WARN [topology]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[ 2 ] Lid:[0xffffffff] [Can't find node in topology!]. AID:[NODEINFO] TID:[0x0000000000000451] Status:[OK (0x00000000)]
+Tue Nov 11 11:41:47 2025: fm0_sm(4062): WARN [topology]: SM: topology_main: TT: too many errors during sweep, will re-sweep in a few seconds rc: 108: unrecoverable error
+Tue Nov 11 11:41:47 2025: fm0_sm(4062): PROGR[topology]: SM: topology_main: DISCOVERY CYCLE FAIL. 0 SWs, 0 HFIs, 0 end ports, 0 total ports, 9 packets, 144 retries
+Tue Nov 11 11:41:52 2025: fm0_sm(4062): PROGR[topology]: SM: topology_main: TT: DISCOVERY CYCLE START - REASON: Problems during previous sweep, retrying.
+
+Tue Nov 11 11:41:52 2025: fm0_sm(4062): PROGR[topology]: SM: sm_set_local_port_pkey: sm pkey table already set
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x1 attrId 0x11 attrM 0x0
+Tue Nov 11 11:41:53 2025: fm0_sm(4062): WARN [topology]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[ 2 ] Lid:[0xffffffff] [Can't find node in topology!]. AID:[NODEINFO] TID:[0x0000000000000459] Status:[OK (0x00000000)]
+Tue Nov 11 11:41:53 2025: fm0_sm(4062): WARN [topology]: SM: topology_main: TT: too many errors during sweep, will re-sweep in a few seconds rc: 108: unrecoverable error
+Tue Nov 11 11:41:53 2025: fm0_sm(4062): PROGR[topology]: SM: topology_main: DISCOVERY CYCLE FAIL. 0 SWs, 0 HFIs, 0 end ports, 0 total ports, 9 packets, 145 retries
+Tue Nov 11 11:41:58 2025: fm0_sm(4062): PROGR[topology]: SM: topology_main: TT: DISCOVERY CYCLE START - REASON: Problems during previous sweep, retrying.
+
+Tue Nov 11 11:41:58 2025: fm0_sm(4062): PROGR[topology]: SM: sm_set_local_port_pkey: sm pkey table already set
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x1 attrId 0x11 attrM 0x0
+Tue Nov 11 11:41:59 2025: fm0_sm(4062): WARN [topology]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[ 2 ] Lid:[0xffffffff] [Can't find node in topology!]. AID:[NODEINFO] TID:[0x0000000000000461] Status:[OK (0x00000000)]
+Tue Nov 11 11:41:59 2025: fm0_sm(4062): WARN [topology]: SM: topology_main: TT: too many errors during sweep, will re-sweep in a few seconds rc: 108: unrecoverable error
+Tue Nov 11 11:41:59 2025: fm0_sm(4062): PROGR[topology]: SM: topology_main: DISCOVERY CYCLE FAIL. 0 SWs, 0 HFIs, 0 end ports, 0 total ports, 9 packets, 146 retries
+Tue Nov 11 11:42:04 2025: fm0_sm(4062): PROGR[topology]: SM: topology_main: TT: DISCOVERY CYCLE START - REASON: Problems during previous sweep, retrying.
+
+Tue Nov 11 11:42:04 2025: fm0_sm(4062): PROGR[topology]: SM: sm_set_local_port_pkey: sm pkey table already set
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x1 attrId 0x11 attrM 0x0
+Tue Nov 11 11:42:05 2025: fm0_sm(4062): WARN [topology]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[ 2 ] Lid:[0xffffffff] [Can't find node in topology!]. AID:[NODEINFO] TID:[0x0000000000000469] Status:[OK (0x00000000)]
+Tue Nov 11 11:42:05 2025: fm0_sm(4062): WARN [topology]: SM: topology_main: TT: too many errors during sweep, will re-sweep in a few seconds rc: 108: unrecoverable error
+Tue Nov 11 11:42:05 2025: fm0_sm(4062): PROGR[topology]: SM: topology_main: DISCOVERY CYCLE FAIL. 0 SWs, 0 HFIs, 0 end ports, 0 total ports, 9 packets, 147 retries
+Tue Nov 11 11:42:10 2025: fm0_sm(4062): PROGR[topology]: SM: topology_main: TT: DISCOVERY CYCLE START - REASON: Problems during previous sweep, retrying.
+
+Tue Nov 11 11:42:10 2025: fm0_sm(4062): PROGR[topology]: SM: sm_set_local_port_pkey: sm pkey table already set
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x1 attrId 0x11 attrM 0x0
+Tue Nov 11 11:42:11 2025: fm0_sm(4062): WARN [topology]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[ 2 ] Lid:[0xffffffff] [Can't find node in topology!]. AID:[NODEINFO] TID:[0x0000000000000471] Status:[OK (0x00000000)]
+Tue Nov 11 11:42:11 2025: fm0_sm(4062): WARN [topology]: SM: topology_main: TT: too many errors during sweep, will re-sweep in a few seconds rc: 108: unrecoverable error
+Tue Nov 11 11:42:11 2025: fm0_sm(4062): PROGR[topology]: SM: topology_main: DISCOVERY CYCLE FAIL. 0 SWs, 0 HFIs, 0 end ports, 0 total ports, 9 packets, 148 retries
+Tue Nov 11 11:42:16 2025: fm0_sm(4062): PROGR[topology]: SM: topology_main: TT: DISCOVERY CYCLE START - REASON: Problems during previous sweep, retrying.
+
+Tue Nov 11 11:42:16 2025: fm0_sm(4062): PROGR[topology]: SM: sm_set_local_port_pkey: sm pkey table already set
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x1 attrId 0x11 attrM 0x0
+Tue Nov 11 11:42:17 2025: fm0_sm(4062): WARN [topology]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[ 2 ] Lid:[0xffffffff] [Can't find node in topology!]. AID:[NODEINFO] TID:[0x0000000000000479] Status:[OK (0x00000000)]
+Tue Nov 11 11:42:17 2025: fm0_sm(4062): WARN [topology]: SM: topology_main: TT: too many errors during sweep, will re-sweep in a few seconds rc: 108: unrecoverable error
+Tue Nov 11 11:42:17 2025: fm0_sm(4062): PROGR[topology]: SM: topology_main: DISCOVERY CYCLE FAIL. 0 SWs, 0 HFIs, 0 end ports, 0 total ports, 9 packets, 149 retries
+Tue Nov 11 11:42:22 2025: fm0_sm(4062): PROGR[topology]: SM: topology_main: TT: DISCOVERY CYCLE START - REASON: Problems during previous sweep, retrying.
+
+Tue Nov 11 11:42:22 2025: fm0_sm(4062): PROGR[topology]: SM: sm_set_local_port_pkey: sm pkey table already set
+opamgt ERROR: [4062] omgt_send_mad2: send failed; Invalid argument, agent id 2 MClass 0x81 method 0x1 attrId 0x11 attrM 0x0
+Tue Nov 11 11:42:23 2025: fm0_sm(4062): WARN [topology]: SM: sm_send_stl_request_impl: Error Sending to Path:{1}[ 2 ] Lid:[0xffffffff] [Can't find node in topology!]. AID:[NODEINFO] TID:[0x0000000000000481] Status:[OK (0x00000000)]
+Tue Nov 11 11:42:23 2025: fm0_sm(4062): WARN [topology]: SM: topology_main: TT: too many errors during sweep, will re-sweep in a few seconds rc: 108: unrecoverable error
+Tue Nov 11 11:42:23 2025: fm0_sm(4062): PROGR[topology]: SM: topology_main: DISCOVERY CYCLE FAIL. 0 SWs, 0 HFIs, 0 end ports, 0 total ports, 9 packets, 150 retries
+Tue Nov 11 11:42:25 2025: fm0_sm(4062): PROGR[main]: SM: sm_control_shutdown: FM exiting.
