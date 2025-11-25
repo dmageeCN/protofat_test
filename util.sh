@@ -103,41 +103,6 @@ set_logs() {
     fi
 }
 
-parse_network_topology() {
-    local file=$(opaextractsellinks |& grep FI)
-    declare -A switches
-    
-    while IFS=';' read -r _ _ _ node _ _ _ switch; do
-        # Extract the first part of the node field (e.g., "icx027" from "icx027 hfi1_0")
-        node_name="${node%% *}"
-        
-        # Skip empty or invalid lines
-        [[ -z "$switch" || -z "$node_name" ]] && continue
-        
-        # Append node to the switch's array
-        if [[ -n "${switches[$switch]}" ]]; then
-            switches[$switch]+=" $node_name"
-        else
-            switches[$switch]="$node_name"
-        fi
-    done < "$file"
-    
-    # Print the results (or you can work with the associative array)
-    for switch in "${!switches[@]}"; do
-        echo "Switch: $switch"
-        echo "  Nodes: ${switches[$switch]}"
-        echo
-    done
-    
-    # Optional: Export as indexed arrays if needed
-    # This creates individual arrays like myr_edge_1_nodes and myr_edge_2_nodes
-    for switch in "${!switches[@]}"; do
-        # Create a valid variable name from the switch name
-        var_name="${switch//-/_}_nodes"
-        eval "$var_name=(${switches[$switch]})"
-    done
-}
-
 node_by_edge() {
     nodes_edges=$(opaextractsellinks |& awk -F';' '/hfi1/ {print $4,$NF}' | cut -d ' ' -f 1,3 | tr ' ' ',' | sort -t ',' -k2n)
     edgeq=$(echo "$nodes_edges" | cut -d ',' -f 2 | uniq)

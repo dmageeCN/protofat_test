@@ -27,13 +27,34 @@ Edit the `/etc/opafm/opafm.xml` file on the FM node:
   * Edit `<RoutingAlgorithm>` = fattree
   * Edit: `<TierCount>` = 0
 
-### FGAR
+#### FGAR
+
+Fine Grained Adaptive Routing
 
 * LINES 1814-1817:
   * Edit `<Enable>` = 1
   * Edit `<FineGrained>` = 1
 
+Set the environment variables (see the `set_fgar` function in `util.sh`):
+
+``` bash
+  export FI_OPX_MIXED_NETWORK=0
+  export FI_OPX_TID_DISABLED=1
+  export FI_OPX_ROUTE_CONTROL='4:4:4:4:4:4'
+```
+
 #### SDR
+
+Static Dispersive Routing.
+
+SDR RUNS under the FGAR xml configuration. To use SDR set the FI_OPX variables listed above except:
+
+``` bash
+### SET THIS FOR SDR
+export FI_OPX_ROUTE_CONTROL='0:0:0:0:0:0'
+```
+
+Static Dispersive Routing will be available once the entropy bit is enabled in OPX.
 
 #### EDC
 

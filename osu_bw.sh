@@ -96,6 +96,11 @@ fi
 # RUN
 ###############
 
+if [[ -z $TEST ]]; then
+    echo "NO TEST JUST BUILD"
+    exit 0
+fi
+
 CMD=${INSTALL_BASE}/bin/${TEST}
 
 set_ompi_flags
