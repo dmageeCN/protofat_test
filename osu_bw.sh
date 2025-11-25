@@ -6,7 +6,7 @@ link_executables() {
     olddir=$PWD
     idir=$1
     bindir=$idir/bin
-    mkcd -p $bindir
+    mkcd $bindir
     for x in $(find $idir -type f -executable); do
         ln -sfn $x .
     done
