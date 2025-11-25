@@ -39,7 +39,18 @@ set_compiler_mpi() {
     fi
 
     if [[ $COMPILER == 'gcc' && $MPI == 'ompi' ]]; then
-        export MPI_HOME=/usr/mpi/gcc/openmpi-4.1.6-hfi
+        if [[ -z $MPI_HOME ]]; then
+            mpi_h=/usr/mpi/gcc/openmpi
+            if [[ ! (-d $mpi_h) ]]; then
+                mpi_h=/usr/mpi/gcc/openmpi-4.1.6-hfi
+            fi
+            if [[ ! (-d $mpi_h) ]]; then
+                echo "!! Can not find OMPI in the usual spot. "
+                echo "-- SET MPI_HOME on the CL."
+                exit 1
+            fi
+            export MPI_HOME=$mpi_h
+        fi
         export PATH=$MPI_HOME/bin:$PATH
         export LD_LIBRARY_PATH=$MPI_HOME/lib:$MPI_HOME/lib64:$LD_LIBRARY_PATH
         export CC=mpicc FC=mpifort CXX=mpicxx
