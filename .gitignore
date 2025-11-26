@@ -1,6 +1,6 @@
 .vscode/
 .DS_Store/
 .local/
-*results*/
+*result*/
 src/
 installs/

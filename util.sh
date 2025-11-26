@@ -139,3 +139,147 @@ node_by_edge() {
     export EDGEARRAY
     export EDGECOUNT
 }
+
+#!/bin/bash
+
+# Associative arrays to store before/after counters and node list
+declare -A COUNTERS_BEFORE
+declare -A COUNTERS_AFTER
+declare -a OPA_NODES
+
+# Main function to capture counters
+# Call with nodes to capture "before", call without nodes to capture "after" and return CSV row
+opa_counter() {
+    # If arguments provided, this is the "before" capture
+    if [ $# -gt 0 ]; then
+        OPA_NODES=("$@")
+        COUNTERS_BEFORE=()  # Clear previous data
+        COUNTERS_AFTER=()
+        
+        for node in "${OPA_NODES[@]}"; do
+            # Get number of NICs on this node
+            local num_nics=$(ssh "$node" "ls -1 /dev/hfi1_* 2>/dev/null | wc -l")
+            
+            if [ "$num_nics" -eq 0 ]; then
+                echo "Warning: No HFI devices found on $node" >&2
+                continue
+            fi
+            
+            # Capture counters for each NIC
+            for ((nic=0; nic<num_nics; nic++)); do
+                local counters=$(ssh "$node" "opainfo -o $nic 2>/dev/null | awk '/(Xmit|Recv)(Data|Pkts):/ {print \$2}'")
+                local key="${node}:hfi1_${nic}"
+                COUNTERS_BEFORE["$key"]="$counters"
+            done
+        done
+        
+        return 0
+    fi
+    
+    # No arguments - this is the "after" capture, calculate and return CSV row
+    if [ ${#OPA_NODES[@]} -eq 0 ]; then
+        echo "Error: No nodes saved from previous call" >&2
+        return 1
+    fi
+    
+    # Capture "after" counters
+    for node in "${OPA_NODES[@]}"; do
+        local num_nics=$(ssh "$node" "ls -1 /dev/hfi1_* 2>/dev/null | wc -l")
+        
+        if [ "$num_nics" -eq 0 ]; then
+            continue
+        fi
+        
+        for ((nic=0; nic<num_nics; nic++)); do
+            local counters=$(ssh "$node" "opainfo -o $nic 2>/dev/null | awk '/(Xmit|Recv)(Data|Pkts):/ {print \$2}'")
+            local key="${node}:hfi1_${nic}"
+            COUNTERS_AFTER["$key"]="$counters"
+        done
+    done
+    
+    # Build CSV header and data row
+    local -A node_nics
+    
+    # Collect nodes and their NICs
+    for key in "${!COUNTERS_BEFORE[@]}"; do
+        local node="${key%:*}"
+        local nic="${key#*:}"
+        local nic_num="${nic#hfi1_}"
+        
+        if [ -z "${node_nics[$node]}" ]; then
+            node_nics[$node]="$nic_num"
+        else
+            node_nics[$node]="${node_nics[$node]} $nic_num"
+        fi
+    done
+    
+    # Sort nodes for consistent output
+    local -a sorted_nodes=("${OPA_NODES[@]}")
+    
+    # Build header and data row
+    local header=""
+    local data_row=""
+    
+    for node in "${sorted_nodes[@]}"; do
+        local -a nics=(${node_nics[$node]})
+        IFS=$'\n' nics=($(sort -n <<<"${nics[*]}"))
+        unset IFS
+        
+        for nic in "${nics[@]}"; do
+            # Add to header
+            header="${header},${node}_hfi${nic}_X,${node}_hfi${nic}_R"
+            
+            local key="${node}:hfi1_${nic}"
+            
+            if [ -z "${COUNTERS_AFTER[$key]}" ] || [ -z "${COUNTERS_BEFORE[$key]}" ]; then
+                data_row="${data_row},0,0"
+                continue
+            fi
+            
+            # Convert counter strings to arrays
+            local -a before_arr=(${COUNTERS_BEFORE[$key]})
+            local -a after_arr=(${COUNTERS_AFTER[$key]})
+            
+            # Calculate differences (XmitData and RecvData)
+            local xmit_data_diff=$(( ${after_arr[0]} - ${before_arr[0]} ))
+            local recv_data_diff=$(( ${after_arr[1]} - ${before_arr[1]} ))
+            
+            data_row="${data_row},${xmit_data_diff},${recv_data_diff}"
+        done
+    done
+    
+    # Remove leading commas
+    header="${header:1}"
+    data_row="${data_row:1}"
+    
+    # Output header and data
+    echo "$header"
+    echo "$data_row"
+}
+
+# Example usage:
+#
+# # Before benchmark
+# opa_counter node1 node2 node3
+#
+# # Run your benchmark
+# mpirun -np 4 -host node1,node2 ./osu_bw
+#
+# # After benchmark - get CSV output
+# opa_counter > results.csv
+#
+# # Or capture to variable
+# csv_output=$(opa_counter)
+# echo "$csv_output" >> all_results.csv
+
+# export COUNTER_I
+# export COUNTER_F
+# opa_counter() {
+#     h1=$1
+#     h2=$2
+#     stage
+#     h1_counters=$(mpirun -np 1 -host $h1 opainfo | awk '/(Xmit|Recv)/ {print $NF}')
+#     h2_counters=$(mpirun -np 1 -host $h2 opainfo | awk '/(Xmit|Recv)/ {print $NF}')
+# }
+
+export NODELIST=$(scontrol show hostnames $SLURM_NODELIST)

@@ -1,5 +1,7 @@
 ## Advanced Routing Wiki
 
+Run `get_src.sh` first to get the tests in your local repo.
+
 ### INTRO
 
 #### FGAR

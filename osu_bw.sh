@@ -3,14 +3,14 @@
 export NAME=osumb
 
 link_executables() {
-    olddir=$PWD
+    # olddir=$PWD
     idir=$1
     bindir=$idir/bin
-    mkcd $bindir
+    mkdir -p $bindir
     for x in $(find $idir -type f -executable); do
-        ln -sfn $x .
+        ln -sfn $x $bindir
     done
-    cd $olddir
+    # cd $olddir
 }
 
 # SAVE FULL OSU_BW output to columns of csv.
@@ -59,6 +59,7 @@ setvar "$@"
 : ${NNODES=2}
 : ${CMD_ARGS:='-i 10 -m 4:67108864'}
 : ${ALGO:=default}
+: ${VALIDATE:=false}
 : ${HISET:=''} # SET NODE TO TEST AGAINST ALL OTHER NODES.
 
 export COMPILER MPI INSTALL_BASE BUILD_BASE SRC_BASE 
@@ -76,6 +77,7 @@ set_compiler_mpi
 ###############
 
 if [[ $REBUILD == 'true' ]]; then rm -rf $INSTALL_BASE; fi
+if [[ $VALIDATE == 'true' ]]; then CMD_ARGS+=' -c'; fi
 
 if [[ ! (-d $INSTALL_BASE) ]]; then
     mkdir -p $(dirname ${INSTALL_BASE})
@@ -103,16 +105,19 @@ fi
 
 CMD=${INSTALL_BASE}/bin/${TEST}
 
+
 set_ompi_flags
 set_logs
 
 echo $THEDATE > $RUN_LOG
 echo "init_host,dest_host,bw" > $RUN_RSLT
+: ${HISET:=$NODELIST}
+# NODELIST=$(scontrol show hostnames $SLURM_NODELIST)
 
-for hi in $(scontrol show hostnames $SLURM_NODELIST); do
+for hi in $HISET; do
     echo "${TEST^^} - $hi"
     si=${SECONDS}
-    for h in $(scontrol show hostnames $SLURM_NODELIST); do
+    for h in $NODELIST; do
         if [[ $h == $hi ]]; then continue; fi
         echo "$hi,$h"
         echo "mpirun ${RUN_ARGS} -host ${hi},${h} ${CMD} ${CMD_ARGS}" &>> $RUN_LOG
