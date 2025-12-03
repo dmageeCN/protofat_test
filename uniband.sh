@@ -15,18 +15,17 @@ fi
 
 source ${THISDIR}/util.sh
 
+# SET COMMAND LINE OPTIONS
 setvar "$@"
 
-#FGAR, SDR
+# SET DEFAULT OPTIONS THAT APPLY FOR EVERY TEST
+universal_opts
 
-: ${COMPILER:=intel}
-: ${MPI:=intel}
-: ${FI_PROV:=default}
+# SET DEFAULT OPTIONS FOR THIS PARTICULAR TEST
 : ${VERBOSE:=false}
+: ${PPN:=1}
 : ${TESTS:=all}
 : ${NNODES:=$SLURM_NNODES}
-: ${LOGDIR:=${CURDIR}/${NAME}_protofat_result}
-: ${ALGO:=default}
 
 if [[ $TESTS == 'all' ]]; then TESTS='pairwise,edgewise,crosswise'; fi
 

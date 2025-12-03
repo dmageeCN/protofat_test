@@ -44,31 +44,25 @@ fi
 
 source $THISDIR/util.sh
 
+# SET COMMAND LINE OPTIONS
 setvar "$@"
 
-: ${COMPILER:=intel}
-: ${MPI:=intel}
-: ${INSTALL_BASE:=${THISDIR}/installs/${NAME}-${COMPILER}_${MPI}}
-: ${BUILD_BASE:=/tmp/build_${NAME}/${COMPILER}_${MPI}}
-: ${SRC_BASE:=${THISDIR}/src}
-: ${FI_PROV:=default}
-: ${VERBOSE:=false}
-: ${LOGDIR:=${PWD}/${NAME}_protofat_result}
-: ${TEST=osu_bw}
+# SET DEFAULT OPTIONS THAT APPLY FOR EVERY TEST
+universal_opts
+
+# SET DEFAULT OPTIONS FOR THIS PARTICULAR TEST
+: ${TEST:=osu_bw}
 : ${PPN:=1}
-: ${NNODES=2}
-: ${CMD_ARGS:='-i 10 -m 4:67108864'}
-: ${ALGO:=default}
+: ${NNODES:=2}
+: ${ITERS:=10}
+: ${SIZE_MIN:=4}
+: ${SIZE_MAX:=67108864}
 : ${VALIDATE:=false}
 : ${HISET:=''} # SET NODE TO TEST AGAINST ALL OTHER NODES.
-
-export COMPILER MPI INSTALL_BASE BUILD_BASE SRC_BASE 
-export FI_PROV VERBOSE LOGDIR HISET
 
 mkdir -p $LOGDIR
 
 PROCS=$(( PPN*NNODES ));
-export RUN_ARGS="-np $PROCS " # --map-by ppr:${PPN}:node "
 
 set_compiler_mpi
 
@@ -77,7 +71,6 @@ set_compiler_mpi
 ###############
 
 if [[ $REBUILD == 'true' ]]; then rm -rf $INSTALL_BASE; fi
-if [[ $VALIDATE == 'true' ]]; then CMD_ARGS+=' -c'; fi
 
 if [[ ! (-d $INSTALL_BASE) ]]; then
     mkdir -p $(dirname ${INSTALL_BASE})
@@ -104,35 +97,50 @@ if [[ -z $TEST ]]; then
 fi
 
 CMD=${INSTALL_BASE}/bin/${TEST}
+CMD_ARGS="-i ${ITERS} -m ${SIZE_MIN}:${SIZE_MAX}"
+if [[ $VALIDATE == 'true' ]]; then CMD_ARGS+=' -c'; fi
 
+set_ompi_flags $NNODES $PPN
+set_logs "-${TEST}"
 
-set_ompi_flags
-set_logs
-
-echo $THEDATE > $RUN_LOG
-echo "init_host,dest_host,bw" > $RUN_RSLT
 : ${HISET:=$NODELIST}
-# NODELIST=$(scontrol show hostnames $SLURM_NODELIST)
-
-for hi in $HISET; do
-    echo "${TEST^^} - $hi"
-    si=${SECONDS}
-    for h in $NODELIST; do
-        if [[ $h == $hi ]]; then continue; fi
-        echo "$hi,$h"
-        echo "mpirun ${RUN_ARGS} -host ${hi},${h} ${CMD} ${CMD_ARGS}" &>> $RUN_LOG
-        mpirun ${RUN_ARGS} -host "${hi},${h}" ${CMD} ${CMD_ARGS} &> $RUN_TMP
-        bw_num=$(awk '/262144/ {print $NF}' $RUN_TMP)
-        cat $RUN_TMP >> $RUN_LOG
-        if [[ -z $bw_num ]]; then
-            echo "TEST $hi,$h FAILED!!!:"
-            echo "CANCELLING TEST"
-            cat $RUN_TMP
-            exit 1
-        fi
-        echo "$hi,$h,$bw_num" >> $RUN_RSLT
-        save_full_rslt $RUN_TMP $RUN_RSLT_FULL "Size,${hi}-${h}"
+if [[ $TEST == "osu_bw" ]]; then
+    if [[ $PROCS -ne 2 ]]; then
+        echo "ERROR: the osu_bw test requires 2 procs: you've requested $PROCS"
+        rm -f $RUN_LOG
+        exit 1
+    fi
+    echo "init_host,dest_host,bw" > $RUN_RSLT
+    for hi in $HISET; do
+        echo "${TEST^^} - $hi"
+        si=${SECONDS}
+        for h in $NODELIST; do
+            if [[ $h == $hi ]]; then continue; fi
+            echo "$hi,$h"
+            echo "mpirun ${RUN_ARGS} -host ${hi},${h} ${CMD} ${CMD_ARGS}" &>> $RUN_LOG
+            mpirun ${RUN_ARGS} -host "${hi},${h}" ${CMD} ${CMD_ARGS} &> $RUN_TMP
+            bw_num=$(awk '/262144/ {print $NF}' $RUN_TMP)
+            cat $RUN_TMP >> $RUN_LOG
+            if [[ -z $bw_num ]]; then
+                echo "TEST $hi,$h FAILED!!!:"
+                echo "CANCELLING TEST"
+                cat $RUN_TMP
+                exit 1
+            fi
+            echo "$hi,$h,$bw_num" >> $RUN_RSLT
+            save_full_rslt $RUN_TMP $RUN_RSLT_FULL "Size,${hi}-${h}"
+        done
+        sf=$(( SECONDS-si ))
+        echo "$hi took $sf seconds."
     done
+fi
+
+if [[ $TEST == "osu_alltoall" ]]; then
+    si=${SECONDS}
+    echo "mpirun ${RUN_ARGS} -host ${hi},${h} ${CMD} ${CMD_ARGS}" &>> $RUN_LOG
+    mpirun ${RUN_ARGS} -host "${hi},${h}" ${CMD} ${CMD_ARGS} &> $RUN_TMP
+    # bw_num=$(awk '/262144/ {print $NF}' $RUN_TMP)
+    cat $RUN_TMP >> $RUN_LOG
     sf=$(( SECONDS-si ))
-    echo "$hi took $sf seconds."
-done
+    echo "osu_alltoall took $sf seconds."
+fi

@@ -15,29 +15,22 @@ fi
 
 source ${THISDIR}/util.sh
 
+# SET COMMAND LINE OPTIONS
 setvar "$@"
 
-#FGAR, SDR
+# SET DEFAULT OPTIONS THAT APPLY FOR EVERY TEST
+universal_opts
 
-: ${COMPILER:=intel}
-: ${MPI:=intel}
-: ${INSTALL_BASE:=${THISDIR}/installs/${NAME}-${COMPILER}_${MPI}}
-: ${SRC_BASE:=${THISDIR}/src}
-: ${FI_PROV:=default}
-: ${VERBOSE:=false}
-: ${REBUILD:=false}
-: ${TESTS:=network_test}
+: ${TEST:=network_test}
 : ${NNODES:=$SLURM_NNODES}
 : ${PPN:=32}
-: ${ALGO:=default}
-: ${LOGDIR:=${CURDIR}/${NAME}_protofat_result}
 
 export COMPILER MPI INSTALL_BASE SRC_BASE 
-export FI_PROV VERBOSE TESTS NNODES PPN LOGDIR
+export FI_PROV VERBOSE TEST NNODES PPN LOGDIR
 
 mkdir -p $LOGDIR
 
-export RUN_ARGS="-np $(( PPN*NNODES )) "
+PROCS=$(( PPN*NNODES ))
 
 set_compiler_mpi
 
@@ -64,15 +57,14 @@ fi
 # RUN
 ###############
 
-CMD=${INSTALL_BASE}/bin/${TESTS}
+CMD=${INSTALL_BASE}/bin/${TEST}
 
-set_ompi_flags
+set_ompi_flags $NNODES $PPN
 set_logs
 
-echo $THEDATE > $RUN_LOG
 # echo "init_host,dest_host,bw" > $RUN_RSLT
 
-echo "GPCNET $TESTS - NNODES: $NNODES"
+echo "GPCNET $TEST - NNODES: $NNODES"
 si=${SECONDS}
 
 RUNDIR=${LOGDIR}/${COMPILER}_${MPI}-${THEDATE}-${NAME}

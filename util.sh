@@ -29,13 +29,27 @@ if [[ -z $THISDIR ]]; then
     export THISDIR=$(dirname $(realpath ${THISFILE}))
 fi
 
+universal_opts() {
+    : ${COMPILER:=intel}
+    : ${MPI:=intel}
+    : ${INSTALL_BASE:=${THISDIR}/installs/${NAME}-${COMPILER}_${MPI}}
+    : ${BUILD_BASE:=/tmp/build_${NAME}/${COMPILER}_${MPI}}
+    : ${SRC_BASE:=${THISDIR}/src}
+    : ${FI_PROV:=opx}
+    : ${VERBOSE:=false}
+    : ${LOGDIR:=${PWD}/${NAME}_protofat_result}
+    : ${HFI_ID:=0} ## NUMBER ID OF NIC.
+    : ${REBUILD:=false} ## NUMBER ID OF NIC.
+    : ${FM_ALGO:=default}
+    export COMPILER MPI INSTALL_BASE BUILD_BASE SRC_BASE 
+    export FI_PROV VERBOSE LOGDIR HFI_ID REBUILD FM_ALGO
+}
+
 set_compiler_mpi() {
     if [[ $COMPILER == 'intel' && $MPI == 'intel' ]]; then
-        : ${ippn:=$PPN}
         export I_MPI_OFI_LIBRARY_INTERNAL=0
         source /opt/intel/oneapi/setvars.sh
         export CC=mpiicx FC=mpiifort CXX=mpiicpx
-        export RUN_ARGS+="-ppn ${ippn} "
     fi
 
     if [[ $COMPILER == 'gcc' && $MPI == 'ompi' ]]; then
@@ -61,18 +75,33 @@ set_compiler_mpi() {
 }
 
 set_ompi_flags() {
-    runargs=${RUN_ARGS}
+    num_nodes=$1
+    ppn=$2
+    procs=$(( ppn*num_nodes ))
+    runargs="-np ${procs} "
     if [[ $FI_PROV == 'opx' ]]; then
         if [[ ! ($MPI == 'intel') ]]; then
-            runargs+=" --mca pml cm --mca mtl ofi --mca mtl_ofi_provider_include opx "
+            runargs+="--map-by ppr:${ppn}:node --mca pml cm --mca mtl ofi --mca mtl_ofi_provider_include opx "
+        else
+            runargs+="-ppn ${ppn} "
         fi
         export FI_PROVIDER=opx # --mca btl_openib_allow_ib 1
+        export FI_OPX_HFI_SELECT=$HFI_ID
+    fi
+    ## PIN THE PROCESSES TO THE NUMA NODE OF THE NIC IF THEY CAN FIT.
+    if [[ $ppn -lt 17 ]]; then
+        if [[ $HFI_ID == 0 ]]; then
+            runargs+="--cpu-list=16-31 "
+        else
+            runargs+="--cpu-list=48-63 "
+        fi
     fi
 
     if [[ $VERBOSE == "true" ]]; then
-        runargs+=" --verbose --report-bindings -x FI_LOG_LEVEL=debug -x FI_LOG_SUBSYS=core"
+        runargs+="--verbose --report-bindings -x FI_LOG_LEVEL=debug -x FI_LOG_SUBSYS=core "
     fi
     export RUN_ARGS=$runargs
+    export PROCS=$procs
 }
 
 # THISIS difficult because it'll require sudo.
@@ -86,11 +115,11 @@ set_fgar() {
     export FI_OPX_MIXED_NETWORK=0
     export FI_OPX_TID_DISABLED=1
     route_control='4:4:4:4:4:4'
-    if [[ $ALGO == 'sdr' ]]; then
+    if [[ $FM_ALGO == 'sdr' ]]; then
         export route_control='0:0:0:0:0:0'
     fi
     export FI_OPX_ROUTE_CONTROL=$route_control
-    echo "${ALGO} config set"
+    echo "${FM_ALGO} config set"
 }
 
 unset_fgar() {
@@ -104,14 +133,15 @@ unset_fgar() {
 }
 
 set_logs() {
-    IDENTIFIER="${COMPILER}_${MPI}-${THEDATE}-${NAME}${1}"
+    IDENTIFIER="${COMPILER}_${MPI}-${NAME}-${FM_ALGO}-${THEDATE}${1}"
     export RUN_LOG=${LOGDIR}/${IDENTIFIER}-run.log
     export RUN_TMP=/tmp/${NAME}_run
     export RUN_RSLT=${LOGDIR}/${IDENTIFIER}-summary.csv
     export RUN_RSLT_FULL=${LOGDIR}/${IDENTIFIER}-totaltable.csv
-    if [[ $ALGO == "fgar" || $ALGO == "sdr" ]]; then
+    if [[ $FM_ALGO == "fgar" || $FM_ALGO == "sdr" ]]; then
         set_fgar
     fi
+    echo "$NAME - $THEDATE - $FM_ALGO" > $RUN_LOG
 }
 
 node_by_edge() {
