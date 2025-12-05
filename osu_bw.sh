@@ -62,8 +62,6 @@ universal_opts
 
 mkdir -p $LOGDIR
 
-PROCS=$(( PPN*NNODES ));
-
 set_compiler_mpi
 
 ###############
@@ -96,11 +94,11 @@ if [[ -z $TEST ]]; then
     exit 0
 fi
 
-CMD=${INSTALL_BASE}/bin/${TEST}
+CMD="${THISDIR}/numa_wrapper.sh ${INSTALL_BASE}/bin/${TEST}"
 CMD_ARGS="-i ${ITERS} -m ${SIZE_MIN}:${SIZE_MAX}"
 if [[ $VALIDATE == 'true' ]]; then CMD_ARGS+=' -c'; fi
 
-set_ompi_flags $NNODES $PPN
+set_mpi_flags $NNODES $PPN
 set_logs "-${TEST}"
 
 : ${HISET:=$NODELIST}
@@ -137,8 +135,8 @@ fi
 
 if [[ $TEST == "osu_alltoall" ]]; then
     si=${SECONDS}
-    echo "mpirun ${RUN_ARGS} -host ${hi},${h} ${CMD} ${CMD_ARGS}" &>> $RUN_LOG
-    mpirun ${RUN_ARGS} -host "${hi},${h}" ${CMD} ${CMD_ARGS} &> $RUN_TMP
+    echo "mpirun ${RUN_ARGS} ${CMD} ${CMD_ARGS}" &>> $RUN_LOG
+    mpirun ${RUN_ARGS} ${CMD} ${CMD_ARGS} &> $RUN_TMP
     # bw_num=$(awk '/262144/ {print $NF}' $RUN_TMP)
     cat $RUN_TMP >> $RUN_LOG
     sf=$(( SECONDS-si ))

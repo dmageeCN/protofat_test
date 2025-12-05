@@ -21,16 +21,13 @@ setvar "$@"
 # SET DEFAULT OPTIONS THAT APPLY FOR EVERY TEST
 universal_opts
 
-: ${TEST:=network_test}
+: ${TEST:=all}
 : ${NNODES:=$SLURM_NNODES}
 : ${PPN:=32}
 
-export COMPILER MPI INSTALL_BASE SRC_BASE 
-export FI_PROV VERBOSE TEST NNODES PPN LOGDIR
+if [[ $TEST == 'all' ]]; then TEST='network_test,network_load_test'; fi
 
 mkdir -p $LOGDIR
-
-PROCS=$(( PPN*NNODES ))
 
 set_compiler_mpi
 
@@ -57,23 +54,50 @@ fi
 # RUN
 ###############
 
-CMD=${INSTALL_BASE}/bin/${TEST}
-
-set_ompi_flags $NNODES $PPN
+set_mpi_flags $NNODES $PPN
 set_logs
-
-# echo "init_host,dest_host,bw" > $RUN_RSLT
-
-echo "GPCNET $TEST - NNODES: $NNODES"
-si=${SECONDS}
 
 RUNDIR=${LOGDIR}/${COMPILER}_${MPI}-${THEDATE}-${NAME}
 mkcd $RUNDIR
-echo "mpirun ${RUN_ARGS} ${CMD}" &>> $RUN_LOG
-mpirun ${RUN_ARGS} ${CMD} &> $RUN_TMP
-cat $RUN_TMP >> $RUN_LOG
 
-sf=$(( SECONDS-si ))
-echo "${NAME} took $sf seconds."
+collect_results() {
+    gpc_table=$(sed -n '/\ Network\ Tests/,$p' $RUN_TMP)
+    if [[ -z $gpc_table ]]; then
+        echo "TEST: ${1} FAILED check out ${RUN_LOG}"
+        exit 1
+    fi
+    space_table=$(echo "$gpc_table" | tr -d '|-+' | tr -s ' ' | sed -e '/^$/d' -e 's/^\ *//' -e 's/\ *$//' | tail -n +2)
+    header=$(echo "$space_table" | head -1 | tr ' ' ',')
+    valtable=$(echo "$space_table" | tail -n +2)
+    vals=$(echo "$valtable" | awk -F')' '{print $2}' | tr ' ' ',')
+    index=$(echo "$valtable" | awk -F')' '{print $1 "\)"}' | tr ' ' '_')
+    echo "$header" >> $RUN_RSLT
+    paste -d',' <(echo "$index") <(echo "$vals") >> $RUN_RSLT
+}
+
+run_test() {
+    thistest=$1
+    CMD="${THISDIR}/numa_wrapper.sh ${INSTALL_BASE}/bin/${thistest}"
+    # echo "init_host,dest_host,bw" > $RUN_RSLT
+
+    echo "GPCNET $thistest - NNODES: $NNODES" |& tee -a $RUN_LOG
+    si=${SECONDS}
+
+    echo "mpirun ${RUN_ARGS} ${CMD}" &>> $RUN_LOG
+    mpirun ${RUN_ARGS} ${CMD} &> $RUN_TMP
+    cat $RUN_TMP >> $RUN_LOG
+
+    sf=$(( SECONDS-si ))
+    echo "${thistest} took $sf seconds."
+    collect_results $thistest
+}
+
+if [[ $TEST =~ 'network_test' ]]; then
+    run_test 'network_test'
+fi
+
+if [[ $TEST =~ 'network_load_test' ]]; then
+    run_test 'network_load_test'
+fi
 
 cd $CURDIR

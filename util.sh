@@ -45,6 +45,15 @@ universal_opts() {
     export FI_PROV VERBOSE LOGDIR HFI_ID REBUILD FM_ALGO
 }
 
+cpu_info() {
+    export NNUMAS=$(lscpu | awk '/NUMA node\(/ {print $NF}')
+    export CORES_PER_SOCKET=$(lscpu | awk '/Core\(/ {print $NF}')
+    export NSOCKETS=$(lscpu | awk '/Socket\(/ {print $NF}')
+    export TOTAL_CORES=$(( CORES_PER_SOCKET*NSOCKETS ))
+    export NUMAS_PER_SOCKET=$(( NNUMAS/NSOCKETS ))
+    export NUMA_WIDTH=$(( TOTAL_CORES/NNUMAS ))
+}
+
 set_compiler_mpi() {
     if [[ $COMPILER == 'intel' && $MPI == 'intel' ]]; then
         export I_MPI_OFI_LIBRARY_INTERNAL=0
@@ -74,7 +83,7 @@ set_compiler_mpi() {
     export CXXFLAGS='-w'
 }
 
-set_ompi_flags() {
+set_mpi_flags() {
     num_nodes=$1
     ppn=$2
     procs=$(( ppn*num_nodes ))
@@ -88,18 +97,16 @@ set_ompi_flags() {
         export FI_PROVIDER=opx # --mca btl_openib_allow_ib 1
         export FI_OPX_HFI_SELECT=$HFI_ID
     fi
-    ## PIN THE PROCESSES TO THE NUMA NODE OF THE NIC IF THEY CAN FIT.
-    if [[ $ppn -lt 17 ]]; then
-        if [[ $HFI_ID == 0 ]]; then
-            runargs+="--cpu-list=16-31 "
-        else
-            runargs+="--cpu-list=48-63 "
-        fi
-    fi
 
     if [[ $VERBOSE == "true" ]]; then
         runargs+="--verbose --report-bindings -x FI_LOG_LEVEL=debug -x FI_LOG_SUBSYS=core "
     fi
+
+    ## PIN THE PROCESSES TO THE NUMA NODE OF THE NIC IF THEY CAN FIT.
+    export NUMA_NODE=$(( (2*HFI_ID)+1 ))
+    export NUMA_WIDTH=16 ## DETECT THIS
+    runargs+="--bind-to none "
+
     export RUN_ARGS=$runargs
     export PROCS=$procs
 }

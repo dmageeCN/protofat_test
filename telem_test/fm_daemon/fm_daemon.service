@@ -1,0 +1,30 @@
+[Unit]
+Description=Restart opafm when triggered
+After=rdma.service network.target
+
+[Service]
+User=root
+Group=root
+Type=simple
+ExecStart=/etc/opa-fm/fm_daemon.sh
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+
+# [Unit]
+# Description=OPA Fabric Manager
+# After=rdma.service network.target
+
+# [Service]
+# User=root
+# Type=forking
+# ExecStart=/usr/lib/opa-fm/bin/opafmd -D
+# ExecStop=/usr/lib/opa-fm/bin/opafmd halt
+# ExecReload=/bin/kill -HUP $MAINPID
+# TimeoutStopSec=30
+# RestartSec=2
+
+# [Install]
+# WantedBy=multi-user.target

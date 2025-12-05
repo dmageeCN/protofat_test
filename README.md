@@ -73,3 +73,14 @@ Static Dispersive Routing will be available once the entropy bit is enabled in O
 #### BOUNCING LINKS
 
 #### OVERSUBSCRIPTION
+
+### TOOLS
+
+#### pmaCountersFromSwitch
+
+Envisioned Usage:
+Call islCounterCollection as a background process with the following format:
+islCounterCollection "data_vl_start" "data_vl_end" "iterations" "time_between_queries" "selected_attributes" "output_file" "raw_output_file"
+Where the raw_output_file is optional. For example:
+islCounterCollection 0 3 10 10 "Xmit Pkts, Rcv Pkts, Xmit Time Cong, Xmit Wait, Rcv Bubble" pmaOut.csv rawOut.txt
+This will collect Xmit Pkts, Rcv Pkts, Xmit Time Cong, Xmit Wait, and Rcv Bubble counters for VLs 0-3, VL 15, and overall for the port for 10 iterations, with 10 seconds between each iteration, and output the processed data to pmaOut.csv and raw query outputs to rawOut.txt
