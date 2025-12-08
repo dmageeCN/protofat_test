@@ -56,8 +56,6 @@ SDR RUNS under the FGAR xml configuration. To use SDR set the FI_OPX variables l
 export FI_OPX_ROUTE_CONTROL='0:0:0:0:0:0'
 ```
 
-Static Dispersive Routing will be available once the entropy bit is enabled in OPX.
-
 #### EDC
 
 ### TESTS

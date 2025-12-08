@@ -60,21 +60,6 @@ set_logs
 RUNDIR=${LOGDIR}/${COMPILER}_${MPI}-${THEDATE}-${NAME}
 mkcd $RUNDIR
 
-collect_results() {
-    gpc_table=$(sed -n '/\ Network\ Tests/,$p' $RUN_TMP)
-    if [[ -z $gpc_table ]]; then
-        echo "TEST: ${1} FAILED check out ${RUN_LOG}"
-        exit 1
-    fi
-    space_table=$(echo "$gpc_table" | tr -d '|-+' | tr -s ' ' | sed -e '/^$/d' -e 's/^\ *//' -e 's/\ *$//' | tail -n +2)
-    header=$(echo "$space_table" | head -1 | tr ' ' ',')
-    valtable=$(echo "$space_table" | tail -n +2)
-    vals=$(echo "$valtable" | awk -F')' '{print $2}' | tr ' ' ',')
-    index=$(echo "$valtable" | awk -F')' '{print $1 "\)"}' | tr ' ' '_')
-    echo "$header" >> $RUN_RSLT
-    paste -d',' <(echo "$index") <(echo "$vals") >> $RUN_RSLT
-}
-
 run_test() {
     thistest=$1
     CMD="${THISDIR}/numa_wrapper.sh ${INSTALL_BASE}/bin/${thistest}"
@@ -89,7 +74,6 @@ run_test() {
 
     sf=$(( SECONDS-si ))
     echo "${thistest} took $sf seconds."
-    collect_results $thistest
 }
 
 if [[ $TEST =~ 'network_test' ]]; then
@@ -99,5 +83,7 @@ fi
 if [[ $TEST =~ 'network_load_test' ]]; then
     run_test 'network_load_test'
 fi
+GPCNET_RSLT=$(echo $RUN_RSLT | sed 's/csv/json/g')
+$THISDIR/parse_gpcnet.py $RUN_LOG --output=$GPCNET_RSLT
 
 cd $CURDIR
