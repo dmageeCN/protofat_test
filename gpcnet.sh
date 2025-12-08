@@ -83,7 +83,8 @@ fi
 if [[ $TEST =~ 'network_load_test' ]]; then
     run_test 'network_load_test'
 fi
-GPCNET_RSLT=$(echo $RUN_RSLT | sed 's/csv/json/g')
+
+GPCNET_RSLT=$(echo $RUN_RSLT | sed 's/.csv//')
 $THISDIR/parse_gpcnet.py $RUN_LOG --output=$GPCNET_RSLT
 
 cd $CURDIR

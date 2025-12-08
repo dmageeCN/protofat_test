@@ -9,7 +9,7 @@ import csv
 import sys
 import argparse
 
-def parse_gpcnet_log(filepath: str) -> Dict[str, Any]:
+def parse_gpcnet_log(filepath: str):
     """Parse the entire GPCNET log file."""
     with open(filepath, 'r') as f:
         lines = f.readlines()
@@ -51,7 +51,6 @@ def parse_gpcnet_log(filepath: str) -> Dict[str, Any]:
 
         elif line.startswith('|'):
             testresult=[k.strip(' ') for k in line.split('|') if k]
-            print(testresult, testheader)
             data[testexec][titleline][testresult[0]] = dict(zip(testheader, 
                                                                 testresult[1:]))
 
@@ -59,14 +58,14 @@ def parse_gpcnet_log(filepath: str) -> Dict[str, Any]:
     return data
 
 
-def write_json(data: Dict, output_file: str):
+def write_json(data, output_file):
     """Write data to JSON file."""
     with open(output_file, 'w') as f:
         json.dump(data, f, indent=2)
     print(f"Written to {output_file}")
 
 
-def write_csv(data: Dict, output_prefix: str):
+def write_csv(data, output_prefix):
     """Write data to multiple CSV files."""
     
     # Isolated Network Tests
