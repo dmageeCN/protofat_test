@@ -64,8 +64,10 @@ run_test() {
     thistest=$1
     CMD="${THISDIR}/numa_wrapper.sh ${INSTALL_BASE}/bin/${thistest}"
     # echo "init_host,dest_host,bw" > $RUN_RSLT
-
-    echo "GPCNET $thistest - NNODES: $NNODES" |& tee -a $RUN_LOG
+    config_string="GPCNET: $thistest - COMPILER: $COMPILER - COMPILER_VER: $COMPILER_VER"
+    config_string=" - MPI: $MPI - MPI_VER: $MPI_VER - PROCS_PER_NODE: $PPN"
+    config_string+=" - NNODES: $NNODES - JOBID: $SLURM_JOB_ID - NODELIST: $SLURM_NODELIST"
+    echo $config_string |& tee -a $RUN_LOG
     si=${SECONDS}
 
     echo "mpirun ${RUN_ARGS} ${CMD}" &>> $RUN_LOG
@@ -84,7 +86,13 @@ if [[ $TEST =~ 'network_load_test' ]]; then
     run_test 'network_load_test'
 fi
 
-GPCNET_RSLT=$(echo $RUN_RSLT | sed 's/.csv//')
+GPCNET_RSLT=${RUN_RSLT//.csv/}
 $THISDIR/parse_gpcnet.py $RUN_LOG --output=$GPCNET_RSLT
+
+cd $LOGDIR
+echo "TARRING ARTIFACT DIR... Should take half a minute."
+RUN_NAME=$(basename $RUNDIR)
+tar czf $RUN_NAME.tar.gz $RUN_NAME
+rm -rf $RUNDIR
 
 cd $CURDIR

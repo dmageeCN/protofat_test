@@ -101,6 +101,11 @@ if [[ $VALIDATE == 'true' ]]; then CMD_ARGS+=' -c'; fi
 set_mpi_flags $NNODES $PPN
 set_logs "-${TEST}"
 
+config_string="OSUMB: $TEST - COMPILER: $COMPILER - COMPILER_VER: $COMPILER_VER"
+config_string=" - MPI: $MPI - MPI_VER: $MPI_VER - PROCS_PER_NODE: $PPN"
+config_string+=" - NNODES: $NNODES - JOBID: $SLURM_JOB_ID - NODELIST: $SLURM_NODELIST"
+echo $config_string |& tee -a $RUN_LOG
+
 : ${HISET:=$NODELIST}
 if [[ $TEST == "osu_bw" ]]; then
     if [[ $PROCS -ne 2 ]]; then
@@ -133,12 +138,12 @@ if [[ $TEST == "osu_bw" ]]; then
     done
 fi
 
-if [[ $TEST == "osu_alltoall" ]]; then
+if [[ $TEST == osu_alltoall || $TEST == osu_bibw ]]; then
     si=${SECONDS}
     echo "mpirun ${RUN_ARGS} ${CMD} ${CMD_ARGS}" &>> $RUN_LOG
     mpirun ${RUN_ARGS} ${CMD} ${CMD_ARGS} &> $RUN_TMP
     # bw_num=$(awk '/262144/ {print $NF}' $RUN_TMP)
     cat $RUN_TMP >> $RUN_LOG
     sf=$(( SECONDS-si ))
-    echo "osu_alltoall took $sf seconds."
+    echo "$TEST took $sf seconds."
 fi

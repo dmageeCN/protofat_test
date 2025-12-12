@@ -1847,10 +1847,10 @@
     <!-- Configures support for OPA Switch Telemetry Exchange -->
     <TelemetryExchange>
       <!-- 1 = Enable, 0 = Disable -->
-      <Enable>1</Enable>
+      <Enable>0</Enable>
       <!-- Turn on additional debug logging for switch telemetry -->
       <!-- 1 = Enable, 0 = Disable -->
-      <Debug>1</Debug>
+      <Debug>0</Debug>
 
       <!-- CSR DWNSTRM_PORT_ENB: -->
       <!-- Downstream enable indicates downstream ports should be included, disabled by default. -->

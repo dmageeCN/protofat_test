@@ -22,11 +22,18 @@ export THEDATE=$(date +'%m-%d_%H-%M')
 
 export FMNODE=icx013
 
+## FIND THIS DIRECTORY
 if [[ -z $THISDIR ]]; then
     THISFILE=${BASH_SOURCE[0]}
     : ${THISFILE:=$0}
 
     export THISDIR=$(dirname $(realpath ${THISFILE}))
+fi
+
+## ACTIVATE PYTHON VENV
+export VENV_DIR=${THISDIR}/installs/protofat_venv
+if [[ -f $VENV_DIR/bin/activate.sh ]]; then
+    source $VENV_DIR/bin/activate.sh
 fi
 
 universal_opts() {
@@ -59,6 +66,8 @@ set_compiler_mpi() {
         export I_MPI_OFI_LIBRARY_INTERNAL=0
         source /opt/intel/oneapi/setvars.sh
         export CC=mpiicx FC=mpiifort CXX=mpiicpx
+        MPI_VER=$(mpirun --version | awk '{print $8; exit}')
+        COMPILER_VER=$(icx --version | awk '{print $(NF-1); exit}')
     fi
 
     if [[ $COMPILER == 'gcc' && $MPI == 'ompi' ]]; then
@@ -73,10 +82,13 @@ set_compiler_mpi() {
                 exit 1
             fi
             export MPI_HOME=$mpi_h
+            MPI_VER=$(mpirun --version | awk '{print $NF; exit}')
+            COMPILER_VER=$(gcc --version | awk '{print $3; exit}')
         fi
         export PATH=$MPI_HOME/bin:$PATH
         export LD_LIBRARY_PATH=$MPI_HOME/lib:$MPI_HOME/lib64:$LD_LIBRARY_PATH
         export CC=mpicc FC=mpifort CXX=mpicxx
+        export COMPILER_VER MPI_VER
     fi
 
     export CFLAGS='-w'
