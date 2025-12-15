@@ -55,7 +55,7 @@ fi
 ###############
 
 set_mpi_flags $NNODES $PPN
-set_logs
+set_logs $TEST "NNODES: $NNODES - PROCS_PER_NODE: $PPN"
 
 RUNDIR=${LOGDIR}/${COMPILER}_${MPI}-${THEDATE}-${NAME}
 mkcd $RUNDIR
