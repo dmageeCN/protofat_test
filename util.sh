@@ -119,25 +119,44 @@ set_mpi_flags() {
     ppn=$2
     procs=$(( ppn*num_nodes ))
     runargs="-np ${procs} "
+    cpu_info
     if [[ $FI_PROV == 'opx' ]]; then
         if [[ ! ($MPI == 'intel') ]]; then
             runargs+="--map-by ppr:${ppn}:node --mca pml cm --mca mtl ofi --mca mtl_ofi_provider_include opx "
+            if [[ $VERBOSE == "true" ]]; then
+                runargs+="--verbose --report-bindings -x FI_LOG_LEVEL=debug -x FI_LOG_SUBSYS=core "
+            fi
         else
             runargs+="-ppn ${ppn} "
+            if [[ $VERBOSE == "true" ]]; then
+                export I_MPI_DEBUG=4
+            fi
         fi
         export FI_PROVIDER=opx # --mca btl_openib_allow_ib 1
-        export FI_OPX_HFI_SELECT=$HFI_ID
-    fi
-
-    if [[ $VERBOSE == "true" ]]; then
-        runargs+="--verbose --report-bindings -x FI_LOG_LEVEL=debug -x FI_LOG_SUBSYS=core "
+        if [[ $HFI_ID == 'both' ]]; then
+            if [[ $MPI == 'intel' ]]; then
+                procs_per_numa=$(( ppn/2 ))
+                end1=$(( 16+procs_per_numa-1 ))
+                end2=$(( 48+procs_per_numa-1 ))
+                export I_MPI_PIN_PROCESSOR_LIST="16-${end1},48-${end2}"
+            fi
+        else
+            export NUMA_NODE=$(( (2*HFI_ID)+1 ))
+            if [[ $MPI == intel ]]; then
+                if [[ $ppn -lt $NUMA_WIDTH ]]; then
+                    NUMA_START=$(( NUMA_NODE*NUMA_WIDTH ))
+                    NUMA_END=$(( NUMA_START+ppn-1 ))
+                    export I_MPI_PIN_PROCESSOR_LIST="${NUMA_START}-${NUMA_END}"
+                fi
+            else
+                runargs+="--bind-to none"
+            fi
+            export FI_OPX_HFI_SELECT=$HFI_ID
+        fi
     fi
 
     ## PIN THE PROCESSES TO THE NUMA NODE OF THE NIC IF THEY CAN FIT.
-    export NUMA_NODE=$(( (2*HFI_ID)+1 ))
-    export NUMA_WIDTH=16 ## DETECT THIS
-    runargs+="--bind-to none "
-    
+
     export FI_OPX_HFISVC=$HFISVC
     export FI_OPX_MIXED_NETWORK=$MIXED_NET
 
