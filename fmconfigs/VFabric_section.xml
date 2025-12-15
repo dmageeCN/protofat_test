@@ -1,0 +1,15 @@
+ <!-- A default VF with all Devices and Applications -->
+<!-- This is the default Virtual Fabric config -->
+<VirtualFabric>
+<Name>Default</Name>
+<Enable>1</Enable>
+<PKey>0x0001</PKey>
+<Security>0</Security>
+      <QOS>1</QOS>
+      <BaseSL>0</BaseSL>
+      <MulticastSL>1</MulticastSL>
+<Member>All</Member>
+<Application>AllOthers</Application>
+<MaxMTU>Unlimited</MaxMTU>
+<MaxRate>Unlimited</MaxRate>
+</VirtualFabric>

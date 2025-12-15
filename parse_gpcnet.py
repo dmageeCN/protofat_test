@@ -27,7 +27,7 @@ def parse_gpcnet_log(filepath):
         if i==0:
             topData=line.split(' - ')
             data['test_info']['date'] = topData[1]
-            data['test_info']['config'] = topData[2]
+            data['test_info']['FMALGO'] = topData[2]
         
         elif line.startswith("GPCNET"):
             splitline = line.split(' - ')
@@ -63,7 +63,7 @@ def write_json(data, output_file):
     with open(output_file, 'w') as f:
         json.dump(data, f, indent=2)
     print(f"Written to {output_file}")
-    
+
 
 def main():
     parser = argparse.ArgumentParser(description='Parse GPCNET log files')

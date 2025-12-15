@@ -64,10 +64,7 @@ run_test() {
     thistest=$1
     CMD="${THISDIR}/numa_wrapper.sh ${INSTALL_BASE}/bin/${thistest}"
     # echo "init_host,dest_host,bw" > $RUN_RSLT
-    config_string="GPCNET: $thistest - COMPILER: $COMPILER - COMPILER_VER: $COMPILER_VER"
-    config_string=" - MPI: $MPI - MPI_VER: $MPI_VER - PROCS_PER_NODE: $PPN"
-    config_string+=" - NNODES: $NNODES - JOBID: $SLURM_JOB_ID - NODELIST: $SLURM_NODELIST"
-    echo $config_string |& tee -a $RUN_LOG
+
     si=${SECONDS}
 
     echo "mpirun ${RUN_ARGS} ${CMD}" &>> $RUN_LOG

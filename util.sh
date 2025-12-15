@@ -48,8 +48,11 @@ universal_opts() {
     : ${HFI_ID:=0} ## NUMBER ID OF NIC.
     : ${REBUILD:=false} ## NUMBER ID OF NIC.
     : ${FM_ALGO:=default}
+    : ${HFISVC:=1}
+    : ${MIXED_NET:=1}
     export COMPILER MPI INSTALL_BASE BUILD_BASE SRC_BASE 
     export FI_PROV VERBOSE LOGDIR HFI_ID REBUILD FM_ALGO
+    export HFISVC MIXED_NET
 }
 
 cpu_info() {
@@ -59,6 +62,22 @@ cpu_info() {
     export TOTAL_CORES=$(( CORES_PER_SOCKET*NSOCKETS ))
     export NUMAS_PER_SOCKET=$(( NNUMAS/NSOCKETS ))
     export NUMA_WIDTH=$(( TOTAL_CORES/NNUMAS ))
+}
+
+opx_software() {
+    stack_ver=$(cat /etc/opa/version_delta)
+    config_string="OFA_OPA_Stack: ${stack_ver}" 
+    rpm_ver=$(rpm --queryformat "[%{VERSION}.%{RELEASE}]" -q opa-fm | sed 's/\.[^.]*$//')
+    config_string+=" - OPA_FM: ${rpm_ver}"
+    rpm_ver=$(rpm --queryformat "[%{VERSION}.%{RELEASE}]" -q opa-fastfabric | sed 's/\.[^.]*$//')
+    config_string+=" - OPA_FASTFABRIC: ${rpm_ver}"
+    rpm_ver=$(rpm --queryformat "[%{VERSION}.%{RELEASE}]" -q opa-basic-tools | sed 's/\.[^.]*$//')
+    config_string+=" - OPA_TOOLS: ${rpm_ver}"
+    rpm_ver=$(rpm --queryformat "[%{VERSION}.%{RELEASE}]" -q opa-libopamgt | sed 's/\.[^.]*$//')
+    config_string+=" - OPA_MANAGEMENT_SDK: ${rpm_ver}"
+    rpm_ver=$(rpm --queryformat "[%{VERSION}.%{RELEASE}]" -q opxs-kernel-updates-devel)
+    config_string+="- OPXS_KERNEL_UPDATES: ${rpm_ver}"
+    echo $config_string
 }
 
 set_compiler_mpi() {
@@ -118,6 +137,9 @@ set_mpi_flags() {
     export NUMA_NODE=$(( (2*HFI_ID)+1 ))
     export NUMA_WIDTH=16 ## DETECT THIS
     runargs+="--bind-to none "
+    
+    export FI_OPX_HFISVC=$HFISVC
+    export FI_OPX_MIXED_NETWORK=$MIXED_NET
 
     export RUN_ARGS=$runargs
     export PROCS=$procs
@@ -152,7 +174,9 @@ unset_fgar() {
 }
 
 set_logs() {
-    IDENTIFIER="${COMPILER}_${MPI}-${NAME}-${FM_ALGO}-${THEDATE}${1}"
+    TESTID=${1}
+    EXTRA_CONFIG=${2}
+    IDENTIFIER="${COMPILER}_${MPI}-${NAME}-${FM_ALGO}-${THEDATE}-${TESTID}"
     export RUN_LOG=${LOGDIR}/${IDENTIFIER}-run.log
     export RUN_TMP=/tmp/${NAME}_run
     export RUN_RSLT=${LOGDIR}/${IDENTIFIER}-summary.csv
@@ -160,11 +184,17 @@ set_logs() {
     if [[ $FM_ALGO == "fgar" || $FM_ALGO == "sdr" ]]; then
         set_fgar
     fi
-    echo "$NAME - $THEDATE - $FM_ALGO" > $RUN_LOG
+    echo "$NAME - $THEDATE - $FM_ALGO - $TESTID" |& tee $RUN_LOG
+    OPX_INFO=$(opx_software)
+    config_string="$NAME: $TEST - COMPILER: $COMPILER - COMPILER_VER: $COMPILER_VER"
+    config_string+=" - MPI: $MPI - MPI_VER: $MPI_VER - HFI: $HFI_ID JOBID: $SLURM_JOB_ID "
+    config_string+=" - NODELIST: $SLURM_NODELIST - ${EXTRA_CONFIG} - ${OPX_INFO}"
+    echo $config_string |& tee -a $RUN_LOG
+
 }
 
 node_by_edge() {
-    nodes_edges=$(opaextractsellinks |& awk -F';' '/hfi1/ {print $4,$NF}' | cut -d ' ' -f 1,3 | tr ' ' ',' | sort -t ',' -k2n)
+    nodes_edges=$(opaextractsellinks |& awk -F';' '/hfi1_0/ {print $4,$NF}' | cut -d ' ' -f 1,3 | tr ' ' ',' | sort -t ',' -k2n)
     edgeq=$(echo "$nodes_edges" | cut -d ',' -f 2 | uniq)
     actualnodes=$(scontrol show hostnames $SLURM_NODELIST)
     exclude_list=""

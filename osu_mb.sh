@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export NAME=osumb
+export NAME=OSUMB
 
 link_executables() {
     # olddir=$PWD
@@ -99,15 +99,10 @@ CMD_ARGS="-i ${ITERS} -m ${SIZE_MIN}:${SIZE_MAX}"
 if [[ $VALIDATE == 'true' ]]; then CMD_ARGS+=' -c'; fi
 
 set_mpi_flags $NNODES $PPN
-set_logs "-${TEST}"
-
-config_string="OSUMB: $TEST - COMPILER: $COMPILER - COMPILER_VER: $COMPILER_VER"
-config_string=" - MPI: $MPI - MPI_VER: $MPI_VER - PROCS_PER_NODE: $PPN"
-config_string+=" - NNODES: $NNODES - JOBID: $SLURM_JOB_ID - NODELIST: $SLURM_NODELIST"
-echo $config_string |& tee -a $RUN_LOG
+set_logs $TEST "NNODES: $NNODES - PROCS_PER_NODE: $PPN"
 
 : ${HISET:=$NODELIST}
-if [[ $TEST == "osu_bw" ]]; then
+if [[ $TEST == osu_bw || $TEST == osu_bibw ]]; then
     if [[ $PROCS -ne 2 ]]; then
         echo "ERROR: the osu_bw test requires 2 procs: you've requested $PROCS"
         rm -f $RUN_LOG
@@ -138,7 +133,7 @@ if [[ $TEST == "osu_bw" ]]; then
     done
 fi
 
-if [[ $TEST == osu_alltoall || $TEST == osu_bibw ]]; then
+if [[ $TEST == osu_alltoall || $TEST == osu_mbw_mr ]]; then
     si=${SECONDS}
     echo "mpirun ${RUN_ARGS} ${CMD} ${CMD_ARGS}" &>> $RUN_LOG
     mpirun ${RUN_ARGS} ${CMD} ${CMD_ARGS} &> $RUN_TMP

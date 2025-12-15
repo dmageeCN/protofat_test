@@ -10,6 +10,12 @@ Run `get_src.sh` first to get the tests in your local repo.
 
 #### EDC
 
+#### FM configuration notes
+
+- FM XML files under `fmconfigs/` and `/etc/opafm/opafm.xml` control routing:
+  - See the `set_fgar` implementation in [util.sh](util.sh) for the FGAR/SDR environment variables:
+    - FI_OPX_MIXED_NETWORK, FI_OPX_TID_DISABLED, FI_OPX_ROUTE_CONTROL
+
 ### Procedure
 
 * On the FM NODE: 
