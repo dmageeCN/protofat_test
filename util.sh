@@ -196,10 +196,13 @@ set_logs() {
     TESTID=${1}
     EXTRA_CONFIG=${2}
     IDENTIFIER="${COMPILER}_${MPI}-${NAME}-${FM_ALGO}-${THEDATE}-${TESTID}"
-    export RUN_LOG=${LOGDIR}/${IDENTIFIER}-run.log
+    mkdir -p ${LOGDIR}/${IDENTIFIER}
+    export RUN_LOG=${LOGDIR}/${IDENTIFIER}/run.log
     export RUN_TMP=/tmp/${NAME}_run
-    export RUN_RSLT=${LOGDIR}/${IDENTIFIER}-summary.csv
-    export RUN_RSLT_FULL=${LOGDIR}/${IDENTIFIER}-totaltable.csv
+    export RUN_RSLT=${LOGDIR}/${IDENTIFIER}/summary.csv
+    export RUN_RSLT_FULL=${LOGDIR}/${IDENTIFIER}/totaltable.csv
+    export RUN_COUNTER_OUT${LOGDIR}/${IDENTIFIER}/counters.csv
+    export RUN_COUNTER_RAW=${LOGDIR}/${IDENTIFIER}/raw.txt
     if [[ $FM_ALGO == "fgar" || $FM_ALGO == "sdr" ]]; then
         set_fgar
     fi

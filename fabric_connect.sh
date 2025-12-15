@@ -18,8 +18,10 @@ source ${THISDIR}/util.sh
 setvar "$@"
 
 node_by_edge
-for en1 in $(echo ${EDGEARRAY[1]} | tr ',' '\n'); do
-    for en2 in $(echo ${EDGEARRAY[2]} | tr ',' '\n'); do
-        ${THISDIR}/opa-fm-connections.sh $en1 $en2
-    done        
+for hfi_id in $(seq 0 1); do
+    for en1 in $(echo ${EDGEARRAY[1]} | tr ',' '\n'); do
+        for en2 in $(echo ${EDGEARRAY[2]} | tr ',' '\n'); do
+            ${THISDIR}/opa-fm-connections.sh $en1 $en2 $hfi_id
+        done        
+    done
 done

@@ -59,6 +59,9 @@ set_logs $TEST "NNODES: $NNODES - PROCS_PER_NODE: $PPN"
 
 RUNDIR=${LOGDIR}/${COMPILER}_${MPI}-${THEDATE}-${NAME}
 mkcd $RUNDIR
+PROFILER=$THISDIR/pmaCountersFromSwitch.sh
+PROFILER_FIELDS="Xmit Pkts, Rcv Pkts, Xmit Time Cong, Xmit Wait, Rcv Bubble"
+$PROFILER 0 3 30 10 $PROFILER_FIELDS $RUN_COUNTER_OUT $RUN_COUNTER_RAW &
 
 run_test() {
     thistest=$1

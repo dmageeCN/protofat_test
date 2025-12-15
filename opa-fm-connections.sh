@@ -1,9 +1,11 @@
 #!/bin/bash
 
 rfile=/tmp/.opa-route-$1-$2
+hfi_id=$3
+fulloutput=${4:-0}
 tmp_route=/tmp/.tmp.route
 
-opareport -o route -S nodepat:"$1 hfi1_0" -D nodepat:"$2 hfi1_0" &> $rfile
+opareport -o route -S nodepat:"$1 hfi1_${hfi_id}" -D nodepat:"$2 hfi1_${hfi_id}" &> $rfile
 
 startline=$(grep -n $1 $rfile | tail -n2 | head -n1 | sed 's/:/ /g' | awk '{print $1}')
 endline=$(grep -n $2 $rfile | tail -n2 | head -n1 | sed 's/:/ /g' | awk '{print $1}')
@@ -26,7 +28,11 @@ if [ "$nhops" = "3" ];then
     rcvedgein=$(head -n6 $tmp_route | tail -n1 | awk '{print $1}')
     rcvedgeout=$(head -n7 $tmp_route | tail -n1 | awk '{print $1}')
 
-    echo $1 $2 $sndedge $sndedgein $sndedgeout $core $corein $coreout $rcvedge $rcvedgein $rcvedgeout
+    if [[ $fulloutput -eq 1 ]]; then
+        echo hfi1_${hfi_id} $1 $2 $sndedge $sndedgein $sndedgeout $core $corein $coreout $rcvedge $rcvedgein $rcvedgeout
+    else
+        echo hfi1_${hfi_id} $1 $2 $sndedgein $corein $coreout $rcvedgeout
+    fi
 
 else
  echo "nhops must = 3 but  it's $nhops"

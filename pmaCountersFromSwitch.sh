@@ -209,3 +209,7 @@ islCounterCollection() {
         done
     fi
 }
+
+# islCounterCollection 0 3 10 10 "Xmit Pkts, Rcv Pkts, Xmit Time Cong, Xmit Wait, Rcv Bubble" pmaOut.csv rawOut.txt
+
+islCounterCollection "$1" "$2" "$3" "$4" "$5" "$6" "$7"

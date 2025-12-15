@@ -63,8 +63,18 @@ INTEL_VER=2024.1
 hin=$(hostname)
 hi=${hin%%.*}
 
-# export I_MPI_OFI_LIBRARY_INTERNAL=0
-# source /opt/intel/oneapi/setvars.sh
+set_logs "$TESTS"
+
+PITER=30
+PSPAN=10
+if [[ ! ($TESTS =~ 'pairwise') ]]; then 
+    PITER=10
+    PSPAN=2
+fi
+PROFILER=$THISDIR/pmaCountersFromSwitch.sh
+PROFILER_FIELDS="Xmit Pkts, Rcv Pkts, Xmit Time Cong, Xmit Wait, Rcv Bubble"
+$PROFILER 0 3 $PITER $PSPAN $PROFILER_FIELDS $RUN_COUNTER_OUT $RUN_COUNTER_RAW &
+
 set_mpi_flags $NNODES $PPN
 # tail -n27 $HOME/28hosts
 : ${HISET:=$NODELIST}
