@@ -59,15 +59,18 @@ set_logs $TEST "NNODES: $NNODES - PROCS_PER_NODE: $PPN"
 
 RUNDIR=${LOGDIR}/${COMPILER}_${MPI}-${THEDATE}-${NAME}
 mkcd $RUNDIR
-PROFILER=$THISDIR/pmaCountersFromSwitch.sh
-PROFILER_FIELDS="Xmit Pkts, Rcv Pkts, Xmit Time Cong, Xmit Wait, Rcv Bubble"
-$PROFILER 0 3 30 10 $PROFILER_FIELDS $RUN_COUNTER_OUT $RUN_COUNTER_RAW &
+
+if [[ $PROFILE == 'true' ]]; then
+    PROFILER=$THISDIR/pmaCountersFromSwitch.sh
+    PROFILER_FIELDS="Xmit Pkts, Rcv Pkts, Xmit Time Cong, Xmit Wait, Rcv Bubble"
+    $PROFILER 0 3 30 10 $PROFILER_FIELDS $SWITCH_COUNTER_OUT $SWITCH_COUNTER_RAW &
+fi
 
 run_test() {
     thistest=$1
     CMD="${THISDIR}/numa_wrapper.sh ${INSTALL_BASE}/bin/${thistest}"
     # echo "init_host,dest_host,bw" > $RUN_RSLT
-
+    if [[ $PROFILE == 'true' ]]; then opa_counter $COMMA_NODELIST; fi
     si=${SECONDS}
 
     echo "mpirun ${RUN_ARGS} ${CMD}" &>> $RUN_LOG
@@ -85,6 +88,8 @@ fi
 if [[ $TEST =~ 'network_load_test' ]]; then
     run_test 'network_load_test'
 fi
+
+if [[ $PROFILE == 'true' ]]; then opa_counter >> $NIC_COUNTER_OUT; fi
 
 GPCNET_RSLT=${RUN_RSLT//.csv/}
 $THISDIR/parse_gpcnet.py $RUN_LOG --output=$GPCNET_RSLT

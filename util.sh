@@ -50,9 +50,11 @@ universal_opts() {
     : ${FM_ALGO:=default}
     : ${HFISVC:=1}
     : ${MIXED_NET:=1}
+    : ${PROFILE:=false}
+    
     export COMPILER MPI INSTALL_BASE BUILD_BASE SRC_BASE 
     export FI_PROV VERBOSE LOGDIR HFI_ID REBUILD FM_ALGO
-    export HFISVC MIXED_NET
+    export HFISVC MIXED_NET PROFILE
 }
 
 cpu_info() {
@@ -76,7 +78,7 @@ opx_software() {
     rpm_ver=$(rpm --queryformat "[%{VERSION}.%{RELEASE}]" -q opa-libopamgt | sed 's/\.[^.]*$//')
     config_string+=" - OPA_MANAGEMENT_SDK: ${rpm_ver}"
     rpm_ver=$(rpm --queryformat "[%{VERSION}.%{RELEASE}]" -q opxs-kernel-updates-devel)
-    config_string+="- OPXS_KERNEL_UPDATES: ${rpm_ver}"
+    config_string+=" - OPXS_KERNEL_UPDATES: ${rpm_ver}"
     echo $config_string
 }
 
@@ -120,6 +122,7 @@ set_mpi_flags() {
     procs=$(( ppn*num_nodes ))
     runargs="-np ${procs} "
     cpu_info
+    export FI_PROVIDER=$FI_PROV
     if [[ $FI_PROV == 'opx' ]]; then
         if [[ ! ($MPI == 'intel') ]]; then
             runargs+="--map-by ppr:${ppn}:node --mca pml cm --mca mtl ofi --mca mtl_ofi_provider_include opx "
@@ -128,12 +131,14 @@ set_mpi_flags() {
             fi
         else
             runargs+="-ppn ${ppn} "
+            export I_MPI_FABRICS=shm:ofi
             if [[ $VERBOSE == "true" ]]; then
-                export I_MPI_DEBUG=4
+                export I_MPI_DEBUG=10
             fi
         fi
-        export FI_PROVIDER=opx # --mca btl_openib_allow_ib 1
-        if [[ $HFI_ID == 'both' ]]; then
+        if [[ $HFI_ID == "0,1" ]]; then
+        # Intel MPI finds the NIC based on the CPU process pinning.
+        # Setting other env vars just gets in the way and causes errors.
             if [[ $MPI == 'intel' ]]; then
                 procs_per_numa=$(( ppn/2 ))
                 end1=$(( 16+procs_per_numa-1 ))
@@ -153,22 +158,31 @@ set_mpi_flags() {
             fi
             export FI_OPX_HFI_SELECT=$HFI_ID
         fi
+        export FI_OPX_HFISVC=$HFISVC
+        export FI_OPX_MIXED_NETWORK=$MIXED_NET
     fi
-
-    ## PIN THE PROCESSES TO THE NUMA NODE OF THE NIC IF THEY CAN FIT.
-
-    export FI_OPX_HFISVC=$HFISVC
-    export FI_OPX_MIXED_NETWORK=$MIXED_NET
 
     export RUN_ARGS=$runargs
     export PROCS=$procs
 }
 
-# THISIS difficult because it'll require sudo.
+check_fgar() {
+    SWITCH_LID=$(opaextractlids |& awk -F';' '/SW/ {print $NF}' | head -1)
+    SWITCH_CONFIG=$(opasmaquery -o swinfo -l "$SWITCH_HASH" | grep -m 1 Adapt | cut -d' ' -f3,15)
+    if [[ "$SWITCH_CONFIG" =~ "0" ]]; then
+        echo "FGAR IS NOT ACTIVE."
+        return 1
+    fi
+    return 0
+}
+
 set_fgar() {
     # ssh $FMNODE "cp /etc/opa-fm/opafm.xml /etc/opa-fm/opafm-default.xml && \
     #     cp ${THISDIR}/fmconfigs/fgar-opafm.xml /etc/opa-fm/opafm.xml && \
     #     systemctl restart opafm"
+    if [[ ! $(check_fgar) ]]; then
+        return 0
+    fi
     export FI_OPX_MIX_ORIG=$FI_OPX_MIXED_NETWORK
     export FI_OPX_TID_ORIG=$FI_OPX_TID_DISABLED
     export FI_OPX_ROUTE_ORIG=$FI_OPX_ROUTE_CONTROL
@@ -192,26 +206,55 @@ unset_fgar() {
     fi
 }
 
+detect_algo() {
+    SWITCH_LID=$(opaextractlids |& awk -F';' '/SW/ {print $NF}' | head -1)
+    SM_QUERY=$(opasmaquery -o sitscvlt -l $SWITCH_LID -m 41)
+
+    # Fat tree will give a sitscvlt where everything maps to VL 15 except for SIT0
+    # shortest path will have all SITX set to the same value
+
+    ### SHORTEST PATH: Some SIT0 VLT have 08 on odd cols (1,{2,4,22,24,28,32,36,40,60,64,72,76...}) the others have all 00.
+
+    # 1 ,    76 |   SIT0:
+    #           |       SC: 00 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31
+    #           |      VLT: 00 08 00 08 00 08 00 08 00 08 00 08 00 08 00 08 00 08 00 08 00 08 00 08 00 08 00 08 00 08 00 08
+    #           |   SIT1:
+    #           |       SC: 00 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31
+    #           |      VLT: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+    #           |   SIT2:
+    #           |       SC: 00 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31
+    #           |      VLT: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+    #           |   SIT3:
+    #           |       SC: 00 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31
+    #           |      VLT: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+
+
+
+}
+
 set_logs() {
     TESTID=${1}
     EXTRA_CONFIG=${2}
-    IDENTIFIER="${COMPILER}_${MPI}-${NAME}-${FM_ALGO}-${THEDATE}-${TESTID}"
+    if [[ $FM_ALGO == "default" ]]; then detect_algo; fi
+    IDENTIFIER="${COMPILER}_${MPI}-${NAME}-${FM_ALGO}-${THEDATE}"
     mkdir -p ${LOGDIR}/${IDENTIFIER}
-    export RUN_LOG=${LOGDIR}/${IDENTIFIER}/run.log
+    export RUN_LOG=${LOGDIR}/${IDENTIFIER}/${TESTID}-run.log
     export RUN_TMP=/tmp/${NAME}_run
-    export RUN_RSLT=${LOGDIR}/${IDENTIFIER}/summary.csv
-    export RUN_RSLT_FULL=${LOGDIR}/${IDENTIFIER}/totaltable.csv
-    export RUN_COUNTER_OUT${LOGDIR}/${IDENTIFIER}/counters.csv
-    export RUN_COUNTER_RAW=${LOGDIR}/${IDENTIFIER}/raw.txt
+    export RUN_RSLT=${LOGDIR}/${IDENTIFIER}/${TESTID}-summary.csv
+    export RUN_RSLT_FULL=${LOGDIR}/${IDENTIFIER}/${TESTID}-totaltable.csv
+    export SWITCH_COUNTER_OUT=${LOGDIR}/${IDENTIFIER}/${TESTID}-swcnt.csv
+    export SWITCH_COUNTER_RAW=${LOGDIR}/${IDENTIFIER}/${TESTID}-swcnt.txt
+    export NIC_COUNTER_OUT=${LOGDIR}/${IDENTIFIER}/${TESTID}-niccnt.csv
     if [[ $FM_ALGO == "fgar" || $FM_ALGO == "sdr" ]]; then
         set_fgar
     fi
     echo "$NAME - $THEDATE - $FM_ALGO - $TESTID" |& tee $RUN_LOG
     OPX_INFO=$(opx_software)
     config_string="$NAME: $TEST - COMPILER: $COMPILER - COMPILER_VER: $COMPILER_VER"
-    config_string+=" - MPI: $MPI - MPI_VER: $MPI_VER - HFI: $HFI_ID JOBID: $SLURM_JOB_ID "
+    config_string+=" - MPI: $MPI - MPI_VER: $MPI_VER - HFI: $HFI_ID - JOBID: $SLURM_JOB_ID "
     config_string+=" - NODELIST: $SLURM_NODELIST - ${EXTRA_CONFIG} - ${OPX_INFO}"
     echo $config_string |& tee -a $RUN_LOG
+    echo "LOGDIR:- ${LOGDIR}/${IDENTIFIER}"
 
 }
 
@@ -246,36 +289,41 @@ node_by_edge() {
 # Associative arrays to store before/after counters and node list
 declare -A COUNTERS_BEFORE
 declare -A COUNTERS_AFTER
-declare -a OPA_NODES
+export OPA_NODES
 
 # Main function to capture counters
 # Call with nodes to capture "before", call without nodes to capture "after" and return CSV row
+read_opainfo() {
+    cnt_read=$(mpirun -np 1 -host $1 opainfo | awk '/(Xmit|Recv)/ {print $3,$NF}')
+    echo $cnt_read | tr ' ' ','
+}
+
+opa_readit() {
+	data_item=""
+    before_arr=($(echo ${1} | tr ',' '\n'))
+    after_arr=($(echo ${2} | tr ',' '\n'))
+    for k in $(seq 0 $((${#before_arr[@]} - 1))); do
+        val=$(( after_arr[$k] - before_arr[$k] ))
+        data_item+=",${val}"
+    done
+	echo $data_item
+}
+
 opa_counter() {
     # If arguments provided, this is the "before" capture
     if [ $# -gt 0 ]; then
-        OPA_NODES=("$@")
+        OPA_NODES=$(echo ${1} | tr ',' '\n')
         COUNTERS_BEFORE=()  # Clear previous data
         COUNTERS_AFTER=()
-        
-        for node in "${OPA_NODES[@]}"; do
-            # Get number of NICs on this node
-            local num_nics=$(ssh "$node" "ls -1 /dev/hfi1_* 2>/dev/null | wc -l")
-            
-            if [ "$num_nics" -eq 0 ]; then
-                echo "Warning: No HFI devices found on $node" >&2
-                continue
-            fi
-            
-            # Capture counters for each NIC
-            for ((nic=0; nic<num_nics; nic++)); do
-                local counters=$(ssh "$node" "opainfo -o $nic 2>/dev/null | awk '/(Xmit|Recv)(Data|Pkts):/ {print \$2}'")
-                local key="${node}:hfi1_${nic}"
-                COUNTERS_BEFORE["$key"]="$counters"
-            done
+
+        for node in $OPA_NODES; do
+            opa_cnt=$(read_opainfo $node)
+            COUNTERS_BEFORE[$node]=$opa_cnt
         done
-        
+        export COUNTERS_BEFORE
         return 0
     fi
+
     
     # No arguments - this is the "after" capture, calculate and return CSV row
     if [ ${#OPA_NODES[@]} -eq 0 ]; then
@@ -284,78 +332,38 @@ opa_counter() {
     fi
     
     # Capture "after" counters
-    for node in "${OPA_NODES[@]}"; do
-        local num_nics=$(ssh "$node" "ls -1 /dev/hfi1_* 2>/dev/null | wc -l")
-        
-        if [ "$num_nics" -eq 0 ]; then
-            continue
-        fi
-        
-        for ((nic=0; nic<num_nics; nic++)); do
-            local counters=$(ssh "$node" "opainfo -o $nic 2>/dev/null | awk '/(Xmit|Recv)(Data|Pkts):/ {print \$2}'")
-            local key="${node}:hfi1_${nic}"
-            COUNTERS_AFTER["$key"]="$counters"
-        done
+    for node in $OPA_NODES; do
+       	opa_cnt=$(read_opainfo $node)
+       	COUNTERS_AFTER[$node]=$opa_cnt
     done
+    export COUNTERS_AFTER
     
-    # Build CSV header and data row
-    local -A node_nics
-    
-    # Collect nodes and their NICs
-    for key in "${!COUNTERS_BEFORE[@]}"; do
-        local node="${key%:*}"
-        local nic="${key#*:}"
-        local nic_num="${nic#hfi1_}"
-        
-        if [ -z "${node_nics[$node]}" ]; then
-            node_nics[$node]="$nic_num"
-        else
-            node_nics[$node]="${node_nics[$node]} $nic_num"
-        fi
+    header="XmitData_0,XmitPkts_0,RecvData_0,RecvPkts_0"
+    header_templ=$header
+    node1=$(echo "$OPA_NODES" | head -1)
+    node1ctr=${COUNTERS_AFTER[$node1]}
+    num_data=${#node1ctr[@]}
+    num_nics=$(( num_data/4-1 ))
+    for k in $(seq 1 $num_nics); do
+        header+=",$(echo $header_templ | tr '0' $k)"
     done
-    
-    # Sort nodes for consistent output
-    local -a sorted_nodes=("${OPA_NODES[@]}")
-    
-    # Build header and data row
-    local header=""
-    local data_row=""
-    
-    for node in "${sorted_nodes[@]}"; do
-        local -a nics=(${node_nics[$node]})
-        IFS=$'\n' nics=($(sort -n <<<"${nics[*]}"))
-        unset IFS
-        
-        for nic in "${nics[@]}"; do
-            # Add to header
-            header="${header},${node}_hfi${nic}_X,${node}_hfi${nic}_R"
-            
-            local key="${node}:hfi1_${nic}"
-            
-            if [ -z "${COUNTERS_AFTER[$key]}" ] || [ -z "${COUNTERS_BEFORE[$key]}" ]; then
-                data_row="${data_row},0,0"
-                continue
-            fi
-            
-            # Convert counter strings to arrays
-            local -a before_arr=(${COUNTERS_BEFORE[$key]})
-            local -a after_arr=(${COUNTERS_AFTER[$key]})
-            
-            # Calculate differences (XmitData and RecvData)
-            local xmit_data_diff=$(( ${after_arr[0]} - ${before_arr[0]} ))
-            local recv_data_diff=$(( ${after_arr[1]} - ${before_arr[1]} ))
-            
-            data_row="${data_row},${xmit_data_diff},${recv_data_diff}"
-        done
+
+    header="Node,${header}"
+    data=""
+
+    for node in $OPA_NODES; do
+        data_row=$(opa_readit "${COUNTERS_BEFORE[$node]}" "${COUNTERS_AFTER[$node]}")
+       	data+="${node}${data_row}\n"
     done
-    
-    # Remove leading commas
-    header="${header:1}"
-    data_row="${data_row:1}"
+
+    # Output header and data
+    echo "$header"
+    echo -e "$data"
+}
     
     # Output header and data
     echo "$header"
-    echo "$data_row"
+    echo -e "$data"
 }
 
 # Example usage:
@@ -384,3 +392,4 @@ opa_counter() {
 # }
 
 export NODELIST=$(scontrol show hostnames $SLURM_NODELIST)
+export COMMA_NODELIST=$(echo "$NODELIST" | tr '\n' ',' | sed 's/,$//g')

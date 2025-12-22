@@ -22,9 +22,8 @@ setvar "$@"
 universal_opts
 
 # SET DEFAULT OPTIONS FOR THIS PARTICULAR TEST
-: ${VERBOSE:=false}
-: ${PPN:=4}
 : ${TESTS:=all}
+: ${PPN:=4}
 : ${NNODES:=$SLURM_NNODES}
 : ${HISET:=''} # SET NODE TO TEST AGAINST ALL OTHER NODES.
 
@@ -56,10 +55,6 @@ run_fulledge() {
     fi
 }
 
-INTEL_VER=2024.1
-# IMB_SRC=/opt/intel/${INTEL_VER}/opt/mpi/benchmarks/
-# MPI_BIN=/opt/intel/${INTEL_VER}/bin
-# export PATH=$PATH:$MPI_BIN
 hin=$(hostname)
 hi=${hin%%.*}
 
@@ -71,9 +66,12 @@ if [[ ! ($TESTS =~ 'pairwise') ]]; then
     PITER=10
     PSPAN=2
 fi
-PROFILER=$THISDIR/pmaCountersFromSwitch.sh
-PROFILER_FIELDS="Xmit Pkts, Rcv Pkts, Xmit Time Cong, Xmit Wait, Rcv Bubble"
-$PROFILER 0 3 $PITER $PSPAN $PROFILER_FIELDS $RUN_COUNTER_OUT $RUN_COUNTER_RAW &
+
+if [[ $PROFILE == 'true' ]]; then
+    PROFILER=$THISDIR/pmaCountersFromSwitch.sh
+    PROFILER_FIELDS="Xmit Pkts, Rcv Pkts, Xmit Time Cong, Xmit Wait, Rcv Bubble"
+    $PROFILER 0 3 $PITER $PSPAN "$PROFILER_FIELDS" "$SWITCH_COUNTER_OUT" "$SWITCH_COUNTER_RAW" &
+fi
 
 set_mpi_flags $NNODES $PPN
 # tail -n27 $HOME/28hosts
@@ -83,7 +81,7 @@ if [[ $TESTS =~ 'pairwise' ]]; then
     echo FI_OPX_MIXED_NETWORK=${FI_OPX_MIXED_NETWORK}
     echo FI_OPX_TID_DISABLED=${FI_OPX_TID_DISABLED}
     echo FI_OPX_ROUTE_CONTROL=${FI_OPX_ROUTE_CONTROL}
-    export nodes=2 ppn=4
+    nprocs=$(( 2*PPN ))
     echo "init_host,dest_host,bw" > $RUN_RSLT
     for hi in $HISET; do
         echo "Uniband Pairwise - $hi"
@@ -91,8 +89,8 @@ if [[ $TESTS =~ 'pairwise' ]]; then
         for h in $NODELIST; do
             if [[ $h == $hi ]]; then continue; fi
             echo "$hi,$h"
-            echo "mpirun -np 8 -ppn $PPN -host ${hi},${h} ${CMD} ${CMD_ARGS}" &> $RUN_TMP 
-            mpirun -np 8 -ppn $PPN -host "${hi},${h}" ${CMD} ${CMD_ARGS} &>> $RUN_TMP
+            echo "mpirun -np $nprocs -ppn $PPN -host ${hi},${h} ${CMD} ${CMD_ARGS}" &> $RUN_TMP 
+            mpirun -np $nprocs -ppn $PPN -host "${hi},${h}" ${CMD} ${CMD_ARGS} &>> $RUN_TMP
             # grep "^      2097152" $RUN_TMP | sed "s/^/$h /g"
             bw_num=$(awk '/2097152   / {print $3}' $RUN_TMP)
             echo "$hi,$h,$bw_num" >> $RUN_RSLT
@@ -109,13 +107,14 @@ if [[ $TESTS =~ 'edgewise' ]]; then
     set_logs edgewise "PROCS_PER_NODE: $PPN"
     for k in $(seq $(( ${#EDGEARRAY[@]}-1 ))); do
         nodelist=${EDGEARRAY[$k]}
+        if [[ $PROFILE == 'true' ]]; then opa_counter $nodelist; fi
 
         if [[ -n $nodelist ]]; then
             run_fulledge $nodelist |& tee -a $RUN_LOG
         else
             break
         fi
-
+        if [[ $PROFILE == 'true' ]]; then opa_counter >> $NIC_COUNTER_OUT; fi
     done
     sf=$(( SECONDS-si ))
     echo "EDGEWISE took $sf seconds."
@@ -133,6 +132,8 @@ if [[ $TESTS =~ 'crosswise' ]]; then
         nodes1=$(echo "${EDGEARRAY[$idx]}" | cut -d',' -f1-${edgemin})
         nodes2=$(echo "${EDGEARRAY[$idx2]}" | cut -d',' -f1-${edgemin})
         nodelist="${nodes1},${nodes2}"
+        if [[ $PROFILE == 'true' ]]; then opa_counter $nodelist; fi
+
         echo "Min edge nodes: $edgemin" |& tee -a $RUN_LOG
         echo "Edge $idx nnodes: $ec1" |& tee -a $RUN_LOG
         echo "Orig EDGE $idx: ${EDGEARRAY[$idx]}" |& tee -a $RUN_LOG
@@ -142,6 +143,7 @@ if [[ $TESTS =~ 'crosswise' ]]; then
         echo "Orig EDGE $idx2: ${EDGEARRAY[$idx2]}" |& tee -a $RUN_LOG
         echo "Cut  EDGE $idx2: $nodes2" |& tee -a $RUN_LOG
         run_fulledge $nodelist |& tee -a $RUN_LOG
+        if [[ $PROFILE == 'true' ]]; then opa_counter >> $NIC_COUNTER_OUT; fi
     done
     sf=$(( SECONDS-si ))
     echo "CROSSWISE took $sf seconds."

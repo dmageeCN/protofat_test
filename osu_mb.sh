@@ -101,6 +101,12 @@ if [[ $VALIDATE == 'true' ]]; then CMD_ARGS+=' -c'; fi
 set_mpi_flags $NNODES $PPN
 set_logs $TEST "NNODES: $NNODES - PROCS_PER_NODE: $PPN"
 
+if [[ $PROFILE == 'true' ]]; then
+    PROFILER=$THISDIR/pmaCountersFromSwitch.sh
+    PROFILER_FIELDS="Xmit Pkts, Rcv Pkts, Xmit Time Cong, Xmit Wait, Rcv Bubble"
+    $PROFILER 0 3 30 10 $PROFILER_FIELDS $SWITCH_COUNTER_OUT $SWITCH_COUNTER_RAW &
+fi
+
 : ${HISET:=$NODELIST}
 if [[ $TEST == osu_bw || $TEST == osu_bibw ]]; then
     if [[ $PROCS -ne 2 ]]; then
@@ -135,10 +141,13 @@ fi
 
 if [[ $TEST == osu_alltoall || $TEST == osu_mbw_mr ]]; then
     si=${SECONDS}
+    if [[ $PROFILE == 'true' ]]; then opa_counter $COMMA_NODELIST; fi
     echo "mpirun ${RUN_ARGS} ${CMD} ${CMD_ARGS}" &>> $RUN_LOG
     mpirun ${RUN_ARGS} ${CMD} ${CMD_ARGS} &> $RUN_TMP
     # bw_num=$(awk '/262144/ {print $NF}' $RUN_TMP)
     cat $RUN_TMP >> $RUN_LOG
     sf=$(( SECONDS-si ))
     echo "$TEST took $sf seconds."
+    if [[ $PROFILE == 'true' ]]; then opa_counter >> $NIC_COUNTER_OUT; fi
+
 fi

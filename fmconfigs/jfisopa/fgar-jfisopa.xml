@@ -673,7 +673,9 @@
       <Enable>1</Enable>
       <PKey>0x0001</PKey>
       <Security>0</Security>
-      <QOS>0</QOS>
+      <QOS>1</QOS>
+      <BaseSL>0</BaseSL>
+      <MulticastSL>1</MulticastSL>
       <Member>All</Member>
       <Application>AllOthers</Application>
       <MaxMTU>Unlimited</MaxMTU>
